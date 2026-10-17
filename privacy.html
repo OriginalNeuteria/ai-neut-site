@@ -54,7 +54,7 @@
 <h2 id="calendars">Google Calendar and Microsoft Outlook</h2>
 <p>Connecting a calendar is optional, and it's separate from signing in. Before you connect, the app explains what it will access.</p>
 <ul>
-<li><b>Google Calendar</b> asks for permission to view and edit events (scope <code>calendar.events</code>) and to see basic profile info. <b>Microsoft Outlook / Microsoft 365</b> asks for <code>Calendars.ReadWrite</code>, <code>User.Read</code> (your name and email), and <code>offline_access</code> (so you stay connected).</li>
+<li><b>Google Calendar</b> asks for permission to see and edit your calendars and events (scopes <code>calendar</code> and <code>calendar.events</code>). We plan to narrow this to events plus your calendar list. <b>Microsoft Outlook / Microsoft 365</b> asks for <code>Calendars.ReadWrite</code>, <code>User.Read</code> (your name and email), and <code>offline_access</code> (so you stay connected).</li>
 <li>What we do with it: show your events in Ai-Neut's calendar views, and add, change, or delete events <b>only when you ask</b>. Before deleting an event, the app asks you to confirm.</li>
 <li>Where it goes: your device talks directly to Google or Microsoft. Event data and access tokens are kept on your device. They are not sent to our server, not sent to the AI model unless you choose to include a specific event in a Helping Hand ask, and never used for ads.</li>
 <li>Disconnect any time in Ai-Neut's Calendar settings, which removes the tokens and cached events from the device. You can also remove access at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> or <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a>.</li>
