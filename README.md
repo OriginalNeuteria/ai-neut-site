@@ -7,4 +7,4 @@ Official website for Ai-Neut, a journal and a family organizer. Static HTML/CSS,
 - All links are relative so the site works on both the github.io path and a custom domain.
 - `.nojekyll` turns off Jekyll; `.well-known/assetlinks.json` is for the Android app (replace the SHA-256 fingerprint from Play Console > App signing).
 
-Contact: familyainewt@gmail.com
+Contact: support@ai-neut.com
