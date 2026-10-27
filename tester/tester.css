@@ -256,3 +256,11 @@ body.tp footer a{color:#FFD9B0}
 main p a:not(.tb),main .sm a:not(.tb){padding:12px 2px}
 @media(min-width:1000px){.qcard,.qin{min-height:350px}}
 .tp section{scroll-margin-top:72px}
+
+/* Neut School links (only shown to signed-in approved testers) */
+.nschool{margin:18px 0 4px;padding:16px 18px;border-radius:var(--t-r);background:var(--t-card);border:2px solid var(--t-line);box-shadow:var(--t-shadow);max-width:34rem}
+.nschool[hidden],.nschool-in[hidden]{display:none}
+.nschool-h{margin:0;font:800 1.15rem var(--t-head);color:var(--t-purple)}
+.nschool-s{margin:.2em 0 .8em;color:var(--t-soft)}
+.nschool-in{margin:14px 0 0}
+.nschool-in a{display:inline-block;padding:12px 0;line-height:20px;min-height:44px;font-weight:700;font-size:15px}
