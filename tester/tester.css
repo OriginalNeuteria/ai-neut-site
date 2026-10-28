@@ -263,4 +263,5 @@ main p a:not(.tb),main .sm a:not(.tb){padding:12px 2px}
 .nschool-h{margin:0;font:800 1.15rem var(--t-head);color:var(--t-purple)}
 .nschool-s{margin:.2em 0 .8em;color:var(--t-soft)}
 .nschool-in{margin:14px 0 0}
-.nschool-in a{display:inline-block;padding:12px 0;line-height:20px;min-height:44px;font-weight:700;font-size:15px}
+.nschool-peek{margin:6px 0 0}
+.nschool-in a,.nschool-peek a{display:inline-block;padding:12px 0;line-height:20px;min-height:44px;font-weight:700;font-size:15px}
