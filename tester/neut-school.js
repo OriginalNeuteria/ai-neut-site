@@ -12,7 +12,6 @@
   for (var i = 0; i < names.length; i++) names[i].textContent = SCHOOL_NAME;
   var here = /^https:\/\/(www\.)?ai-neut\.com$/.test(location.origin) ? location.origin + '/test.html' : 'https://www.ai-neut.com/test.html';
   document.getElementById('nschool-train').href = LEARN + '/training/';
-  document.getElementById('nschool-onb').href = LEARN + '/onboarding/';
   signin.querySelector('a').href = LEARN + '/login?next=' + encodeURIComponent(here);
   var ctl = window.AbortController ? new AbortController() : null;
   var t = setTimeout(function () { if (ctl) ctl.abort(); }, 6000);
