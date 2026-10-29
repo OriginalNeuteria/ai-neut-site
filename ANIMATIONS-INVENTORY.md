@@ -68,3 +68,6 @@ Every item was checked side by side on main and the branch with the same script 
 Subpages (features, shared-family-calendar, pricing, help, 404): the reveal, lazy-video, floaty, newt, chip and sticky-nav results match main exactly.
 The new learning-center.html runs motion.js with 12/12 reveals, lazy videos, and a working picker (aria-pressed, art swap, localStorage).
 The only network error on both main and the branch is the external `learn.ai-neut.com/api/tester-status`, which is unreachable from the box.
+
+## Re-run — Oct 28, 2026 follow-up (Neut re-cuts, "free" wording, ages 13+, kid mode coming soon)
+`node verify.js` re-run against main (8865) and the branch (8866): all 26 still PASS. The only differences from the last run are expected: A3 is 57/57 reveals (it was 56; the new #kid-mode card adds one `.rv`), and the A8 scroll target is lower on the page because the page is longer. chips.js gives 25 chips with 13 ever on, for both main and branch. widths.js finds no horizontal overflow and no store-pill overlap at 320–1440 on index, learning-center, pricing, features, help and safety.

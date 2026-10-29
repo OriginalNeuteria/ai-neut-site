@@ -149,3 +149,11 @@ footer a{color:#FFD3A8}
 .info-card.navy .btn{background:#fff;color:var(--navy)!important}
 .mic{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--lav);color:var(--purple);margin-bottom:8px}
 section h2{font-size:clamp(1.6rem,3vw,2.3rem)}
+/* kid mode (coming soon) + ages */
+#kid-mode{padding:8px 6% 40px}
+#kid-mode .kid-soon{max-width:760px;margin:auto;text-align:left;border:2px dashed var(--lav3);background:#fff}
+#kid-mode h2{text-align:left;font-size:clamp(1.3rem,3vw,1.7rem);margin:8px 0 6px;color:var(--ink)}
+.kid-soon .tag.soon{color:#fff;background:var(--purple);border-color:var(--purple)}
+.kid-soon .fine{font-size:.92rem;color:var(--muted)}
+.kid-soon .fine a{color:var(--purple);font-weight:700}
+.legal .kid-soon{margin:12px 0 24px;border:2px dashed var(--lav3)}
