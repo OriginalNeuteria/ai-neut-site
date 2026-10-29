@@ -283,3 +283,6 @@ body{background-color:#EDECF5;background-image:url("data:image/svg+xml,%3Csvg xm
 .mtn-family.mtn-anim .mtn-fam{opacity:0}
 .mtn-family.mtn-anim .mtn-fam.mtn-in{opacity:1;animation:mtnPop .6s var(--ease,cubic-bezier(.2,.7,.2,1)) var(--mtn-d,0ms) both}
 @media(prefers-reduced-motion:reduce){.mtn-family.mtn-anim .mtn-fam{opacity:1;animation:none}}
+/* school page: big rising Neut sits right of the CTA, clear of copy */
+.hero .newt-layer img.newt.school-newt{width:clamp(170px,17vw,230px)}
+@media(min-width:701px) and (max-width:1000px){.school-hero{padding-bottom:150px!important}.hero .newt-layer img.newt.school-newt{left:6%!important;width:170px}}
