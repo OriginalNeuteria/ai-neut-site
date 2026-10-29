@@ -247,3 +247,34 @@ body{background-color:#EDECF5;background-image:url("data:image/svg+xml,%3Csvg xm
 .ask b{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--purple);color:#fff;font-size:.8rem}
 @media(max-width:760px){.lc-hero .art{width:min(340px,92%)}}
 @media(max-width:560px){.hc-demo{margin-right:36%}.hd-tabs{flex-wrap:nowrap}.hd-tabs em{padding:2px 5px;white-space:nowrap;font-size:.6rem}.hd-list li{font-size:.6rem}}
+/* cast 2026-10-29: picker 8 Neuts + Meet the Neuts page */
+#companions .picker{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:700px){#companions .picker{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}#companions .picker button{font-size:.78rem;padding:8px 4px 10px;border-radius:14px}}
+.mtn-hero{padding-bottom:8px}
+.mtn-hero .hero-copy{max-width:760px}
+.mtn-kicker{font:700 .8rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin:0}
+.mtn-note{font-family:var(--sans);color:var(--muted);font-weight:600}
+.mtn-sec{max-width:1180px;margin:0 auto;padding:28px 4% 36px}
+.mtn-sec h2{margin:0 0 6px}
+.mtn-family{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-top:18px}
+.mtn-fam{margin:0;text-align:center}
+.mtn-art{aspect-ratio:1/1;display:flex;align-items:flex-end;justify-content:center;background:radial-gradient(closest-side,#fff 0%,rgba(255,255,255,.6) 60%,rgba(255,255,255,0) 100%);border-radius:24px;padding:8px}
+.mtn-art img{max-width:100%;max-height:100%;width:auto;height:auto;transition:transform .35s var(--ease,ease)}
+.mtn-fam:hover .mtn-art img{transform:translateY(-6px) scale(1.03)}
+.mtn-fam figcaption,.mtn-role figcaption{font:700 1rem var(--sans);color:var(--ink);margin-top:8px}
+.mtn-fam figcaption span{display:block;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);margin-top:4px}
+.mtn-roles-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.mtn-roles-head p{margin:0;color:var(--muted)}
+.mtn-toggle{display:inline-flex;background:#fff;border:2px solid var(--lav2);border-radius:999px;padding:4px}
+.mtn-toggle button{border:0;background:none;border-radius:999px;padding:9px 18px;font:700 .95rem var(--sans);color:var(--ink);cursor:pointer;transition:background .25s,color .25s}
+.mtn-toggle button[aria-selected="true"]{background:var(--purple);color:#fff}
+.mtn-toggle button:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.mtn-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.mtn-grid[hidden]{display:none}
+.mtn-role{margin:0;text-align:center}
+.mtn-role img{display:block;width:100%;height:auto;border-radius:20px;box-shadow:0 6px 18px rgba(43,35,80,.12);transition:transform .35s var(--ease,ease),box-shadow .35s}
+.mtn-role:hover img{transform:translateY(-6px);box-shadow:0 14px 28px rgba(43,35,80,.2)}
+.mtn-grid.mtn-glow .mtn-role img{background:#0b1030}
+@media(max-width:900px){.mtn-family{grid-template-columns:repeat(3,minmax(0,1fr))}.mtn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.mtn-family{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mtn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mtn-fam figcaption,.mtn-role figcaption{font-size:.9rem}}
+@media(prefers-reduced-motion:reduce){.mtn-art img,.mtn-role img{transition:none}.mtn-fam:hover .mtn-art img,.mtn-role:hover img{transform:none}}
