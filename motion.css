@@ -304,44 +304,78 @@ html{overflow-x:clip}.stage-hero .bg{inset:0}.fan{overflow-x:clip;overflow-y:vis
 @media(max-width:700px){.hero-media .pm-wrap{flex-basis:auto;width:min(300px,78vw)}}
 .lens.sm{bottom:auto;top:-26px;left:-58px}@media(max-width:700px){.lens.sm{top:-18px;left:-22px}}
 
-/* ===== teen-cyber refresh (Oct 28 2026): stonewash + neon circuit. CSS/SVG only, no outside requests ===== */
-:root{--wash-hi:#DCE3EB;--wash:#D2DAE4;--wash-lo:#C8D2DE;--neon-p:#9B5CFF;--neon-o:#FF8A1F;--neon-b:#33B6FF;--orange-text:#7F3600;
- --cy-circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260' fill='none' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E %3Cg stroke='%237B3FE4' stroke-opacity='.2'%3E%3Cpath d='M0 40H70L90 60H150'/%3E%3Cpath d='M200 40H260'/%3E%3Ccircle cx='150' cy='60' r='3'/%3E%3Ccircle cx='200' cy='40' r='3'/%3E %3Cpath d='M230 0V90L210 110H170'/%3E%3Cpath d='M230 240V260'/%3E%3Ccircle cx='170' cy='110' r='3'/%3E%3Ccircle cx='230' cy='240' r='3'/%3E %3Crect x='92' y='96' width='30' height='20' rx='3'/%3E%3Cpath d='M98 96v-6M107 96v-6M116 96v-6M98 116v6M107 116v6M116 116v6'/%3E%3C/g%3E %3Cg stroke='%231E8FD6' stroke-opacity='.2'%3E%3Cpath d='M30 260V200L50 180V140'/%3E%3Cpath d='M30 0V20'/%3E%3Ccircle cx='50' cy='140' r='3'/%3E%3Ccircle cx='30' cy='20' r='3'/%3E %3Cpath d='M130 260V232L146 216H176'/%3E%3Cpath d='M130 0V8'/%3E%3Ccircle cx='176' cy='216' r='3'/%3E%3Ccircle cx='130' cy='8' r='2.5'/%3E%3C/g%3E %3Cg stroke='%23E2700F' stroke-opacity='.2'%3E%3Cpath d='M260 170H220L200 150H120'/%3E%3Cpath d='M0 170H24'/%3E%3Ccircle cx='120' cy='150' r='3'/%3E%3Ccircle cx='24' cy='170' r='3'/%3E %3Cpath d='M70 70V96L84 110'/%3E%3Ccircle cx='70' cy='70' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
- --cy-wash:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='520'%3E%3Cfilter id='w' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .03' numOctaves='3' seed='7' stitchTiles='stitch'/%3E %3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1.5 0 0 0 -.62'/%3E%3C/filter%3E %3Cfilter id='m' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.008' numOctaves='2' seed='3' stitchTiles='stitch'/%3E %3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .4 0 0 0 0 .55 0 1.1 0 0 -.5'/%3E%3C/filter%3E %3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='.22'/%3E%3Crect width='100%25' height='100%25' filter='url(%23w)' opacity='.45'/%3E%3C/svg%3E");
- --cy-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E %3CfeColorMatrix values='0 0 0 0 .16 0 0 0 0 .2 0 0 0 0 .3 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
- --cy-grid:linear-gradient(rgba(46,52,90,.05) 1px,transparent 1px) 0 0/32px 32px,linear-gradient(90deg,rgba(46,52,90,.05) 1px,transparent 1px) 0 0/32px 32px}
-body{background:var(--cy-circuit) 0 0/260px 260px,var(--cy-grid),var(--cy-grain) 0 0/160px 160px,var(--cy-wash) 0 0/520px 520px,
- radial-gradient(1100px 700px at 12% 0%,rgba(255,255,255,.35),transparent 70%),linear-gradient(170deg,var(--wash-hi),var(--wash) 45%,var(--wash-lo));background-color:var(--wash);color:var(--ink)}
-/* nav: dark glass with a neon edge */
-nav{background:rgba(17,14,28,.92)!important;border-bottom:2px solid transparent;border-image:linear-gradient(90deg,var(--neon-b),var(--neon-p) 50%,var(--neon-o)) 1;box-shadow:0 2px 18px rgba(155,92,255,.28)}
-body nav a.logo{color:#fff;text-shadow:0 0 10px rgba(155,92,255,.8),0 0 2px rgba(51,182,255,.6)}
-body nav .links a:not(.btn){color:#ECE6FF}
-body nav .links a:not(.btn)::after{background:var(--neon-b);box-shadow:0 0 8px var(--neon-b)}
-.btn{min-height:44px;line-height:20px;padding-top:12px;padding-bottom:12px;box-shadow:0 0 0 1px rgba(255,255,255,.18) inset,0 0 16px rgba(255,138,31,.35)}
-.btn.alt{box-shadow:0 0 0 1px rgba(255,255,255,.18) inset,0 0 16px rgba(155,92,255,.4)}
-/* hero wash instead of cream */
-.stage-hero::before{background:radial-gradient(ellipse at 22% 32%,rgba(222,229,237,.93),rgba(210,219,229,.7) 60%,rgba(214,222,231,.88))}
-.stage-hero h1{text-shadow:0 0 24px rgba(155,92,255,.18)}
+/* ===== teen-cyber refresh v2 (Oct 28 2026): teal limestone wash + ember orange + neon violet.
+   Film logic: cool teal "shadows" (the stone), warm orange "highlights" (buttons, traces, glows), violet = brand neon.
+   Texture is a local 768px seamless WebP (img/bg/stone-teal-768.webp, 14.5 KB) + inline SVG grain/circuit. No outside requests. ===== */
+:root{--purple:#3A1D68;--stone:#8CB3B2;--stone-deep:#0B2326;--stone-ink:#1A1428;--ember:#FF8A1F;--ember-hi:#FFB36B;--violet-neon:#B07CFF;--teal-neon:#3EE6D8;--orange-text:#FFB36B;--ink:#1A1428;
+ --cy-circuit:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' fill='none' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg stroke='%23FFC489' stroke-opacity='.7'%3E%3Cpath d='M0 40H70L90 60H150'/%3E%3Cpath d='M220 40H300'/%3E%3Ccircle cx='150' cy='60' r='3.2'/%3E%3Ccircle cx='220' cy='40' r='3.2'/%3E%3Cpath d='M300 190H250L230 170H140'/%3E%3Cpath d='M0 190H30'/%3E%3Ccircle cx='140' cy='170' r='3.2'/%3E%3Ccircle cx='30' cy='190' r='3.2'/%3E%3C/g%3E%3Cg stroke='%23D9C2FF' stroke-opacity='.6'%3E%3Cpath d='M260 0V100L240 120H190'/%3E%3Cpath d='M260 270V300'/%3E%3Ccircle cx='190' cy='120' r='3.2'/%3E%3Ccircle cx='260' cy='270' r='3.2'/%3E%3Crect x='96' y='100' width='34' height='22' rx='3'/%3E%3Cpath d='M102 100v-7M113 100v-7M124 100v-7M102 122v7M113 122v7M124 122v7'/%3E%3C/g%3E%3Cg stroke='%23E6FFFB' stroke-opacity='.55'%3E%3Cpath d='M34 300V232L56 210V160'/%3E%3Cpath d='M34 0V24'/%3E%3Ccircle cx='56' cy='160' r='3.2'/%3E%3Ccircle cx='34' cy='24' r='3.2'/%3E%3Cpath d='M150 300V266L168 248H204'/%3E%3Cpath d='M150 0V10'/%3E%3Ccircle cx='204' cy='248' r='3.2'/%3E%3C/g%3E%3C/svg%3E");
+ --cy-circuit-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' fill='none' stroke-width='1.4' stroke-linecap='round'%3E%3Cg stroke='%23FF8A1F' stroke-opacity='.22'%3E%3Cpath d='M0 40H70L90 60H150'/%3E%3Cpath d='M220 40H300'/%3E%3Ccircle cx='150' cy='60' r='3'/%3E%3Ccircle cx='220' cy='40' r='3'/%3E%3C/g%3E%3Cg stroke='%233EE6D8' stroke-opacity='.18'%3E%3Cpath d='M300 190H250L230 170H140'/%3E%3Cpath d='M0 190H30'/%3E%3Ccircle cx='140' cy='170' r='3'/%3E%3Cpath d='M34 300V232L56 210V160'/%3E%3Cpath d='M34 0V24'/%3E%3Ccircle cx='56' cy='160' r='3'/%3E%3C/g%3E%3Cg stroke='%23B07CFF' stroke-opacity='.2'%3E%3Cpath d='M260 0V100L240 120H190'/%3E%3Cpath d='M260 270V300'/%3E%3Ccircle cx='190' cy='120' r='3'/%3E%3C/g%3E%3C/svg%3E");
+ --cy-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .97 0 0 0 0 .95 0 0 0 .6 -.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")}
+body{background:var(--cy-circuit) 0 0/300px 300px,var(--cy-grain) 0 0/180px 180px,url("img/bg/stone-teal-768.webp") 0 0/768px 768px,var(--stone);background-color:var(--stone);color:var(--stone-ink)}
+/* nav: deep-teal glass, ember→violet neon edge (Tron light line) */
+nav{background:rgba(9,28,31,.94)!important;border-bottom:2px solid transparent;border-image:linear-gradient(90deg,var(--ember),var(--violet-neon) 55%,var(--teal-neon)) 1;box-shadow:0 2px 18px rgba(255,138,31,.22)}
+body nav a.logo{color:#fff;text-shadow:0 0 10px rgba(255,138,31,.7),0 0 2px rgba(62,230,216,.6)}
+body nav .links a:not(.btn){color:#E4F4F2}
+body nav .links a:not(.btn)::after{background:var(--teal-neon);box-shadow:0 0 8px var(--teal-neon)}
+/* buttons: ember orange with dark ink text (7:1), violet alt with white */
+.btn{min-height:44px;line-height:20px;padding-top:12px;padding-bottom:12px;background:var(--ember);color:var(--stone-ink)!important;box-shadow:0 0 0 1px rgba(255,255,255,.25) inset,0 0 18px rgba(255,138,31,.45)}
+.btn.alt{background:var(--purple);color:#fff!important;box-shadow:0 0 0 1px rgba(255,255,255,.2) inset,0 0 18px rgba(176,124,255,.45)}
+/* hero: let the stone show; warm key light behind the copy, cool teal falloff at the edges (teal & orange grade) */
+.stage-hero::before{background:radial-gradient(ellipse 70% 80% at 24% 42%,rgba(255,179,107,.20),rgba(255,179,107,0) 70%),radial-gradient(ellipse at 50% 50%,transparent 55%,rgba(11,35,38,.18))}
+.stage-hero .hero-copy{position:relative;z-index:3;background:rgba(236,246,244,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);border:1px solid rgba(255,255,255,.55);border-left:3px solid var(--ember);border-radius:18px;padding:22px 24px;box-shadow:0 10px 30px rgba(11,35,38,.18)}
+.stage-hero h1{color:var(--purple);text-shadow:0 0 22px rgba(255,179,107,.35)}
 .stage-hero .ticks{opacity:1}
+@media(max-width:700px){.stage-hero .hero-copy{padding:16px 14px}}
 /* store pills: plain, non-link, same style, never overlapping */
-.badge{opacity:1;color:var(--ink);background:rgba(255,255,255,.62);border:2px dashed var(--purple);border-radius:10px;padding:9px 14px;font:600 .95rem/1.3 sans-serif;display:inline-block;white-space:nowrap}
+.badge{opacity:1;color:var(--stone-ink);background:rgba(255,255,255,.78);border:2px dashed var(--purple);border-radius:10px;padding:9px 14px;font:600 .95rem/1.3 sans-serif;display:inline-block;white-space:nowrap}
 .store-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;position:relative;z-index:3}
-.stage-hero .hero-copy{position:relative;z-index:3}
 @media(max-width:860px){.stage-hero .store-pills{justify-content:center}}
 @media(max-width:420px){.store-pills .badge{font-size:.9rem;padding:8px 12px}}
-/* cards: white glass with thin glowing edges */
-.card{border-left:1px solid rgba(155,92,255,.22);border-right:1px solid rgba(155,92,255,.22);border-bottom:1px solid rgba(51,182,255,.22);box-shadow:0 0 0 1px rgba(51,182,255,.06),0 10px 26px rgba(30,40,70,.12)}
-.card h3,.card h3 a{color:#B04E00}
-section>h2:not(.poster)::after{content:"";display:block;width:72px;height:3px;margin:10px auto 0;border-radius:3px;background:linear-gradient(90deg,var(--neon-b),var(--neon-p),var(--neon-o));box-shadow:0 0 10px rgba(155,92,255,.55)}
+/* cards: white glass, teal + ember edges */
+.card{border-left:1px solid rgba(11,59,64,.18);border-right:1px solid rgba(11,59,64,.18);border-bottom:1px solid rgba(255,138,31,.3);box-shadow:0 0 0 1px rgba(62,230,216,.08),0 10px 26px rgba(11,35,38,.18)}
+.card h3,.card h3 a{color:#9A4300}
+section>h2:not(.poster)::after{content:"";display:block;width:72px;height:3px;margin:10px auto 0;border-radius:3px;background:linear-gradient(90deg,var(--teal-neon),var(--violet-neon),var(--ember));box-shadow:0 0 10px rgba(255,138,31,.55)}
 .legal h2::after{margin-left:0}
-.eyebrow,.scrolly .step .kicker,.scrolly .feat-list .kicker,.fan-caps b{color:var(--orange-text)}
-.sheet:nth-child(4){background:#E3E9F0}
+/* eyebrows + kickers: dark-teal HUD chips with ember text (7.9:1) */
+.eyebrow,.scrolly .step .kicker,.scrolly .feat-list .kicker{color:var(--ember-hi)}
+.eyebrow{display:table;margin:0 auto -4px;background:var(--stone-deep);padding:6px 12px;border-radius:6px;border:1px solid rgba(255,138,31,.45);box-shadow:0 0 12px rgba(255,138,31,.2)}
+.scrolly .feat-list .kicker,.scrolly .step .kicker{display:inline-block;background:var(--stone-deep);padding:4px 9px;border-radius:5px}
+.fan-caps b{color:#7A3500}
+/* sheets: tinted panels so text never sits on the busiest texture */
+.sheet:nth-child(1){background:#F4FAF9}.sheet:nth-child(2){background:#EFE6FA}.sheet:nth-child(3){background:#FFE8D1}.sheet:nth-child(4){background:#E2EFED}
+.legal{background:rgba(244,250,249,.92);border-radius:16px;padding:8px 22px 20px;box-shadow:0 8px 26px rgba(11,35,38,.14)}
 .legal table{background:#fff}
-/* footer: dark circuit board */
-footer{background:var(--cy-circuit) 0 0/260px 260px,#120F1C;border-top:2px solid transparent;border-image:linear-gradient(90deg,var(--neon-o),var(--neon-p) 50%,var(--neon-b)) 1;box-shadow:0 -2px 18px rgba(155,92,255,.22)}
-/* new neon newt: soft glow */
-img.neon{filter:drop-shadow(0 0 8px rgba(155,92,255,.42)) drop-shadow(0 8px 10px rgba(20,16,35,.22))}
-.floaty.far img.neon{filter:blur(1px) drop-shadow(0 0 6px rgba(155,92,255,.35))}
-.poster .ic.newtic{background:#16121f;box-shadow:0 0 0 1px rgba(155,92,255,.5),0 0 14px rgba(155,92,255,.35)}
+/* footer: deep-teal circuit board, ember + teal light lines */
+footer{background:var(--cy-circuit-dark) 0 0/300px 300px,#0B1F22;border-top:2px solid transparent;border-image:linear-gradient(90deg,var(--teal-neon),var(--violet-neon) 50%,var(--ember)) 1;box-shadow:0 -2px 18px rgba(255,138,31,.18)}
+/* neon newt: violet + ember glow */
+img.neon{filter:drop-shadow(0 0 8px rgba(176,124,255,.5)) drop-shadow(0 0 3px rgba(255,138,31,.35)) drop-shadow(0 8px 10px rgba(11,35,38,.25))}
+.floaty.far img.neon{filter:blur(1px) drop-shadow(0 0 6px rgba(176,124,255,.4))}
+.poster .ic.newtic{background:var(--stone-deep);box-shadow:0 0 0 1px rgba(255,138,31,.55),0 0 14px rgba(255,138,31,.35)}
 @media(max-width:860px){.floaty.hero-friend img{--w:130px}}
 @media (prefers-reduced-motion:no-preference){.store-pills .badge{transition:box-shadow .3s}}
+/* v2 contrast fixes: orange words become neon-sign chips on deep teal; caps + legal headings on light panels */
+.poster .o{color:var(--ember-hi);background:var(--stone-deep);padding:0 .18em .04em;border-radius:.16em;-webkit-box-decoration-break:clone;box-decoration-break:clone;text-shadow:0 0 14px rgba(255,138,31,.55);box-shadow:0 0 0 1px rgba(255,138,31,.45),0 0 18px rgba(255,138,31,.25)}
+.fan-caps span{background:rgba(244,250,249,.95);border-radius:12px;padding:8px 14px;box-shadow:0 6px 16px rgba(11,35,38,.14);color:var(--purple)}
+.fan-caps b{color:#9A4300}
+.legal h3{color:#9A4300}
+/* v2: in-text links on the stone use a deep violet (5.4:1 on the darkest stone) */
+:where(main,section,.legal,.tp) a:not([class]){color:#2A1250}
+footer a:not([class]){color:#FFD9B0}
+.hero-copy>p[style*="var(--orange)"]{color:var(--ember-hi)!important;background:var(--stone-deep);display:inline-block;padding:6px 12px!important;border-radius:6px;border:1px solid rgba(255,138,31,.45)}
+/* v2 + Chat's "luminous estate meets neon city" accents (navy, brass, arched window onto a neon skyline) on the cool stone base */
+:root{--navy:#0E1B33;--brass:#B8893B;--brass-hi:#D9B26A}
+nav{background:rgba(14,27,51,.94)!important}
+footer{background:var(--cy-circuit-dark) 0 0/300px 300px,var(--navy)}
+.stage::before{content:"";position:absolute;z-index:-1;left:-11%;right:-11%;top:-7%;bottom:6%;border-radius:999px 999px 18px 18px;border:3px solid var(--brass);box-shadow:0 0 0 6px rgba(217,178,106,.22),0 0 26px rgba(62,230,216,.25),inset 0 0 40px rgba(11,35,38,.6);pointer-events:none;
+ background:
+  linear-gradient(90deg,transparent 49.6%,rgba(184,137,59,.85) 49.6% 50.4%,transparent 50.4%),
+  linear-gradient(0deg,transparent 61.6%,rgba(184,137,59,.85) 61.6% 62.4%,transparent 62.4%),
+  linear-gradient(0deg,#0B1530 0 16%,transparent 16%),
+  repeating-linear-gradient(90deg,#14204A 0 14px,#1B2A5C 14px 26px,transparent 26px 34px,#101A3E 34px 52px,transparent 52px 58px) 0 100%/100% 34% no-repeat,
+  repeating-linear-gradient(0deg,rgba(255,179,107,.0) 0 7px,rgba(255,179,107,.55) 7px 9px) 0 100%/100% 30% no-repeat,
+  linear-gradient(90deg,transparent 8%,rgba(62,230,216,.9) 8% 8.6%,transparent 8.6% 72%,rgba(176,124,255,.9) 72% 72.6%,transparent 72.6%) 0 70%/100% 22% no-repeat,
+  radial-gradient(ellipse 80% 40% at 50% 78%,rgba(255,138,31,.55),transparent 70%),
+  radial-gradient(ellipse 60% 50% at 30% 30%,rgba(176,124,255,.35),transparent 70%),
+  linear-gradient(180deg,#0E1B33 0%,#13305A 45%,#1D4E6E 70%,#2F5F6B 100%)}
+.badge{border-color:var(--brass);border-style:solid;box-shadow:0 0 0 1px rgba(14,27,51,.25) inset}
+@media(max-width:860px){.stage::before{left:-9%;right:-9%;top:-5%}}
