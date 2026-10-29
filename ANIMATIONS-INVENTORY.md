@@ -71,3 +71,11 @@ The only network error on both main and the branch is the external `learn.ai-neu
 
 ## Re-run — Oct 28, 2026 follow-up (Neut re-cuts, "free" wording, ages 13+, kid mode coming soon)
 `node verify.js` re-run against main (8865) and the branch (8866): all 26 still PASS. The only differences from the last run are expected: A3 is 57/57 reveals (it was 56; the new #kid-mode card adds one `.rv`), and the A8 scroll target is lower on the page because the page is longer. chips.js gives 25 chips with 13 ever on, for both main and branch. widths.js finds no horizontal overflow and no store-pill overlap at 320–1440 on index, learning-center, pricing, features, help and safety.
+
+## Re-run — Oct 28, 2026 co-design pass (ChatGPT mockups: app-UI laptop, icon/mini-UI hero cards, free-standing Neuts, full-width Helping Hand band, Learning Center mini previews; cool stone wash, never cream)
+`node verify.js` re-run against main (8865) and the branch (8866): all 26 still PASS. Expected differences: A3 is 51/51 reveals on the branch (48/48 on main); A7 max chips at once is 5 (main 7) because of the layout, and chips.js still finds 25 chips with 13 ever on for both; A13 shows 5 lens states (main 6) because the page is longer and the scroll steps are 300px, and the CSS vars still change with scroll; the A8 scroll target is lower. The picker on learning-center still works (aria-pressed, art swap, localStorage). widths.js finds no horizontal overflow at 320–1440. test.html and test-preview.html were not touched.
+
+## Cast + Meet the Neuts (2026-10-29)
+- New cast art (Mom #8, Dad silver #6, Skater Girl #3, Volleyball #5 recolored toward #4) swapped into the home hero cards, Neut row, LC picker and mini-pick. No new animation; existing reveal/hover motion reused.
+- meet-the-neuts.html: `.rv.soft` staggered reveal on family figures (--d steps of 70ms); hover lift on family art and role tiles (translateY(-6px), .35s var(--ease)); Classic / Night glow tab toggle (aria-selected, arrow keys). All disabled under prefers-reduced-motion.
+- verify.js: 26 checks pass; only expected diff is LC_picker (first button is now Mom v2).
