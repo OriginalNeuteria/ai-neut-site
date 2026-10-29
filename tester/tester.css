@@ -10,12 +10,18 @@
   --t-bg:#17121f;--t-bg2:#211a2d;--t-card:#251d33;--t-ink:#F4EEFA;--t-soft:#cbbfe0;
   --t-purple:#C9A8FF;--t-purple2:#A97CF0;--t-orange:#FFA552;--t-orange2:#FF8A3D;--t-sun:#FFD66B;--t-leaf:#6fd38f;
   --t-line:rgba(201,168,255,.18);--t-shadow:0 10px 30px rgba(0,0,0,.45)}}
+/* html.tdark: page opts in to the dark look regardless of device setting (test.html) */
+:root:where(.tdark){color-scheme:dark;
+  --t-bg:#17121f;--t-bg2:#211a2d;--t-card:#251d33;--t-ink:#F4EEFA;--t-soft:#cbbfe0;
+  --t-purple:#C9A8FF;--t-purple2:#A97CF0;--t-orange:#FFA552;--t-orange2:#FF8A3D;--t-sun:#FFD66B;--t-leaf:#6fd38f;
+  --t-line:rgba(201,168,255,.18);--t-shadow:0 10px 30px rgba(0,0,0,.45)}
 html{font-size:100%;scroll-behavior:smooth}
 body.tp{background:var(--t-bg);color:var(--t-ink);font-family:var(--t-body);font-size:1.0625rem;line-height:1.6;overflow-x:clip}
 .tp h1,.tp h2,.tp h3{font-family:var(--t-head);line-height:1.12;letter-spacing:-.01em}
 .tp h2{color:var(--t-purple);font-size:clamp(1.8rem,5vw,2.7rem);margin:.2em 0 .35em;text-align:center}
 .tp h3{color:var(--t-orange2);margin:.2em 0 .4em;font-size:1.25rem}
 @media (prefers-color-scheme:dark){.tp h3{color:var(--t-orange)}}
+:where(.tdark) .tp h3{color:var(--t-orange)}
 .tp a{color:var(--t-purple)}
 .tp :focus-visible{outline:3px solid var(--t-orange);outline-offset:3px;border-radius:8px}
 .tp small,.tp .sm{font-size:.9rem}
@@ -24,6 +30,7 @@ body.tp{background:var(--t-bg);color:var(--t-ink);font-family:var(--t-body);font
 .lede{text-align:center;max-width:680px;margin:0 auto 28px;color:var(--t-soft);font-size:1.1rem}
 .eyebrow{display:block;text-align:center;font:800 .9rem var(--t-head);letter-spacing:.16em;text-transform:uppercase;color:var(--t-orange2)}
 @media (prefers-color-scheme:dark){.eyebrow{color:var(--t-orange)}}
+:where(.tdark) .eyebrow{color:var(--t-orange)}
 .skip{position:absolute;left:-999px;top:8px;background:var(--t-purple);color:#fff;padding:12px 16px;border-radius:10px;z-index:99}.skip:focus{left:8px}
 
 /* nav + footer tweaks so the shared chrome works in dark mode */
@@ -31,6 +38,9 @@ body.tp{background:var(--t-bg);color:var(--t-ink);font-family:var(--t-body);font
   body.tp nav{background:rgba(23,18,31,.88)!important;border-bottom-color:var(--t-orange)}
   body.tp nav a{color:#E3D2FF}body.tp nav .logo{color:#E3D2FF}
   body.tp footer{background:#2a1f3d}}
+:where(.tdark) body.tp nav{background:rgba(23,18,31,.88)!important;border-bottom-color:var(--t-orange)}
+:where(.tdark) body.tp nav a{color:#E3D2FF}:where(.tdark) body.tp nav .logo{color:#E3D2FF}
+:where(.tdark) body.tp footer{background:#2a1f3d}
 body.tp nav a{min-height:44px;display:inline-flex;align-items:center}
 body.tp footer small{font-size:14px}body.tp footer a{display:inline-block;min-height:30px;line-height:30px}
 
@@ -64,10 +74,12 @@ body.tp footer small{font-size:14px}body.tp footer a{display:inline-block;min-he
 .art{position:relative;border-radius:28px;overflow:visible}
 .art .frame{border-radius:28px;overflow:hidden;box-shadow:var(--t-shadow);border:4px solid #fff;transform:rotate(1.5deg);background:#f6e2c0}
 @media (prefers-color-scheme:dark){.art .frame{border-color:#3a2d4f}}
+:where(.tdark) .art .frame{border-color:#3a2d4f}
 .art img{display:block;width:100%;height:auto}
 .art .bubble{position:absolute;left:-6px;top:-18px;background:var(--t-sun);color:#2E2340;font:800 1rem var(--t-head);padding:10px 16px;border-radius:18px 18px 18px 4px;box-shadow:0 6px 16px rgba(0,0,0,.15);transform:rotate(-4deg)}
 .art .tag{position:absolute;right:-4px;bottom:-16px;background:var(--t-purple);color:#fff;font:800 1rem var(--t-head);padding:10px 16px;border-radius:16px;transform:rotate(3deg);box-shadow:0 6px 16px rgba(0,0,0,.2)}
 @media (prefers-color-scheme:dark){.art .tag{background:#6B3FA0}}
+:where(.tdark) .art .tag{background:#6B3FA0}
 .floaties{position:absolute;inset:0;pointer-events:none;z-index:1}
 .floaties i{position:absolute;display:block;width:var(--s,26px);height:var(--s,26px);opacity:.75}
 .floaties svg{width:100%;height:100%}
@@ -242,6 +254,7 @@ html.tmotion .peek{animation:peek 7s ease-in-out infinite}
 body.tp footer a{color:#FFD9B0}
 .swipe-hint{display:none;text-align:center;font-weight:800;color:var(--t-orange2);margin:-12px 0 10px}
 @media (prefers-color-scheme:dark){.swipe-hint{color:var(--t-orange)}}
+:where(.tdark) .swipe-hint{color:var(--t-orange)}
 @media(max-width:620px){
   .feats{grid-template-columns:1fr 1fr;gap:12px}
   .feat{padding:16px}.feat .ic{width:48px;height:48px}.feat h3{font-size:1.05rem}.feat p{font-size:.92rem}

@@ -97,13 +97,13 @@ function drawBadge(){
   cx.textAlign="center";cx.fillStyle="#6B3FA0";cx.font="800 46px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("I’M AN OFFICIAL",W/2,168);
   fit("Ai-Neut Tester",880,124,"900");var tg=cx.createLinearGradient(160,0,920,0);tg.addColorStop(0,"#6B3FA0");tg.addColorStop(1,"#E0681A");cx.fillStyle=tg;cx.fillText("Ai-Neut Tester",W/2,290);
   if(newt.complete&&newt.naturalWidth){var nw=640,nh=nw*newt.naturalHeight/newt.naturalWidth;cx.drawImage(newt,(W-nw)/2,320,nw,nh)}
-  cx.font="120px 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif";cx.fillText(sticker,880,450);
+  if($$(".stk").length){cx.font="120px 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif";cx.fillText(sticker,880,450)}
   var nm=(nameIn.value||"").trim();cx.fillStyle="#2E2340";
-  if(nm){fit(nm,820,96,"900");cx.fillText(nm,W/2,820)}else{cx.font="800 60px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("Helping families",W/2,815)}
-  cx.font="700 40px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillStyle="#5b4d70";cx.fillText(nm?"is helping build a journal & family organizer":"build a journal & family organizer",W/2,880);
-  var n=st.done.length;cx.fillStyle=c[1];rr(W/2-230,912,460,70,35);cx.fill();cx.fillStyle="#fff";cx.font="800 38px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";
-  cx.fillText(n>=14?"★ 14-day test complete ★":n>0?"Day "+n+" of 14 ✓":"14-day test",W/2,960);
-  cx.fillStyle="#6B3FA0";cx.font="700 32px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("Small Steps, Brighter Days  •  ai-neut.com",W/2,1046-20);
+  if(nm){fit(nm,820,88,"900");cx.fillText(nm,W/2,806)}else{cx.font="800 60px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("Helping families",W/2,808)}
+  cx.font="700 40px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillStyle="#5b4d70";cx.fillText(nm?"is helping build a journal & family organizer":"build a journal & family organizer",W/2,864);
+  var n=st.done.length;cx.fillStyle=c[1];rr(W/2-230,886,460,64,32);cx.fill();cx.fillStyle="#fff";cx.font="800 38px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";
+  cx.fillText(n>=14?"★ 14-day test complete ★":n>0?"Day "+n+" of 14 ✓":"14-day test",W/2,931);
+  cx.fillStyle="#6B3FA0";cx.font="700 30px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.textBaseline="alphabetic";cx.fillText("Small Steps, Brighter Days  •  ai-neut.com",W/2,988);
 }
 nameIn.addEventListener("input",function(){st.name=nameIn.value.slice(0,18);save(st);drawBadge()});
 function radio(sel,attr,cb){$$(sel).forEach(function(b){b.addEventListener("click",function(){$$(sel).forEach(function(x){x.setAttribute("aria-checked","false")});b.setAttribute("aria-checked","true");cb(b.dataset[attr])})})}
