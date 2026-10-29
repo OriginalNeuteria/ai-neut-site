@@ -278,3 +278,8 @@ body{background-color:#EDECF5;background-image:url("data:image/svg+xml,%3Csvg xm
 @media(max-width:900px){.mtn-family{grid-template-columns:repeat(3,minmax(0,1fr))}.mtn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.mtn-family{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mtn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.mtn-fam figcaption,.mtn-role figcaption{font-size:.9rem}}
 @media(prefers-reduced-motion:reduce){.mtn-art img,.mtn-role img{transition:none}.mtn-fam:hover .mtn-art img,.mtn-role:hover img{transform:none}}
+/* Meet the Neuts family entrance: visible by default; only animates once JS opts in, never hides again */
+@keyframes mtnPop{from{opacity:0;transform:translate3d(0,18px,0) scale(.96)}to{opacity:1;transform:none}}
+.mtn-family.mtn-anim .mtn-fam{opacity:0}
+.mtn-family.mtn-anim .mtn-fam.mtn-in{opacity:1;animation:mtnPop .6s var(--ease,cubic-bezier(.2,.7,.2,1)) var(--mtn-d,0ms) both}
+@media(prefers-reduced-motion:reduce){.mtn-family.mtn-anim .mtn-fam{opacity:1;animation:none}}
