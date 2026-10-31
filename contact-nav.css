@@ -1,0 +1,9 @@
+/* Friendly "Contact us" pill in the top nav (mailto, no form). */
+nav a.logo{white-space:nowrap}
+@media(min-width:701px) and (max-width:1100px){nav .links{justify-content:flex-end}}
+nav .links a.nav-contact{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:999px;background:var(--lav,#F4EFFB);color:var(--purple,#5B3A99);border:1.5px solid var(--lav3,#CFC2EC);font-weight:700;line-height:1.1;white-space:nowrap;transition:background .25s,border-color .25s,transform .25s}
+nav .links a.nav-contact::after{display:none!important}
+nav .links a.nav-contact:hover,nav .links a.nav-contact:focus-visible{background:var(--lav2,#E8DFF7);border-color:var(--purple,#5B3A99);transform:translateY(-1px)}
+nav .links a.nav-contact svg{width:17px;height:17px;flex:none}
+@media(max-width:700px){nav .links a.nav-contact{position:absolute;top:10px;right:4%;padding:7px 12px;font-size:.92rem}nav .links a.nav-contact .nc-us{display:none}}
+@media(prefers-reduced-motion:reduce){nav .links a.nav-contact{transition:none}nav .links a.nav-contact:hover{transform:none}}
