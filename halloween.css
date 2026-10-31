@@ -1,0 +1,30 @@
+/* Halloween corner webs + friendly spider (see halloween.js). Hidden unless <html class="halloween">. */
+#hw-deco{display:none}
+html.halloween #hw-deco{display:block;position:absolute;left:0;right:0;top:0;height:0;z-index:3;pointer-events:none;overflow:visible;--web:150px;--sp:34px;--drop:150px}
+#hw-deco *{pointer-events:none}
+#hw-deco .hw-web{position:absolute;top:0;width:var(--web);height:var(--web)}
+#hw-deco .hw-l{left:0}
+#hw-deco .hw-r{right:0;transform:scaleX(-1);width:calc(var(--web)*.78);height:calc(var(--web)*.78)}
+#hw-deco .hw-web svg{display:block;width:100%;height:100%;overflow:visible}
+#hw-deco .hw-web path{fill:none;stroke:#5B3A99;stroke-width:1;opacity:.26;vector-effect:non-scaling-stroke}
+#hw-deco .hw-drop{position:absolute;top:0;left:calc(var(--web)*.2);width:calc(var(--sp)*1.8);margin-left:calc(var(--sp)*-.9);height:calc(var(--drop) + var(--sp)*1.4);overflow:hidden}
+#hw-deco .hw-bob{position:absolute;left:0;right:0;top:0;height:calc(var(--sp)*.95);transform:translateY(calc(var(--sp)*-.1));animation:hw-yoyo 12s infinite;will-change:transform}
+#hw-deco .hw-thread{position:absolute;left:50%;bottom:calc(var(--sp)*.5);width:1px;height:900px;margin-left:-.5px;background:rgba(43,35,80,.45)}
+#hw-deco .hw-sp{position:absolute;left:50%;top:0;width:var(--sp);height:auto;margin-left:calc(var(--sp)*-.5);display:block;overflow:visible;filter:drop-shadow(0 2px 2px rgba(43,35,80,.18))}
+#hw-deco .hw-legs{transform-origin:30px 31px;animation:hw-wiggle 12s infinite}
+@keyframes hw-yoyo{
+  0%,8%{transform:translateY(calc(var(--sp)*-.1));animation-timing-function:cubic-bezier(.45,0,.9,.6)}
+  20%{transform:translateY(var(--drop));animation-timing-function:ease-out}
+  25%{transform:translateY(calc(var(--drop)*.78));animation-timing-function:ease-in}
+  30%{transform:translateY(var(--drop));animation-timing-function:ease-out}
+  34%{transform:translateY(calc(var(--drop)*.88));animation-timing-function:ease-in}
+  38%{transform:translateY(var(--drop));animation-timing-function:ease-out}
+  41%{transform:translateY(calc(var(--drop)*.95));animation-timing-function:ease-in}
+  44%,62%{transform:translateY(var(--drop));animation-timing-function:cubic-bezier(.4,0,.3,1)}
+  82%,100%{transform:translateY(calc(var(--sp)*-.1))}
+}
+@keyframes hw-wiggle{0%,44%,62%,100%{transform:none}48%,56%{transform:rotate(-4deg)}52%,60%{transform:rotate(4deg)}66%,70%,74%,78%{transform:scaleY(.92)}68%,72%,76%{transform:scaleY(1.04)}}
+@media(max-width:860px){html.halloween #hw-deco{--web:110px;--sp:28px;--drop:110px}}
+@media(max-width:560px){html.halloween #hw-deco{--web:78px;--sp:22px;--drop:70px}#hw-deco .hw-drop{left:calc(var(--web)*.26)}}
+@media (prefers-reduced-motion: reduce){#hw-deco .hw-drop{display:none}#hw-deco .hw-bob,#hw-deco .hw-legs{animation:none}}
+@media print{#hw-deco{display:none!important}}
