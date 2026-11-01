@@ -1,9 +1,9 @@
-/* Halloween corner webs + friendly spider. Shows Oct 25 - Nov 1 (visitor's local date) only.
+/* Halloween corner webs + friendly spider. Shows Oct 25 - Oct 31 (visitor's local date) only.
    Test override: ?halloween=1 (force on) or ?halloween=0 (force off). Purely decorative. */
 (function(){
   try{
     var q=/[?&]halloween=([01])/.exec(location.search), d=new Date(), m=d.getMonth(), day=d.getDate();
-    var on=q?q[1]==='1':((m===9&&day>=25)||(m===10&&day<=1));
+    var on=q?q[1]==='1':(m===9&&day>=25);
     if(!on)return;
     var NS='http://www.w3.org/2000/svg';
     function web(){

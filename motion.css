@@ -214,7 +214,7 @@ html.motion .mock .chip[data-at]{transform:translate(-50%,14px)}html.motion .moc
 .tilt-grid .tw:nth-child(2) .card{--t:2deg}.tilt-grid .tw:nth-child(3) .card{--t:-1.5deg}
 .tilt-grid .tw:hover .card{transform:rotate(0) translateY(-4px);box-shadow:var(--lift)}
 .tilt-grid .sticker{top:-4px;right:12px}
-.peek-newt{position:absolute;z-index:0;width:120px;left:22px;top:-34px;transform:translateY(70px) rotate(-6deg);transition:transform .6s var(--ease)}
+.peek-newt{position:absolute;z-index:0;width:120px;height:auto!important;max-height:none;aspect-ratio:240/230;object-fit:contain;left:22px;top:-34px;transform:translateY(70px) rotate(-6deg);transition:transform .6s var(--ease)}
 html.motion .tw.in .peek-newt,html.reduce .peek-newt{transform:translateY(8px) rotate(-3deg)}
 .tilt-grid .tw:hover .peek-newt{transform:translateY(-6px) rotate(2deg)}
 

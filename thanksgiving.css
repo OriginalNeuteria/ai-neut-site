@@ -1,0 +1,21 @@
+/* Thanksgiving leaves + pie (see thanksgiving.js). Hidden unless <html class="thanksgiving">. */
+#tg-deco{display:none}
+html.thanksgiving #tg-deco{display:block;position:absolute;left:0;right:0;top:0;height:0;z-index:3;pointer-events:none;overflow:visible;--cw:120px;--leaf:46px;--fallh:560px}
+#tg-deco *{pointer-events:none}
+#tg-deco svg{display:block;width:100%;height:100%;overflow:visible}
+#tg-deco .tg-corner{position:absolute;top:0;width:var(--cw);height:var(--cw)}
+#tg-deco .tg-l{left:0}
+#tg-deco .tg-r{right:0}
+#tg-deco .tg-corner i{position:absolute;top:0;width:var(--leaf);height:var(--leaf);opacity:.9;filter:drop-shadow(0 2px 2px rgba(80,40,10,.16));transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(var(--s))}
+#tg-deco .tg-l i{left:0}
+#tg-deco .tg-r i{right:0;transform:translate(calc(var(--x)*-1),var(--y)) rotate(var(--r)) scale(var(--s))}
+#tg-deco .tg-pie-wrap{position:absolute;right:104px;top:6px;width:calc(var(--leaf)*1.25);height:calc(var(--leaf)*.72);transform:rotate(-4deg);filter:drop-shadow(0 3px 3px rgba(80,40,10,.18))}
+#tg-deco .tg-fall{position:absolute;left:0;right:0;top:0;height:var(--fallh);overflow:hidden;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+#tg-deco .tg-leaf{position:absolute;top:0;width:var(--sz);height:var(--sz);opacity:0;animation:tg-fall var(--dur) linear var(--delay) 2 both;will-change:transform,opacity}
+#tg-deco .tg-leaf span{display:block;width:100%;height:100%;animation:tg-sway calc(var(--dur)/3) ease-in-out var(--delay) 6 alternate both}
+@keyframes tg-fall{0%{opacity:0;transform:translateY(-40px) rotate(0)}8%{opacity:.85}85%{opacity:.75}100%{opacity:0;transform:translateY(var(--fallh)) rotate(300deg)}}
+@keyframes tg-sway{from{transform:translateX(calc(var(--sway)*-.5)) rotate(-18deg)}to{transform:translateX(calc(var(--sway)*.5)) rotate(18deg)}}
+@media(max-width:860px){html.thanksgiving #tg-deco{--cw:96px;--leaf:38px;--fallh:460px}#tg-deco .tg-pie-wrap{right:46px;top:24px}}
+@media(max-width:560px){html.thanksgiving #tg-deco{--cw:70px;--leaf:28px;--fallh:340px}#tg-deco .tg-pie-wrap{right:32px;top:16px}}
+@media (prefers-reduced-motion: reduce){#tg-deco .tg-fall{display:none}#tg-deco .tg-leaf,#tg-deco .tg-leaf span{animation:none}}
+@media print{#tg-deco{display:none!important}}
