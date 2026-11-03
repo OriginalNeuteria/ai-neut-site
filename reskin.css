@@ -224,6 +224,14 @@ body .rn-card{background:#FFFDFA}
 #whats-new .wn-ver,body .rn-head h2,body .rn-toc a{font-variant-numeric:lining-nums}
 body main>h1,body .rn-wrap>h1,body.rn h1{font-size:clamp(2.2rem,4vw,3rem)}
 #whats-new .eyebrow,.help-wn .eyebrow{display:block;position:static;text-align:left;margin:0 0 8px;transform:none}
+/* Start here: two steps, balanced */
+#start-here .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+#start-here .steps>li{border:1px solid var(--rs-line);border-radius:var(--rs-r);background:#FFFDFA}
+#start-here .steps>li::before{background:var(--rs-raven-btn);background-color:var(--rs-navy);color:#F5F3F0;font-family:var(--sans);font-weight:600}
+#start-here .steps a{color:var(--rs-navy);display:inline-block;margin-top:16px}
+#start-here .steps h3{font-size:1.3rem;color:var(--rs-navy)}
+#start-here .steps .mini{background:#F8F6F2;border-color:var(--rs-line)}
+@media(max-width:760px){#start-here .steps{grid-template-columns:1fr;gap:16px}}
 /* ---- Tester elements: keep their original look ---- */
 #tester-banner,#tester-cta,#testers{
   --cream:#F1F0F7;--stone:#ECEBF4;--ink:#2B2350;--navy:#1F2A5C;--purple:#5B3A99;--muted:#544B6B;
