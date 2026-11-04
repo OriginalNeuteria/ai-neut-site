@@ -1,0 +1,32 @@
+/* Features page hero showcase only (features.html #fx-hero). Palette: navy, ivory, gold. */
+#fx-hero.fx-show{max-width:1180px;margin:0 auto;padding:64px 6% 56px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:center;position:relative;z-index:1;text-align:left}
+#fx-hero.fx-show::after{content:"";position:absolute;left:6%;right:6%;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(177,138,74,.55),transparent)}
+#fx-hero .fx-eyebrow{font-family:var(--sans,Inter,system-ui,sans-serif);font-size:.72rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#8F6E36;margin:0 0 18px;line-height:1.7}
+#fx-hero .fx-eyebrow::before{content:"";display:inline-block;vertical-align:middle;width:28px;height:1px;margin:0 12px 2px 0;background:#B18A4A}
+#fx-hero .fx-title{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:clamp(2.3rem,4.4vw,3.6rem);line-height:1.04;letter-spacing:-.01em;color:#20243A;margin:0 0 18px}
+#fx-hero .fx-title em{font-style:italic;color:#B18A4A}
+#fx-hero .fx-sub{font-size:1.06rem;line-height:1.65;color:#4A4E63;margin:0 0 28px;max-width:34em}
+#fx-hero .fx-points{list-style:none;margin:0;padding:0;border-top:1px solid rgba(177,138,74,.35)}
+#fx-hero .fx-points li{padding:14px 0 14px 26px;border-bottom:1px solid rgba(177,138,74,.22);position:relative}
+#fx-hero .fx-points li::before{content:"";position:absolute;left:2px;top:21px;width:7px;height:7px;border:1px solid #B18A4A;transform:rotate(45deg)}
+#fx-hero .fx-points strong{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.22rem;color:#20243A;line-height:1.25}
+#fx-hero .fx-points span{display:block;font-size:.93rem;line-height:1.55;color:#5A5E72;margin-top:2px}
+#fx-hero .fx-devices{position:relative;padding:0 6% 48px 0}
+#fx-hero .fx-devices::before{content:"";position:absolute;inset:8% -4% 2% 8%;background:radial-gradient(closest-side,rgba(227,200,145,.38),transparent);z-index:-1}
+#fx-hero figure{margin:0}
+#fx-hero .fx-laptop{position:relative}
+#fx-hero .fx-screen{background:#151A33;padding:12px 12px 14px;border-radius:14px 14px 4px 4px;box-shadow:0 30px 60px -20px rgba(21,26,51,.45),0 0 0 1px rgba(227,200,145,.35) inset}
+#fx-hero .fx-screen img{display:block;width:100%;height:auto;border-radius:3px}
+#fx-hero .fx-base{height:14px;margin:0 -7%;background:linear-gradient(#E9E4DA,#C9C2B4);border-radius:0 0 14px 14px;box-shadow:0 14px 24px -12px rgba(21,26,51,.35);position:relative}
+#fx-hero .fx-base::before{content:"";position:absolute;left:50%;top:0;width:16%;height:5px;transform:translateX(-50%);background:#B9B1A2;border-radius:0 0 6px 6px}
+#fx-hero .fx-phone{position:absolute;right:0;bottom:0;width:24%;min-width:118px;background:#151A33;padding:7px;border-radius:26px;box-shadow:0 26px 50px -16px rgba(21,26,51,.55),0 0 0 1px rgba(227,200,145,.45) inset}
+#fx-hero .fx-phone img{display:block;width:100%;height:auto;border-radius:20px}
+@media(prefers-reduced-motion:no-preference){
+#fx-hero .fx-copy>*{animation:fxUp .9s cubic-bezier(.2,.7,.2,1) both}
+#fx-hero .fx-copy>:nth-child(2){animation-delay:.08s}#fx-hero .fx-copy>:nth-child(3){animation-delay:.16s}#fx-hero .fx-copy>:nth-child(4){animation-delay:.24s}
+#fx-hero .fx-laptop{animation:fxUp 1s .1s cubic-bezier(.2,.7,.2,1) both}
+#fx-hero .fx-phone{animation:fxUp 1s .3s cubic-bezier(.2,.7,.2,1) both}
+}
+@keyframes fxUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(max-width:900px){#fx-hero.fx-show{grid-template-columns:1fr;gap:40px}#fx-hero .fx-devices{max-width:640px;width:100%;margin:0 auto}}
+@media(max-width:700px){#fx-hero.fx-show{padding:32px 6% 40px}#fx-hero .fx-eyebrow{letter-spacing:.18em}#fx-hero.fx-show{gap:0}#fx-hero .fx-copy{display:contents}#fx-hero .fx-eyebrow{order:1}#fx-hero .fx-title{order:2;margin-bottom:26px}#fx-hero .fx-devices{order:3;margin-bottom:30px}#fx-hero .fx-sub{order:4}#fx-hero .fx-points{order:5}#fx-hero .fx-devices{padding:0 4% 36px 0}#fx-hero .fx-phone{width:30%;min-width:0;border-radius:18px;padding:5px}#fx-hero .fx-phone img{border-radius:14px}#fx-hero .fx-screen{padding:7px 7px 8px;border-radius:10px 10px 3px 3px}#fx-hero .fx-base{height:9px}}
