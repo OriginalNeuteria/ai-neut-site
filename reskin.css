@@ -251,3 +251,5 @@ body main>h1,body .rn-wrap>h1,body.rn h1{font-size:clamp(2.2rem,4vw,3rem)}
 #tester-banner,#tester-cta,#testers{font-family:var(--sans)}
 /* top tester banner background only: navy blend, no purple */
 #tester-banner{background:radial-gradient(ellipse at 85% 0,rgba(46,60,122,.6),transparent 60%),linear-gradient(100deg,#151A33,#1B2350 60%,#242A45)!important;background-size:100% 160px!important;background-position:center 45%!important}
+/* background weave only: real tartan sett (uneven bands + fine threads) instead of a flat grid */
+:root{--rs-weave:repeating-linear-gradient(90deg,transparent 0 22px,rgba(32,36,58,.045) 22px 58px,transparent 58px 64px,rgba(177,138,74,.09) 64px 66px,transparent 66px 72px,rgba(32,36,58,.03) 72px 84px,transparent 84px 120px,rgba(32,36,58,.05) 120px 122px,transparent 122px 144px),repeating-linear-gradient(0deg,transparent 0 22px,rgba(32,36,58,.04) 22px 58px,transparent 58px 64px,rgba(177,138,74,.08) 64px 66px,transparent 66px 72px,rgba(32,36,58,.028) 72px 84px,transparent 84px 120px,rgba(32,36,58,.045) 120px 122px,transparent 122px 144px),repeating-linear-gradient(45deg,rgba(32,36,58,.018) 0 1px,transparent 1px 3px)}
