@@ -1,4 +1,4 @@
-/* Ai-Neut site-wide motion layer. Loaded after style.css on every page. */
+/* Sαréal618 site-wide motion layer. Loaded after style.css on every page. */
 :root{--ease:cubic-bezier(.2,.7,.2,1);--lift:0 14px 34px rgba(46,35,64,.16),0 3px 8px rgba(46,35,64,.08);--rest:0 2px 8px rgba(46,35,64,.07)}
 html{scroll-behavior:smooth}
 body{overflow-x:clip}
@@ -51,7 +51,7 @@ html.motion .chip[data-at].on{opacity:1;transform:none}
 
 /* ---------- Newts ---------- */
 .newt-layer{position:absolute;inset:0;pointer-events:none;overflow:clip;z-index:2}
-.newt{position:absolute;width:var(--w,160px);height:auto;will-change:transform,opacity;filter:drop-shadow(0 10px 12px rgba(46,35,64,.22));user-select:none}
+.newt{position:absolute;width:var(--w,160px);height:auto;object-fit:cover;will-change:transform,opacity;filter:drop-shadow(0 10px 12px rgba(46,35,64,.22));user-select:none}
 html.motion .newt{opacity:0}
 .newt-runway{position:relative;height:150px;overflow:clip;pointer-events:none}
 .newt-runway::before{content:"";position:absolute;left:6%;right:6%;bottom:22px;border-bottom:2px dashed rgba(107,63,160,.18)}
@@ -151,7 +151,7 @@ html.reduce .chip[data-at]{opacity:1;transform:none}
 /* Parallax floaters (Tindog-style): wrapper moves with scroll depth, inner image bobs */
 .float-layer{position:absolute;inset:0;pointer-events:none;overflow:clip;z-index:1}
 .floaty{position:absolute;display:block;will-change:transform}
-.floaty img{display:block;width:var(--w,80px);height:auto;filter:drop-shadow(0 8px 10px rgba(46,35,64,.18));animation:bob var(--bob,6s) ease-in-out infinite;animation-delay:var(--bd,0s)}
+.floaty img{display:block;width:var(--w,80px);height:auto;object-fit:cover;aspect-ratio:1;border-radius:50%;filter:drop-shadow(0 8px 10px rgba(46,35,64,.18));animation:bob var(--bob,6s) ease-in-out infinite;animation-delay:var(--bd,0s)}
 .floaty.far img{opacity:.55;filter:blur(1px) drop-shadow(0 6px 8px rgba(46,35,64,.12))}
 .floaty.hero-friend img{--w:250px}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
@@ -214,7 +214,7 @@ html.motion .mock .chip[data-at]{transform:translate(-50%,14px)}html.motion .moc
 .tilt-grid .tw:nth-child(2) .card{--t:2deg}.tilt-grid .tw:nth-child(3) .card{--t:-1.5deg}
 .tilt-grid .tw:hover .card{transform:rotate(0) translateY(-4px);box-shadow:var(--lift)}
 .tilt-grid .sticker{top:-4px;right:12px}
-.peek-newt{position:absolute;z-index:0;width:120px;height:auto!important;max-height:none;aspect-ratio:240/230;object-fit:contain;left:22px;top:-34px;transform:translateY(70px) rotate(-6deg);transition:transform .6s var(--ease)}
+.peek-newt{position:absolute;z-index:0;width:120px;height:auto!important;max-height:none;aspect-ratio:1;object-fit:cover;border-radius:50%;left:22px;top:-34px;transform:translateY(70px) rotate(-6deg);transition:transform .6s var(--ease)}
 html.motion .tw.in .peek-newt,html.reduce .peek-newt{transform:translateY(8px) rotate(-3deg)}
 .tilt-grid .tw:hover .peek-newt{transform:translateY(-6px) rotate(2deg)}
 

@@ -1,4 +1,4 @@
-/* Ai-Neut template refresh (Oct 2026). Loads after style.css + motion.css; restyles only — no motion rules removed. */
+/* Sαréal618 template refresh (Oct 2026). Loads after style.css + motion.css; restyles only — no motion rules removed. */
 :root{--cream:#FBF8F4;--lav:#F4EFFB;--lav2:#E8DFF7;--lav3:#CFC2EC;--purple:#5B3A99;--ink:#2B2350;--muted:#544B6B;--navy:#1F2A5C;--orange:#A84B07;--orange-hi:#F28C28;--orange-soft:#FFB870;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55}
 h1,h2,h3{font-family:var(--serif);color:var(--ink);letter-spacing:-.01em}
@@ -10,7 +10,7 @@ nav a{font-family:var(--sans);color:var(--ink);font-weight:600;font-size:.98rem;
 nav .links{gap:4px 22px}
 nav .links a:not(.btn){padding:8px 2px}
 a.logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:1.45rem;color:var(--ink)}
-a.logo::before{content:"";width:34px;height:34px;flex:none;background:url(img/neuts/neut-orange-240.webp) center/contain no-repeat}
+a.logo::before{content:"";width:34px;height:34px;flex:none;border-radius:50%;background:url(img/theme/crest.jpg) center/cover no-repeat}
 nav .btn{padding:10px 20px}
 @media(max-width:700px){nav{flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:10px 4%}nav .links{width:100%;justify-content:center;gap:2px 16px;font-size:.94rem}nav .links .btn{order:-1;flex-basis:100%;text-align:center;margin:2px 0 4px;padding:9px 18px}a.logo{font-size:1.3rem}}
 /* buttons */
