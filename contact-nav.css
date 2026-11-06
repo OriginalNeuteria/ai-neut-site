@@ -1,3 +1,4 @@
+/* No-op comment so GitHub Pages redeploys after a transient failure. */
 /* Friendly "Contact us" pill in the top nav (mailto, no form). */
 nav a.logo{white-space:nowrap}
 @media(min-width:701px) and (max-width:1100px){nav .links{justify-content:flex-end}}
