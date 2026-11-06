@@ -7,3 +7,13 @@ nav .links a.nav-contact:hover,nav .links a.nav-contact:focus-visible{background
 nav .links a.nav-contact svg{width:17px;height:17px;flex:none}
 @media(max-width:700px){nav .links a.nav-contact{position:absolute;top:10px;right:4%;padding:7px 12px;font-size:.92rem}nav .links a.nav-contact .nc-us{display:none}}
 @media(prefers-reduced-motion:reduce){nav .links a.nav-contact{transition:none}nav .links a.nav-contact:hover{transform:none}}
+
+/* Sign in: a still gold-on-black seal. The mark is the ΧΙΗ monogram. */
+nav .links a.nav-signin{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px;border-radius:999px;background:#07080c;color:#F6E7C8;border:1px solid #C6A15A;box-shadow:inset 0 0 0 1px rgba(198,161,90,.35);font-weight:600;font-size:.92rem;letter-spacing:.04em;line-height:1;white-space:nowrap;text-decoration:none}
+nav .links a.nav-signin::before{content:"";width:28px;height:28px;flex:none;border-radius:50%;background:#07080c url("img/theme/sign-in-mark.jpg") center/cover no-repeat}
+nav .links a.nav-signin::after{display:none!important}
+nav .links a.nav-signin:hover,nav .links a.nav-signin:focus-visible{background:#101218;color:#FFF8EC;border-color:#E4C98A;box-shadow:inset 0 0 0 1px rgba(228,201,138,.5)}
+nav .links a.nav-signin:focus-visible{outline:2px solid #E4C98A;outline-offset:3px}
+nav .links .nav-actions{display:inline-flex;align-items:center;gap:10px;flex:0 0 auto}
+@media(max-width:700px){nav .links .nav-actions{order:-1;flex:1 1 100%;display:flex;gap:8px;margin:2px 0 6px}nav .links .nav-actions a.nav-signin{margin:0}nav .links .nav-actions a.btn{order:0;flex:1 1 auto;flex-basis:auto;margin:0;text-align:center}}
+@media(prefers-reduced-motion:reduce){nav .links a.nav-signin{transition:none}}
