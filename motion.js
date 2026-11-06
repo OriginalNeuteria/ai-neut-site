@@ -1,4 +1,4 @@
-/* Ai-Neut site-wide motion. Vanilla JS, no build step. */
+/* Sαréal618 site-wide motion. Vanilla JS, no build step. */
 (function () {
   "use strict";
   var root = document.documentElement;

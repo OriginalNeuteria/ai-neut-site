@@ -1,5 +1,5 @@
 # ai-neut-site
-Official website for Ai-Neut, a journal and a family organizer. Static HTML/CSS, hosted on GitHub Pages.
+Official website for Sαréal618, a journal and a family organizer. Static HTML/CSS, hosted on GitHub Pages. The public name is Sαréal618. This address is temporary; a new home is not chosen yet.
 
 - Live: https://originalneuteria.github.io/ai-neut-site/ (later www.ai-neut.com)
 - App: https://app.ai-neut.com/

@@ -1,4 +1,4 @@
-/* Ai-Neut tester page. Vanilla JS, no trackers, nothing leaves the device. */
+/* Sαréal618 tester page. Vanilla JS, no trackers, nothing leaves the device. */
 (function(){
 "use strict";
 var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -83,7 +83,7 @@ $$(".qcard").forEach(function(c){var f=$(".qf",c),b=$(".qb",c);b.setAttribute("a
 
 /* ---------- Badge ---------- */
 var cv=$("#bcv"),cx=cv.getContext("2d"),newt=new Image(),theme=st.theme||"sunset",sticker=st.sticker||"🌻";
-newt.src="img/mascot-600.webp";newt.onload=function(){drawBadge()};
+newt.src="img/theme/crest.jpg";newt.onload=function(){drawBadge()};
 var TH={sunset:["#FFD66B","#F28C28","#6B3FA0","#2E2340"],grape:["#A97CF0","#4A2380","#FFC83D","#ffffff"],garden:["#A8E6B4","#2E7D4F","#F28C28","#13311f"],sky:["#BDE8FF","#2F5FD0","#FFC83D","#0f2148"]};
 var nameIn=$("#bname");nameIn.value=st.name||"";
 function rr(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
@@ -95,34 +95,34 @@ function drawBadge(){
   cx.globalAlpha=1;cx.fillStyle="rgba(255,255,255,.9)";rr(60,60,W-120,W-120,60);cx.fill();
   cx.lineWidth=10;cx.strokeStyle=c[2];rr(60,60,W-120,W-120,60);cx.stroke();
   cx.textAlign="center";cx.fillStyle="#6B3FA0";cx.font="800 46px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("I’M AN OFFICIAL",W/2,168);
-  fit("Ai-Neut Tester",880,124,"900");var tg=cx.createLinearGradient(160,0,920,0);tg.addColorStop(0,"#6B3FA0");tg.addColorStop(1,"#E0681A");cx.fillStyle=tg;cx.fillText("Ai-Neut Tester",W/2,290);
-  if(newt.complete&&newt.naturalWidth){var nw=640,nh=nw*newt.naturalHeight/newt.naturalWidth;cx.drawImage(newt,(W-nw)/2,320,nw,nh)}
+  fit("Sαréal618 Tester",880,124,"900");var tg=cx.createLinearGradient(160,0,920,0);tg.addColorStop(0,"#6B3FA0");tg.addColorStop(1,"#E0681A");cx.fillStyle=tg;cx.fillText("Sαréal618 Tester",W/2,290);
+  if(newt.complete&&newt.naturalWidth){var nw=280;cx.save();cx.beginPath();cx.arc(W/2,470,140,0,Math.PI*2);cx.closePath();cx.clip();cx.drawImage(newt,(W-nw)/2,330,nw,nw);cx.restore()}
   if($$(".stk").length){cx.font="120px 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif";cx.fillText(sticker,880,450)}
   var nm=(nameIn.value||"").trim();cx.fillStyle="#2E2340";
   if(nm){fit(nm,820,88,"900");cx.fillText(nm,W/2,806)}else{cx.font="800 60px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillText("Helping families",W/2,808)}
   cx.font="700 40px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.fillStyle="#5b4d70";cx.fillText(nm?"is helping build a journal & family organizer":"build a journal & family organizer",W/2,864);
   var n=st.done.length;cx.fillStyle=c[1];rr(W/2-230,886,460,64,32);cx.fill();cx.fillStyle="#fff";cx.font="800 38px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";
   cx.fillText(n>=14?"★ 14-day test complete ★":n>0?"Day "+n+" of 14 ✓":"14-day test",W/2,931);
-  cx.fillStyle="#6B3FA0";cx.font="700 30px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.textBaseline="alphabetic";cx.fillText("Small Steps, Brighter Days  •  ai-neut.com",W/2,988);
+  cx.fillStyle="#6B3FA0";cx.font="700 30px ui-rounded, 'Trebuchet MS', system-ui, sans-serif";cx.textBaseline="alphabetic";cx.fillText("Small Steps, Brighter Days  •  Sαréal618",W/2,988);
 }
 nameIn.addEventListener("input",function(){st.name=nameIn.value.slice(0,18);save(st);drawBadge()});
 function radio(sel,attr,cb){$$(sel).forEach(function(b){b.addEventListener("click",function(){$$(sel).forEach(function(x){x.setAttribute("aria-checked","false")});b.setAttribute("aria-checked","true");cb(b.dataset[attr])})})}
 radio(".sw","th",function(v){theme=v;st.theme=v;save(st);drawBadge()});radio(".stk","st",function(v){sticker=v;st.sticker=v;save(st);drawBadge()});
 $$(".sw").forEach(function(b){b.setAttribute("aria-checked",b.dataset.th===theme?"true":"false")});$$(".stk").forEach(function(b){b.setAttribute("aria-checked",b.dataset.st===sticker?"true":"false")});
-function fname(){var n=(nameIn.value||"").trim().replace(/[^a-z0-9]+/gi,"-").replace(/^-|-$/g,"");return "Ai-Neut-Tester"+(n?"-"+n:"")+".png"}
+function fname(){var n=(nameIn.value||"").trim().replace(/[^a-z0-9]+/gi,"-").replace(/^-|-$/g,"");return "Sareal618-Tester"+(n?"-"+n:"")+".png"}
 function blob(cb){if(cv.toBlob)cv.toBlob(cb,"image/png");else{var d=atob(cv.toDataURL("image/png").split(",")[1]),a=new Uint8Array(d.length);for(var i=0;i<d.length;i++)a[i]=d.charCodeAt(i);cb(new Blob([a],{type:"image/png"}))}}
 function download(b){var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download=fname();document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);toast("Badge saved 🎉")}
 $("#bdl").addEventListener("click",function(){drawBadge();blob(download)});
 $("#bsh").addEventListener("click",function(){drawBadge();blob(function(b){var f;try{f=new File([b],fname(),{type:"image/png"})}catch(e){}
-  var data={title:"I’m an Ai-Neut Tester",text:"I’m helping test Ai-Neut, a journal and family organizer. Want to join? https://www.ai-neut.com/test.html"};
+  var data={title:"I’m an Sαréal618 Tester",text:"I’m helping test Sαréal618, a journal and family organizer. Want to join?"};
   if(f&&navigator.canShare&&navigator.canShare({files:[f]})){data.files=[f];navigator.share(data).catch(function(){})}
   else if(navigator.share){navigator.share({title:data.title,text:data.text,url:"https://www.ai-neut.com/test.html"}).catch(function(){})}
   else{download(b);toast("Saved. Attach it anywhere you like!")}})});
 
 /* ---------- Share page / copy link ---------- */
 function copy(t){if(navigator.clipboard&&isSecureContext)return navigator.clipboard.writeText(t);return new Promise(function(res,rej){var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy")?res():rej()}catch(e){rej(e)}ta.remove()})}
-$("#copylink").addEventListener("click",function(){copy(this.dataset.url).then(function(){toast("Link copied ✓")},function(){toast("Copy this: ai-neut.com/test.html")})});
-$("#sharepage").addEventListener("click",function(){var u=this.dataset.url,t=this.dataset.text;if(navigator.share)navigator.share({title:"Be an Ai-Neut tester",text:t,url:u}).catch(function(){});else copy(t+" "+u).then(function(){toast("Message and link copied ✓")},function(){toast("Copy this: ai-neut.com/test.html")})});
+$("#copylink").addEventListener("click",function(){copy(this.dataset.url).then(function(){toast("Link copied ✓")},function(){toast("Could not copy. Use the address bar.")})});
+$("#sharepage").addEventListener("click",function(){var u=this.dataset.url,t=this.dataset.text;if(navigator.share)navigator.share({title:"Be an Sαréal618 tester",text:t,url:u}).catch(function(){});else copy(t+" "+u).then(function(){toast("Message and link copied ✓")},function(){toast("Could not copy. Use the address bar.")})});
 
 /* ---------- Flyer lightbox ---------- */
 var lb=$("#lb"),lbi=$("#lbimg"),opener=null;

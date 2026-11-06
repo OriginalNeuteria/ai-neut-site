@@ -1,9 +1,9 @@
-/* Neut School links on the tester page.
+/* Tester training links on the tester page.
    Shows two buttons only when learn.ai-neut.com says this browser is signed in as an APPROVED tester.
    The answer is just {approved, roles}; no email or name ever reaches this page.
    The links grant nothing: learn.ai-neut.com checks the sign-in and the approved list on every request. */
 (function () {
-  var SCHOOL_NAME = 'Neut School';                 // the one place to rename it
+  var SCHOOL_NAME = 'Tester training';             // the one place to rename it
   var LEARN = 'https://learn.ai-neut.com';         // where Neut School lives
   var SHOW_FOR = ['tester', 'owner', 'employee'];
   var box = document.getElementById('nschool'), signin = document.getElementById('nschool-in');

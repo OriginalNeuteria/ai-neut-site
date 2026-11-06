@@ -1,4 +1,4 @@
-/* Ai-Neut "linen" reskin (Nov 2026). Look-only: colors, type, surfaces.
+/* Sαréal618 "linen" reskin (Nov 2026). Look-only: colors, type, surfaces.
    Calm solid ivory; the only texture is a regular tone-on-tone hairline pinstripe in the hero.
    One accent color (antique gold), used only for hairlines and small details. Depth from tone, not glow. Loaded last on theme.css pages.
    Tester elements (#tester-banner, #tester-cta, #testers) keep their original look (reset block at bottom). */
@@ -26,7 +26,7 @@ nav{background:rgba(245,243,240,.94);border-bottom:1px solid var(--rs-line)}
 nav a{font-family:var(--sans);font-weight:500;color:#3A3E55}
 nav .links a:not(.btn)::after{height:1px;background:var(--rs-gold)}
 a.logo{font-family:var(--serif);font-weight:600;font-size:1.55rem;color:var(--rs-navy);letter-spacing:.005em}
-a.logo::before{content:"\03B1";display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--rs-navy);color:#E3C891;font:italic 600 1.35rem/1 var(--serif);padding-bottom:3px;box-sizing:border-box}
+a.logo::before{content:"";display:block;width:34px;height:34px;flex:none;border-radius:50%;background:url(img/theme/crest.jpg) center/cover no-repeat;padding:0}
 nav .nav-contact,nav a.nav-contact{background:transparent!important;border:1px solid rgba(32,36,58,.22)!important;color:var(--rs-navy)!important;box-shadow:none!important}
 nav .nav-contact:hover{background:rgba(32,36,58,.05)!important}
 
@@ -157,7 +157,7 @@ footer .social .s-lbl{color:#DAD7CF!important}
 }
 .hh-band{background-image:var(--rs-raven)!important;background-color:var(--rs-navy)!important;background-size:160% 160%;background-position:0 50%}
 footer{background:var(--rs-raven);background-color:var(--rs-navy);background-size:140% 140%}
-a.logo::before{background:linear-gradient(135deg,#20243A 0%,#252B47 45%,#1F2838 70%,#241F3C 100%)}
+a.logo::before{background:url(img/theme/crest.jpg) center/cover no-repeat}
 #follow a.sp:hover{background:var(--rs-raven-btn)!important;background-color:var(--rs-navy)!important;background-size:220% 100%!important}
 @media (prefers-reduced-motion:no-preference){
   .btn{transition:background-position 1.2s cubic-bezier(.2,.7,.2,1),background-color .25s,border-color .25s,transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s,filter .28s}
