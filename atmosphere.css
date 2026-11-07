@@ -42,3 +42,179 @@ html.atmosphere-off .atmosphere-layer{opacity:0!important;transition:none!import
 html.atmosphere-off .atmosphere-scene{min-height:0!important;padding:60px 6%!important;display:block}
 html.atmosphere-off .atmosphere-reading{width:100%;max-width:680px;margin:0 auto;padding:0;border:0;box-shadow:none}
 html.atmosphere-off .scene-number{display:none}
+
+/* Room to wonder: an editorial reading, not a flat document stack.
+   Scoped to #beyond-the-porch so the other atmosphere scenes stay as they are. */
+#beyond-the-porch{cursor:default}
+#beyond-the-porch .atmosphere-reading{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  width:min(42rem,48%);
+  max-width:42rem;
+  margin:2vh 0 0;
+  padding:0;
+}
+#beyond-the-porch .atmosphere-reading .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 0 20px;
+  text-align:left;
+  text-transform:uppercase;
+  color:var(--rs-gold-t,#86672e);
+}
+#beyond-the-porch .atmosphere-reading .eyebrow::after{
+  content:"";
+  width:4.5rem;
+  height:1px;
+  background:var(--rs-gold,#b18a4a);
+  flex:0 0 auto;
+}
+#beyond-the-porch .atmosphere-reading h2{
+  text-align:left;
+  font-family:var(--serif,Georgia,serif);
+  font-weight:500;
+  font-size:clamp(2.15rem,4.15vw,3.55rem);
+  line-height:1.02;
+  letter-spacing:-.03em;
+  color:var(--rs-navy,#20243a);
+  margin:0 0 22px;
+  max-width:none;
+}
+#beyond-the-porch .atmosphere-reading h2 .o{
+  font-style:italic;
+  font-weight:500;
+  letter-spacing:-.02em;
+  color:var(--rs-plum,#57456f);
+}
+#beyond-the-porch .atmosphere-reading>p:not(.eyebrow){
+  max-width:34ch;
+  margin:0 0 28px;
+  font-family:var(--sans,Inter,sans-serif);
+  font-size:1.05rem;
+  font-weight:400;
+  line-height:1.65;
+  color:var(--rs-muted,#5d6072);
+  text-wrap:pretty;
+}
+#beyond-the-porch .atmosphere-reading a,
+#beyond-the-porch .atmosphere-reading a:link,
+#beyond-the-porch .atmosphere-reading a:visited{
+  position:relative;
+  display:inline-flex;
+  align-items:baseline;
+  gap:.55em;
+  margin:0;
+  padding:2px 0 8px;
+  color:var(--rs-navy,#20243a);
+  font-family:var(--sans,Inter,sans-serif);
+  font-size:.95rem;
+  font-weight:500;
+  letter-spacing:.012em;
+  line-height:1.3;
+  text-decoration:none;
+  text-underline-offset:0;
+  background:none;
+  border:0;
+  border-radius:0;
+  cursor:pointer;
+}
+#beyond-the-porch .atmosphere-reading a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  background:var(--rs-gold,#b18a4a);
+  transform-origin:left center;
+  transition:background-color .35s ease,transform .35s ease;
+}
+#beyond-the-porch .atmosphere-reading a span{
+  color:var(--rs-gold-t,#86672e);
+  display:inline-block;
+  transition:transform .35s ease;
+}
+#beyond-the-porch .atmosphere-reading a:hover,
+#beyond-the-porch .atmosphere-reading a:focus-visible{color:var(--rs-plum,#57456f)}
+#beyond-the-porch .atmosphere-reading a:hover::before,
+#beyond-the-porch .atmosphere-reading a:focus-visible::before{background:var(--rs-plum,#57456f)}
+#beyond-the-porch .atmosphere-reading a:hover span,
+#beyond-the-porch .atmosphere-reading a:focus-visible span{transform:translateX(5px)}
+#beyond-the-porch .atmosphere-reading a:focus-visible{outline:2px solid var(--rs-gold,#b18a4a);outline-offset:6px}
+#beyond-the-porch.lake-reveal .atmosphere-reading::before,
+#beyond-the-porch.lake-static .atmosphere-reading::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-18% -8% -28% -6%;
+  pointer-events:none;
+  background:rgba(245,243,240,.93);
+  -webkit-mask-image:radial-gradient(ellipse 78% 74% at 28% 42%,#000 36%,transparent 78%);
+  mask-image:radial-gradient(ellipse 78% 74% at 28% 42%,#000 36%,transparent 78%);
+}
+#beyond-the-porch.lake-reveal .atmosphere-layer,
+#beyond-the-porch.lake-static .atmosphere-layer,
+#beyond-the-porch.lake-depart .atmosphere-layer{
+  --lake-x:72%;
+  --lake-y:58%;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,transparent 24%,rgba(0,0,0,.45) 40%,#000 56%,#000 86%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0%,transparent 24%,rgba(0,0,0,.45) 40%,#000 56%,#000 86%,transparent 100%);
+}
+#beyond-the-porch.lake-reveal .atmosphere-layer>img,
+#beyond-the-porch.lake-static .atmosphere-layer>img,
+#beyond-the-porch.lake-depart .atmosphere-layer>img{
+  object-fit:cover;
+  object-position:calc(64% + (var(--lake-p,.64) - .64) * 8%) calc(42% + (var(--lake-q,.5) - .5) * 6%);
+}
+#beyond-the-porch.lake-reveal .scene-number,
+#beyond-the-porch.lake-static .scene-number{
+  color:#e3c891;
+  text-shadow:0 1px 10px rgba(16,18,32,.55);
+}
+html.atmosphere-off #beyond-the-porch .atmosphere-reading{
+  width:min(42rem,100%);
+  max-width:42rem;
+  margin:0 auto;
+  padding:36px 2px 32px;
+  background:transparent;
+  border:0;
+  border-top:1px solid rgba(177,138,74,.75);
+  border-bottom:1px solid rgba(32,36,58,.14);
+  box-shadow:none;
+}
+@media(max-width:700px){
+  #beyond-the-porch{min-height:calc(56.28vw + 500px)}
+  #beyond-the-porch .atmosphere-layer{top:auto;height:min(56.28vw,440px);bottom:10px}
+  #beyond-the-porch .atmosphere-reading{width:100%;max-width:40rem}
+  #beyond-the-porch .atmosphere-reading h2{font-size:clamp(2rem,8vw,2.7rem);max-width:none}
+  #beyond-the-porch.lake-reveal .atmosphere-layer,
+  #beyond-the-porch.lake-static .atmosphere-layer,
+  #beyond-the-porch.lake-depart .atmosphere-layer{
+    -webkit-mask-image:radial-gradient(ellipse 92% 84% at 50% 58%,#000 34%,rgba(0,0,0,.78) 66%,transparent 94%);
+    mask-image:radial-gradient(ellipse 92% 84% at 50% 58%,#000 34%,rgba(0,0,0,.78) 66%,transparent 94%);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #beyond-the-porch.lake-static{
+    display:flex!important;
+    align-items:flex-start;
+    min-height:max(640px,58vw)!important;
+    padding:8% 6% 120px!important;
+  }
+  #beyond-the-porch.lake-static .atmosphere-layer{
+    display:block!important;
+    opacity:.86!important;
+    transition:none!important;
+  }
+  #beyond-the-porch .atmosphere-reading a::before,
+  #beyond-the-porch .atmosphere-reading a span{transition:none}
+}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){
+  #beyond-the-porch.lake-static{
+    display:block!important;
+    min-height:calc(56.28vw + 500px)!important;
+    padding:48px 6% 16px!important;
+  }
+}
