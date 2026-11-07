@@ -218,3 +218,81 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
     padding:48px 6% 16px!important;
   }
 }
+
+/* A little wonder: same landscape fade as Room to Wonder.
+   The reading block stays a straight ivory plate. No curved wash. */
+#room-for-each-other{cursor:default}
+#room-for-each-other .atmosphere-reading{
+  border-radius:0;
+  background:var(--rs-ivory,#f5f3f0);
+}
+#room-for-each-other .atmosphere-reading a,
+#room-for-each-other .atmosphere-reading a:link,
+#room-for-each-other .atmosphere-reading a:visited{
+  position:relative;
+  display:inline-block;
+  color:var(--rs-navy,#20243a);
+  font-weight:500;
+  text-decoration:none;
+  text-underline-offset:0;
+  padding:0 0 6px;
+  background:none;
+  border:0;
+  border-radius:0;
+}
+#room-for-each-other .atmosphere-reading a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  background:var(--rs-gold,#b18a4a);
+}
+#room-for-each-other .atmosphere-reading a span{color:var(--rs-gold-t,#86672e)}
+#room-for-each-other .atmosphere-reading a:hover,
+#room-for-each-other .atmosphere-reading a:focus-visible{color:var(--rs-plum,#57456f)}
+#room-for-each-other .atmosphere-reading a:hover::before,
+#room-for-each-other .atmosphere-reading a:focus-visible::before{background:var(--rs-plum,#57456f)}
+#room-for-each-other .atmosphere-reading a:focus-visible{outline:2px solid var(--rs-gold,#b18a4a);outline-offset:6px}
+#room-for-each-other.lake-reveal .atmosphere-layer,
+#room-for-each-other.lake-static .atmosphere-layer,
+#room-for-each-other.lake-depart .atmosphere-layer{
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  height:auto;
+  -webkit-mask-image:radial-gradient(ellipse 86% 78% at 50% 58%,#000 28%,rgba(0,0,0,.82) 58%,transparent 90%);
+  mask-image:radial-gradient(ellipse 86% 78% at 50% 58%,#000 28%,rgba(0,0,0,.82) 58%,transparent 90%);
+}
+#room-for-each-other.lake-reveal .atmosphere-layer>img,
+#room-for-each-other.lake-static .atmosphere-layer>img,
+#room-for-each-other.lake-depart .atmosphere-layer>img{
+  object-fit:cover;
+  object-position:center 62%;
+}
+#room-for-each-other.lake-reveal .scene-number,
+#room-for-each-other.lake-static .scene-number{
+  color:#e3c891;
+  text-shadow:0 1px 10px rgba(16,18,32,.55);
+}
+@media(prefers-reduced-motion:reduce){
+  #room-for-each-other.lake-static{
+    min-height:calc(56.28vw + 380px)!important;
+    padding:70px 6% 28px!important;
+  }
+  #room-for-each-other.lake-static .atmosphere-layer{
+    display:block!important;
+    opacity:.88!important;
+    transition:none!important;
+  }
+  #room-for-each-other .atmosphere-reading a::before,
+  #room-for-each-other .atmosphere-reading a span{transition:none}
+}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){
+  #room-for-each-other.lake-static{
+    min-height:calc(56.28vw + 420px)!important;
+    padding:56px 6% 16px!important;
+  }
+}
