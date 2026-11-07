@@ -1,0 +1,44 @@
+/* Atmosphere scenes. Colors inherit the live navy/gold/ivory system. */
+.atmosphere-control{display:flex;justify-content:flex-end;align-items:center;padding:8px 5%;background:var(--rs-ivory,#f5f3f0);position:relative;z-index:101}
+#atmosphere-toggle{color:var(--rs-navy,#20243a);background:transparent;border:1px solid #b18a4a;border-radius:999px;min-height:36px;padding:6px 14px;font:500 12px/1.5 var(--sans,sans-serif);letter-spacing:.03em;cursor:pointer}
+#atmosphere-toggle:focus-visible{outline:2px solid var(--rs-gold,#b18a4a);outline-offset:4px}
+#atmosphere-toggle:disabled{cursor:default;opacity:.75}
+/* Remove vacant creature allocations, never substitute portraits into them. */
+.hc-demo{margin-right:0!important}.hcard{padding-bottom:20px!important}
+.newt,.newt-layer,.peek-newt,.hc-neut,.float-layer,.newtic{display:none!important}
+.card-media>img.household{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.atmosphere-scene{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;margin:0!important;max-width:none!important;scroll-margin-top:95px}
+.atmosphere-layer{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity 420ms ease-out;will-change:opacity}
+.atmosphere-layer.withdrawing{transition:opacity 1300ms ease-in-out}
+.atmosphere-layer>img{display:block;position:absolute;width:100%;height:100%;object-fit:contain;object-position:center;max-width:none}
+/* Mood lean: vast ruined-stone threshold, cool atmosphere, soft distant warm light, doorway scale. Does not replace the three approved stills or copy any reference artwork. */
+.atmosphere-layer::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 44% 38% at 58% 36%,rgba(201,162,92,.18),transparent 72%),linear-gradient(180deg,rgba(32,48,58,.14),transparent 38%,rgba(20,34,42,.22));mix-blend-mode:soft-light}
+.atmosphere-scene .atmosphere-reading{position:relative;z-index:1;background:var(--rs-ivory,#f5f3f0);padding:28px 30px;border-left:1px solid var(--rs-gold,#b18a4a);max-width:390px;box-sizing:border-box}
+.atmosphere-reading h2{text-align:left;font-size:clamp(2.1rem,4vw,3.8rem);font-weight:500;line-height:1.08;margin:12px 0 20px;letter-spacing:-.025em}
+.atmosphere-reading p{font-size:1.02rem;line-height:1.75;margin:0 0 16px}
+.atmosphere-reading .eyebrow{text-align:left;font-size:.65rem;letter-spacing:.2em;margin:0;color:var(--rs-gold,#b18a4a)}
+.atmosphere-reading a{font-size:.85rem;text-underline-offset:5px}
+.atmosphere-scene .scene-number{font:500 11px var(--sans);letter-spacing:.15em;color:var(--rs-gold);position:absolute;right:6%;bottom:24px;z-index:1}
+.atmosphere-lake{min-height:max(740px,62vw);padding:8% 6% 180px!important;display:flex;align-items:flex-start}
+.atmosphere-lake .atmosphere-layer{-webkit-mask-image:radial-gradient(ellipse 68% 80% at 69% 62%,#000 16%,rgba(0,0,0,.86) 48%,transparent 91%);mask-image:radial-gradient(ellipse 68% 80% at 69% 62%,#000 16%,rgba(0,0,0,.86) 48%,transparent 91%)}.atmosphere-lake .atmosphere-layer>img{filter:saturate(.88) brightness(.94)}
+.atmosphere-lake .atmosphere-reading{margin-top:3%;width:31%;padding-left:0;border-left:0}
+.atmosphere-hands{padding:70px 6% 0!important;min-height:calc(56.28vw + 330px)}
+.atmosphere-hands .atmosphere-layer{top:300px;bottom:20px;-webkit-mask-image:radial-gradient(ellipse 58% 78% at 50% 63%,#000 12%,rgba(0,0,0,.94) 48%,transparent 90%);mask-image:radial-gradient(ellipse 58% 78% at 50% 63%,#000 12%,rgba(0,0,0,.94) 48%,transparent 90%)}.atmosphere-hands .atmosphere-layer>img{filter:saturate(.92) brightness(.96)}
+.atmosphere-hands .atmosphere-reading{max-width:680px;margin:0 auto;padding:0 0 18px;border:0;text-align:center}
+.atmosphere-hands .atmosphere-reading h2,.atmosphere-hands .atmosphere-reading .eyebrow{text-align:center}
+.atmosphere-hands .atmosphere-reading h2{font-size:clamp(2rem,4vw,3.3rem);margin-bottom:14px}
+.atmosphere-nave{min-height:820px;display:flex;align-items:center;padding:100px 9%!important}
+.atmosphere-nave .atmosphere-layer{left:24%;-webkit-mask-image:radial-gradient(ellipse 48% 84% at 66% 48%,#000 11%,rgba(0,0,0,.88) 40%,transparent 76%);mask-image:radial-gradient(ellipse 48% 84% at 66% 48%,#000 11%,rgba(0,0,0,.88) 40%,transparent 76%)}
+.atmosphere-nave .atmosphere-layer>img{object-position:70% 50%;filter:brightness(.76) saturate(.86) contrast(1.06)}
+.atmosphere-nave .atmosphere-reading{max-width:420px;box-shadow:32px 0 50px 28px var(--rs-ivory,#f5f3f0)}
+#tartan-last-light{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30;overflow:visible}
+#tartan-last-light path{fill:none;stroke:var(--rs-gold,#b18a4a);stroke-width:1;opacity:0;stroke-linecap:round}
+#tartan-last-light path.glimmer{animation:last-light 1000ms ease-in-out both}
+@keyframes last-light{0%,100%{opacity:0}35%{opacity:.5}65%{opacity:.2}}
+html.atmosphere-off .atmosphere-layer{opacity:0!important;transition:none!important}html.atmosphere-off #tartan-last-light{display:none}
+@media(max-width:700px){.atmosphere-control{padding:8px 4%}#atmosphere-toggle{font-size:11px;min-height:32px}.atmosphere-scene .atmosphere-reading{max-width:100%;width:100%;padding:0 0 20px;border:0;box-shadow:none;margin-top:0}.atmosphere-lake{display:block;min-height:calc(56.28vw + 440px);padding:70px 6% 0!important}.atmosphere-lake .atmosphere-layer{top:390px;bottom:10px;mask-image:radial-gradient(ellipse,#000 25%,transparent 90%);-webkit-mask-image:radial-gradient(ellipse,#000 25%,transparent 90%)}.atmosphere-hands{padding-top:65px!important;min-height:calc(56.28vw + 360px)}.atmosphere-hands .atmosphere-layer{top:330px;bottom:10px}.atmosphere-nave{display:block;min-height:940px;padding:65px 6%!important}.atmosphere-nave .atmosphere-layer{left:0;top:360px;bottom:20px;mask-image:radial-gradient(ellipse,#000 15%,transparent 76%);-webkit-mask-image:radial-gradient(ellipse,#000 15%,transparent 76%)}.atmosphere-scene .scene-number{bottom:6px;font-size:9px}.atmosphere-reading h2{font-size:2.3rem}}
+@media(prefers-reduced-motion:reduce){.atmosphere-layer,#tartan-last-light{display:none!important}.atmosphere-scene{min-height:0!important;padding:55px 6%!important}.scene-number{display:none}}
+/* Off means a calm, compact reading page, not a sequence of vacant picture slots. */
+html.atmosphere-off .atmosphere-scene{min-height:0!important;padding:60px 6%!important;display:block}
+html.atmosphere-off .atmosphere-reading{width:100%;max-width:680px;margin:0 auto;padding:0;border:0;box-shadow:none}
+html.atmosphere-off .scene-number{display:none}
