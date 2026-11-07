@@ -116,7 +116,7 @@ $("#bdl").addEventListener("click",function(){drawBadge();blob(download)});
 $("#bsh").addEventListener("click",function(){drawBadge();blob(function(b){var f;try{f=new File([b],fname(),{type:"image/png"})}catch(e){}
   var data={title:"I’m an Sαréal618 Tester",text:"I’m helping test Sαréal618, a journal and family organizer. Want to join?"};
   if(f&&navigator.canShare&&navigator.canShare({files:[f]})){data.files=[f];navigator.share(data).catch(function(){})}
-  else if(navigator.share){navigator.share({title:data.title,text:data.text,url:"https://www.ai-neut.com/test.html"}).catch(function(){})}
+  else if(navigator.share){navigator.share({title:data.title,text:data.text,url:"https://www.sareal618.com/test.html"}).catch(function(){})}
   else{download(b);toast("Saved. Attach it anywhere you like!")}})});
 
 /* ---------- Share page / copy link ---------- */

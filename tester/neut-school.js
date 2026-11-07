@@ -10,7 +10,7 @@
   if (!box || !signin || !window.fetch) return;
   var names = document.querySelectorAll('[data-school-name]');
   for (var i = 0; i < names.length; i++) names[i].textContent = SCHOOL_NAME;
-  var here = /^https:\/\/(www\.)?ai-neut\.com$/.test(location.origin) ? location.origin + '/test.html' : 'https://www.ai-neut.com/test.html';
+  var here = /^https:\/\/(www\.)?ai-neut\.com$/.test(location.origin) ? location.origin + '/test.html' : 'https://www.sareal618.com/test.html';
   document.getElementById('nschool-train').href = LEARN + '/training/';
   signin.querySelector('a').href = LEARN + '/login?next=' + encodeURIComponent(here);
   var ctl = window.AbortController ? new AbortController() : null;
