@@ -1,0 +1,235 @@
+/* Editorial callouts. One system for invitation / how-it-works readings
+   that used to be a white document card with an orange stripe.
+   Warm stone band, gold hairline, Cormorant + Inter, open step sequence.
+   Loaded after reskin.css. */
+.editorial{
+  --ed-stone:#E4DDD2;
+  --ed-ink:#20243A;
+  --ed-muted:#5D6072;
+  --ed-gold:#B18A4A;
+  --ed-gold-t:#86672E;
+  background:var(--ed-stone);
+  border-top:1px solid rgba(177,138,74,.55);
+  border-bottom:1px solid rgba(177,138,74,.55);
+  color:var(--ed-ink);
+  font-family:Inter,system-ui,sans-serif;
+  text-align:center;
+  scroll-margin-top:96px;
+}
+section.editorial{padding:0}
+#kid-mode.editorial{padding:0}
+.editorial .ed-wrap{max-width:1080px;margin:0 auto;padding:76px 6% 68px;box-sizing:border-box}
+.editorial-note .ed-wrap{max-width:40rem}
+
+.editorial .ed-kicker,
+.editorial .tag.soon{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  margin:0 0 18px;
+  padding:0;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  color:var(--ed-gold-t);
+  font:600 .74rem/1 Inter,system-ui,sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.editorial .ed-kicker::before,
+.editorial .ed-kicker::after,
+.editorial .tag.soon::before,
+.editorial .tag.soon::after{
+  content:"";
+  width:2.6rem;
+  height:1px;
+  background:var(--ed-gold);
+  flex:0 0 auto;
+}
+.editorial h2,
+.editorial h3{
+  margin:0 auto 18px;
+  max-width:18em;
+  color:var(--ed-ink);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.2rem,4.2vw,3.35rem);
+  line-height:1.05;
+  letter-spacing:-.025em;
+  text-align:center;
+  text-wrap:balance;
+}
+.editorial-note h2,
+#kid-mode.editorial h2{
+  text-align:center;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2rem,3.6vw,2.85rem);
+  line-height:1.05;
+  letter-spacing:-.025em;
+  color:var(--ed-ink);
+  margin:0 auto 18px;
+}
+.editorial .ed-lede,
+.editorial-note .ed-wrap>p:not(.tag):not(.fine){
+  max-width:40rem;
+  margin:0 auto;
+  color:var(--ed-muted);
+  font-size:1.06rem;
+  font-weight:400;
+  line-height:1.65;
+  text-wrap:pretty;
+}
+.editorial a:not(.btn){
+  color:var(--ed-ink);
+  font-weight:600;
+  text-decoration:underline;
+  text-decoration-color:rgba(177,138,74,.85);
+  text-underline-offset:3px;
+}
+.editorial a:not(.btn):hover{text-decoration-color:var(--ed-ink)}
+
+/* Open sequence: numerals and a gold spine, not a numbered paper list. */
+.editorial .ed-steps{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:28px 40px;
+  list-style:none;
+  margin:52px 0 0;
+  padding:0;
+  text-align:left;
+  counter-reset:ed;
+}
+.editorial .ed-steps li{
+  position:relative;
+  margin:0;
+  color:var(--ed-muted);
+  font-size:.98rem;
+  line-height:1.6;
+  text-wrap:pretty;
+}
+.editorial .ed-num{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  margin:0 0 16px;
+  border:1px solid var(--ed-gold);
+  border-radius:50%;
+  background:var(--ed-stone);
+  color:var(--ed-ink);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.2rem;
+  font-weight:500;
+  letter-spacing:.02em;
+  position:relative;
+  z-index:1;
+}
+.editorial .ed-steps li:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:23px;
+  left:46px;
+  right:-40px;
+  height:1px;
+  background:rgba(177,138,74,.7);
+}
+.editorial .ed-steps b{
+  display:block;
+  margin:0 0 8px;
+  color:var(--ed-ink);
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-size:1.42rem;
+  font-weight:600;
+  line-height:1.15;
+  letter-spacing:-.015em;
+}
+.editorial .ed-steps b a{font-weight:600}
+
+.editorial .ed-notes{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px 40px;
+  margin:44px 0 0;
+  padding:22px 0 0;
+  border-top:1px solid rgba(32,36,58,.16);
+  text-align:left;
+}
+.editorial .ed-notes p{
+  margin:0;
+  color:var(--ed-muted);
+  font-size:.92rem;
+  line-height:1.55;
+}
+.editorial .ed-notes b{
+  display:block;
+  margin:0 0 4px;
+  color:var(--ed-ink);
+  font-family:Inter,system-ui,sans-serif;
+  font-size:.92rem;
+  font-weight:600;
+  letter-spacing:0;
+  text-transform:none;
+}
+.editorial .ed-fine,
+.editorial .fine{
+  margin:22px auto 0;
+  max-width:46rem;
+  color:var(--ed-muted);
+  font-size:.9rem;
+  line-height:1.55;
+}
+.editorial-note .fine{
+  margin-top:26px;
+  padding-top:16px;
+  border-top:1px solid rgba(32,36,58,.16);
+}
+.editorial-note .fine a{white-space:nowrap}
+.editorial .ed-cta{margin:36px 0 0}
+.editorial .ed-cta .btn{
+  min-height:48px;
+  padding:14px 32px;
+}
+
+/* Short reading inside a legal column: same materials, contained. */
+#kid-mode.editorial-inset{
+  margin:22px 0 28px;
+  padding:0;
+  background:var(--ed-stone);
+  border-top:1px solid rgba(177,138,74,.55);
+  border-bottom:1px solid rgba(177,138,74,.55);
+  text-align:left;
+  box-shadow:none;
+}
+#kid-mode.editorial-inset .ed-wrap{max-width:none;padding:28px 28px 26px}
+#kid-mode.editorial-inset .tag.soon,
+#kid-mode.editorial-inset .ed-kicker{justify-content:flex-start}
+#kid-mode.editorial-inset .tag.soon::before,
+#kid-mode.editorial-inset .ed-kicker::before{display:none}
+#kid-mode.editorial-inset h3{
+  margin:0 0 12px;
+  max-width:none;
+  font-size:clamp(1.85rem,3vw,2.4rem);
+  text-align:left;
+  color:var(--ed-ink);
+}
+#kid-mode.editorial-inset p{margin:0 0 12px;color:var(--ed-muted);line-height:1.6;text-align:left}
+#kid-mode.editorial-inset .fine{
+  margin:16px 0 0;
+  padding-top:14px;
+  border-top:1px solid rgba(32,36,58,.16);
+  font-size:.9rem;
+}
+
+@media(max-width:900px){
+  .editorial .ed-wrap{padding:56px 6% 48px}
+  .editorial .ed-steps{grid-template-columns:1fr;gap:28px;margin-top:36px}
+  .editorial .ed-steps li:not(:last-child)::after{display:none}
+  .editorial .ed-notes{grid-template-columns:1fr;gap:18px;margin-top:32px}
+  .editorial h2,.editorial h3,#kid-mode.editorial h2{font-size:2.15rem}
+}
+@media(max-width:700px){
+  .editorial{scroll-margin-top:24px}
+}
