@@ -1,7 +1,8 @@
 /* Sαréal618 "linen" reskin (Nov 2026). Look-only: colors, type, surfaces.
    Calm solid ivory; the only texture is a regular tone-on-tone hairline pinstripe in the hero.
    One accent color (antique gold), used only for hairlines and small details. Depth from tone, not glow. Loaded last on theme.css pages.
-   Tester elements (#tester-banner, #tester-cta, #testers) keep their original look (reset block at bottom). */
+   Tester banner and the black tester CTA keep their original look (reset block at bottom).
+   The Android tester reading uses the editorial callout system in editorial.css. */
 :root{
   --rs-navy:#20243A;--rs-ivory:#F5F3F0;--rs-plum:#57456F;--rs-gold:#B18A4A;--rs-gold-t:#86672E;--rs-emerald:#31594A;
   --rs-muted:#5D6072;--rs-line:#E3DDD3;--rs-card:#FFFDFA;
@@ -232,23 +233,15 @@ body main>h1,body .rn-wrap>h1,body.rn h1{font-size:clamp(2.2rem,4vw,3rem)}
 #start-here .steps h3{font-size:1.3rem;color:var(--rs-navy)}
 #start-here .steps .mini{background:#F8F6F2;border-color:var(--rs-line)}
 @media(max-width:760px){#start-here .steps{grid-template-columns:1fr;gap:16px}}
-/* ---- Tester elements: keep their original look ---- */
-#tester-banner,#tester-cta,#testers{
+/* ---- Tester banner and tester CTA: keep their original look. #testers does not. ---- */
+#tester-banner,#tester-cta{
   --cream:#F1F0F7;--stone:#ECEBF4;--ink:#2B2350;--navy:#1F2A5C;--purple:#5B3A99;--muted:#544B6B;
   --orange:#A84B07;--orange-hi:#F28C28;--orange-soft:#FFB870;--lav:#F4EFFB;--lav2:#E8DFF7;--lav3:#CFC2EC;
   --serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --rest:0 2px 8px rgba(46,35,64,.07);--lift:0 14px 34px rgba(46,35,64,.16),0 3px 8px rgba(46,35,64,.08);
 }
-#tester-cta h2,#testers h2,#testers h3{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
-#testers h2,#testers h3{color:var(--ink)}
-#testers .o{color:var(--orange);font-style:normal}
-#testers .eyebrow{font:700 .8rem var(--sans);letter-spacing:.14em;color:var(--orange)}
-#testers .card{background:#fff;border:1px solid #E8DFF7;border-radius:20px;box-shadow:0 4px 18px rgba(43,35,80,.06)}
-#testers .btn{background:#A84B07;color:#fff!important;font-family:var(--sans);font-weight:700;letter-spacing:normal;box-shadow:0 6px 16px rgba(185,83,9,.22)}
-#testers .btn:hover{background:#A84B07;box-shadow:0 12px 26px rgba(242,140,40,.38);filter:saturate(1.08)}
-#testers .btn.ghost{background:#fff;border:1.5px solid #CFC2EC;color:#2B2350!important;box-shadow:none}
-#testers .btn.alt{background:#5B3A99}
-#tester-banner,#tester-cta,#testers{font-family:var(--sans)}
+#tester-cta h2{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em}
+#tester-banner,#tester-cta{font-family:var(--sans)}
 /* top tester banner background only: navy blend, no purple */
 #tester-banner{background:radial-gradient(ellipse at 85% 0,rgba(46,60,122,.6),transparent 60%),linear-gradient(100deg,#151A33,#1B2350 60%,#242A45)!important;background-size:100% 160px!important;background-position:center 45%!important}
 /* background weave only: real tartan sett (uneven bands + fine threads) instead of a flat grid */
