@@ -77,7 +77,23 @@
     const layer=scene&&scene.querySelector('.atmosphere-layer');
     if(!scene||!layer)return;
     const st={target:0,now:0,x:70,y:58,shownX:70,shownY:58,raf:0,token:0,away:0};
+    const dissolve=scene.id==='room-for-each-other';
+    const read=dissolve?scene.querySelector('.atmosphere-reading'):null;
     const mode=()=>scene.dataset.lakeMode||'';
+    function setField(value,ms){
+      if(!dissolve)return;
+      const v=Math.max(0,Math.min(1,value));
+      if(ms){
+        if(read)read.style.transition=`background-color ${ms}ms ease-in-out`;
+        scene.style.transition=`--field ${ms}ms ease-in-out`;
+        if(read)void read.offsetWidth;
+      }else{
+        if(read)read.style.transition='none';
+        scene.style.transition='none';
+      }
+      if(read)read.style.backgroundColor=`rgba(245,243,240,${(1-v).toFixed(4)})`;
+      scene.style.setProperty('--field',v.toFixed(4));
+    }
     function ratio(){
       const r=scene.getBoundingClientRect();
       const vis=Math.min(r.bottom,innerHeight)-Math.max(r.top,0);
@@ -108,6 +124,7 @@
       layer.style.setProperty('--lake-y',st.shownY.toFixed(2)+'%');
       layer.style.setProperty('--lake-p',(st.shownX/100).toFixed(4));
       layer.style.setProperty('--lake-q',(st.shownY/100).toFixed(4));
+      setField(opacity/0.94,0);
     }
     function release(){
       scene.classList.remove('lake-reveal','lake-static','lake-depart');
@@ -118,6 +135,11 @@
       layer.style.removeProperty('--lake-y');
       layer.style.removeProperty('--lake-p');
       layer.style.removeProperty('--lake-q');
+      if(dissolve){
+        scene.style.transition='none';
+        scene.style.setProperty('--field','0');
+        if(read){read.style.transition='none';read.style.backgroundColor='';}
+      }
       st.now=0;st.target=0;st.away=0;
     }
     function showStatic(reduced){
@@ -127,9 +149,10 @@
       scene.classList.add('lake-static');
       scene.classList.remove('lake-reveal','lake-depart');
       layer.classList.remove('withdrawing');
-      if(reduced){layer.style.transition='none';layer.style.opacity='';return;}
+      if(reduced){layer.style.transition='none';layer.style.opacity='';setField(1,0);return;}
       layer.style.transition='opacity 900ms ease';
       layer.style.opacity='0.92';
+      setField(1,900);
       st.now=0.92;st.target=0.92;
     }
     function beginDepart(){
@@ -142,10 +165,11 @@
       layer.style.transition='none';
       if(!Number.isNaN(from))layer.style.opacity=String(from);
       void layer.offsetWidth;
-      layer.style.transition='opacity 2200ms ease-in-out';
-      void layer.offsetWidth;
-      layer.style.opacity='0';
-      st.target=0;
+    layer.style.transition='opacity 2200ms ease-in-out';
+    void layer.offsetWidth;
+    layer.style.opacity='0';
+    setField(0,2200);
+    st.target=0;
       const started=performance.now();
       const finish=()=>{
         if(token!==st.token||mode()!=='depart')return;
@@ -201,14 +225,22 @@
       if(wheelActive||mode()==='depart')return;
       const bounds=scene.getBoundingClientRect();
       if(e.clientX<bounds.left||e.clientX>bounds.right||e.clientY<bounds.top||e.clientY>bounds.bottom)return;
-      if(overCopy(e.clientX,e.clientY))return;
+      const x=((e.clientX-bounds.left)/bounds.width)*100;
+      const y=((e.clientY-bounds.top)/bounds.height)*100;
+      const opened=dissolve&&(st.now>=0.4||st.target>=0.4);
+      if(overCopy(e.clientX,e.clientY)){
+        if(!opened)return;
+        st.x=x;st.y=y;st.away=0;
+        kick();
+        return;
+      }
       const reach=Math.min(240,Math.max(180,bounds.width*0.2));
       const dist=copyDistance(e.clientX,e.clientY);
       const t=Math.max(0,Math.min(1,dist/Math.max(reach,1)));
-      st.target=Math.pow(t,0.72)*0.94;
-      st.x=((e.clientX-bounds.left)/bounds.width)*100;
-      st.y=((e.clientY-bounds.top)/bounds.height)*100;
-      st.away=0;
+      let next=Math.pow(t,0.72)*0.94;
+      if(opened)next=Math.max(st.target,next);
+      st.target=next;
+      st.x=x;st.y=y;st.away=0;
       scene.dataset.lakeMode='reveal';
       scene.classList.add('lake-reveal');
       scene.classList.remove('lake-static','lake-depart');

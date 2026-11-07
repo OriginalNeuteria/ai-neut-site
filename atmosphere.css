@@ -219,13 +219,37 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
   }
 }
 
-/* A little wonder: same landscape fade as Room to Wonder.
-   The reading block stays a straight ivory plate. No curved wash. */
-#room-for-each-other{cursor:default}
+/* A little wonder: the same fade as Room to Wonder.
+   The ivory plate and a soft reading wash share one eased amount (--field)
+   with the landscape, so nothing pops on or off. */
+@property --field{syntax:"<number>";inherits:true;initial-value:0}
+#room-for-each-other{cursor:default;--field:0}
+#room-for-each-other .atmosphere-layer{
+  top:0;right:0;bottom:0;left:0;height:auto;
+  -webkit-mask-image:radial-gradient(ellipse 92% 88% at 50% 56%,#000 20%,rgba(0,0,0,.9) 58%,transparent 92%);
+  mask-image:radial-gradient(ellipse 92% 88% at 50% 56%,#000 20%,rgba(0,0,0,.9) 58%,transparent 92%);
+}
+#room-for-each-other .atmosphere-layer>img{
+  object-fit:cover;
+  object-position:calc(50% + (var(--lake-p,.5) - .5) * 10%) calc(56% + (var(--lake-q,.55) - .55) * 8%);
+}
 #room-for-each-other .atmosphere-reading{
   border-radius:0;
-  background:var(--rs-ivory,#f5f3f0);
+  background:rgba(245,243,240,calc(1 - var(--field,0)));
 }
+#room-for-each-other .atmosphere-reading::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-22% -10% -30% -10%;
+  pointer-events:none;
+  background:rgba(245,243,240,.92);
+  opacity:var(--field,0);
+  -webkit-mask-image:radial-gradient(ellipse 78% 74% at 50% 46%,#000 30%,transparent 78%);
+  mask-image:radial-gradient(ellipse 78% 74% at 50% 46%,#000 30%,transparent 78%);
+}
+#room-for-each-other .atmosphere-reading h2{color:var(--rs-navy,#20243a)}
+#room-for-each-other .atmosphere-reading>p:not(.eyebrow){color:var(--rs-muted,#5d6072)}
 #room-for-each-other .atmosphere-reading a,
 #room-for-each-other .atmosphere-reading a:link,
 #room-for-each-other .atmosphere-reading a:visited{
@@ -255,23 +279,6 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
 #room-for-each-other .atmosphere-reading a:hover::before,
 #room-for-each-other .atmosphere-reading a:focus-visible::before{background:var(--rs-plum,#57456f)}
 #room-for-each-other .atmosphere-reading a:focus-visible{outline:2px solid var(--rs-gold,#b18a4a);outline-offset:6px}
-#room-for-each-other.lake-reveal .atmosphere-layer,
-#room-for-each-other.lake-static .atmosphere-layer,
-#room-for-each-other.lake-depart .atmosphere-layer{
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  height:auto;
-  -webkit-mask-image:radial-gradient(ellipse 86% 78% at 50% 58%,#000 28%,rgba(0,0,0,.82) 58%,transparent 90%);
-  mask-image:radial-gradient(ellipse 86% 78% at 50% 58%,#000 28%,rgba(0,0,0,.82) 58%,transparent 90%);
-}
-#room-for-each-other.lake-reveal .atmosphere-layer>img,
-#room-for-each-other.lake-static .atmosphere-layer>img,
-#room-for-each-other.lake-depart .atmosphere-layer>img{
-  object-fit:cover;
-  object-position:center 62%;
-}
 #room-for-each-other.lake-reveal .scene-number,
 #room-for-each-other.lake-static .scene-number{
   color:#e3c891;
