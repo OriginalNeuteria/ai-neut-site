@@ -122,7 +122,7 @@ $("#bsh").addEventListener("click",function(){drawBadge();blob(function(b){var f
 /* ---------- Share page / copy link ---------- */
 function copy(t){if(navigator.clipboard&&isSecureContext)return navigator.clipboard.writeText(t);return new Promise(function(res,rej){var ta=document.createElement("textarea");ta.value=t;ta.setAttribute("readonly","");ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy")?res():rej()}catch(e){rej(e)}ta.remove()})}
 $("#copylink").addEventListener("click",function(){copy(this.dataset.url).then(function(){toast("Link copied ✓")},function(){toast("Could not copy. Use the address bar.")})});
-$("#sharepage").addEventListener("click",function(){var u=this.dataset.url,t=this.dataset.text;if(navigator.share)navigator.share({title:"Be an Sαréal618 tester",text:t,url:u}).catch(function(){});else copy(t+" "+u).then(function(){toast("Message and link copied ✓")},function(){toast("Could not copy. Use the address bar.")})});
+$("#sharepage").addEventListener("click",function(){var u=this.dataset.url,t=this.dataset.text;if(navigator.share)navigator.share({title:"Join the Sαréal618 closed test",text:t,url:u}).catch(function(){});else copy(t+" "+u).then(function(){toast("Message and link copied ✓")},function(){toast("Could not copy. Use the address bar.")})});
 
 /* ---------- Flyer lightbox ---------- */
 var lb=$("#lb"),lbi=$("#lbimg"),opener=null;
