@@ -213,23 +213,132 @@
   if (sheets.length) { sizeSheets(); window.addEventListener("resize", sizeSheets); window.addEventListener("load", sizeSheets); }
 
 
-  /* ---------- 8. Newt lens: rises in, focus pulls sharp, ring turns and the shot pans with scroll ---------- */
+  /* ---------- 8. Newt lens: rises in, focus pulls sharp, ring turns and the shot pans with scroll.
+     A fine pointer over #terrace-view also looks through the glass: the oversized shot pans
+     toward where you point, and the tick ring turns a little with that look. Leaving eases
+     back to the scroll framing. Coarse pointers and reduced motion stay on the scroll path. ---------- */
   var lenses = Array.prototype.slice.call(document.querySelectorAll(".lens"));
   if (!reduce && lenses.length) {
     var lt = false;
+    var lookEl = document.querySelector("#terrace-view .lens");
+    var canLook = !!(lookEl && window.matchMedia("(hover: hover) and (pointer: fine)").matches);
+    // Glass is inset 16.5%, so its radius is 33.5% of the lens box.
+    var GLASS_R = 0.335;
+    // translate % is of the 120% shot. Stay inside the 10% overhang (~8.3% of the shot).
+    var LOOK_X = 7.2, LOOK_Y = 6.4, LOOK_LIM = 7.6;
+    var look = canLook ? { on: false, hold: false, nx: 0, ny: 0, px: 0, py: 0, rot: 0, spx: 0, spy: 0, srot: 0, raf: 0, last: 0, leftAt: 0 } : null;
+
+    function lensShot(L) {
+      var r = L.getBoundingClientRect();
+      var p = prog(r), small = L.classList.contains("sm");
+      return {
+        off: r.bottom < -50 || r.top > vh + 50,
+        rise: (1 - ss(0.02, 0.32, p)) * (small ? 30 : 70),
+        rot: p * 140 - 70,
+        px: (0.5 - p) * 9,
+        py: (0.5 - p) * 5,
+        blur: (1 - ss(0.12, 0.38, p)) * 7
+      };
+    }
+    function writePan(px, py, rot) {
+      lookEl.style.setProperty("--px", px.toFixed(2) + "%");
+      lookEl.style.setProperty("--py", py.toFixed(2) + "%");
+      lookEl.style.setProperty("--rot", rot.toFixed(2) + "deg");
+    }
+    function lookAim() {
+      if (!look.on) return { px: look.spx, py: look.spy, rot: look.srot };
+      // Pointer toward a side reveals that side of the terrace. Center keeps the scroll framing.
+      return {
+        px: clamp(look.spx - look.nx * LOOK_X, -LOOK_LIM, LOOK_LIM),
+        py: clamp(look.spy - look.ny * LOOK_Y, -LOOK_LIM, LOOK_LIM),
+        rot: look.srot - look.nx * 12 + look.ny * 3
+      };
+    }
+    function lookFrame(now) {
+      look.raf = 0;
+      if (!look.last) look.last = now;
+      var dt = Math.min(34, now - look.last);
+      look.last = now;
+      if (look.on) look.leftAt = 0;
+      else if (!look.leftAt) look.leftAt = now;
+      var aim = lookAim();
+      // Short follow while the pointer is on the glass; a calm ease home after it leaves.
+      var tau = look.on ? 48 : 220;
+      var k = 1 - Math.exp(-dt / tau);
+      look.px += (aim.px - look.px) * k;
+      look.py += (aim.py - look.py) * k;
+      look.rot += (aim.rot - look.rot) * k;
+      var home = !look.on && (
+        (Math.abs(aim.px - look.px) < 0.08 && Math.abs(aim.py - look.py) < 0.08 && Math.abs(aim.rot - look.rot) < 0.15)
+        || (look.leftAt && now - look.leftAt > 760)
+      );
+      if (home) {
+        look.hold = false;
+        look.last = 0;
+        look.leftAt = 0;
+        lookEl.classList.remove("look-live");
+        writePan(look.spx, look.spy, look.srot);
+        return;
+      }
+      writePan(look.px, look.py, look.rot);
+      look.raf = requestAnimationFrame(lookFrame);
+    }
+    function aimFromEvent(e) {
+      if (!look || e.pointerType === "touch") return;
+      var r = lookEl.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var dx = (e.clientX - r.left) / r.width - 0.5;
+      var dy = (e.clientY - r.top) / r.height - 0.5;
+      if (dx * dx + dy * dy > 0.25) {
+        if (look.on) leaveLook();
+        return;
+      }
+      look.nx = clamp(dx / GLASS_R, -1, 1);
+      look.ny = clamp(dy / GLASS_R, -1, 1);
+      look.on = true;
+      if (!look.hold) {
+        look.px = parseFloat(lookEl.style.getPropertyValue("--px"));
+        look.py = parseFloat(lookEl.style.getPropertyValue("--py"));
+        look.rot = parseFloat(lookEl.style.getPropertyValue("--rot"));
+        if (isNaN(look.px)) look.px = look.spx;
+        if (isNaN(look.py)) look.py = look.spy;
+        if (isNaN(look.rot)) look.rot = look.srot;
+        look.hold = true;
+        look.last = 0;
+        lookEl.classList.add("look-live");
+      }
+      if (!look.raf) look.raf = requestAnimationFrame(lookFrame);
+    }
+    function leaveLook(e) {
+      if (!look || (e && e.pointerType === "touch")) return;
+      if (!look.on && !look.hold) return;
+      look.on = false;
+      if (!look.raf) look.raf = requestAnimationFrame(lookFrame);
+    }
     function lensFrame() {
       lt = false;
       lenses.forEach(function (L) {
-        var r = L.getBoundingClientRect(); if (r.bottom < -50 || r.top > vh + 50) return;
-        var p = prog(r), small = L.classList.contains("sm");
-        L.style.setProperty("--rise", ((1 - ss(0.02, 0.32, p)) * (small ? 30 : 70)).toFixed(1) + "px");
-        L.style.setProperty("--rot", (p * 140 - 70).toFixed(1) + "deg");
-        L.style.setProperty("--px", ((0.5 - p) * 9).toFixed(2) + "%");
-        L.style.setProperty("--py", ((0.5 - p) * 5).toFixed(2) + "%");
-        L.style.setProperty("--blur", ((1 - ss(0.12, 0.38, p)) * 7).toFixed(2) + "px");
+        var s = lensShot(L);
+        if (s.off) return;
+        L.style.setProperty("--rise", s.rise.toFixed(1) + "px");
+        L.style.setProperty("--blur", s.blur.toFixed(2) + "px");
+        if (look && L === lookEl) { look.spx = s.px; look.spy = s.py; look.srot = s.rot; }
+        if (!(look && L === lookEl && look.hold)) {
+          L.style.setProperty("--rot", s.rot.toFixed(1) + "deg");
+          L.style.setProperty("--px", s.px.toFixed(2) + "%");
+          L.style.setProperty("--py", s.py.toFixed(2) + "%");
+        }
       });
     }
     function lreq() { if (!lt) { lt = true; requestAnimationFrame(lensFrame); } }
-    window.addEventListener("scroll", lreq, { passive: true }); window.addEventListener("resize", lreq); lreq();
+    window.addEventListener("scroll", lreq, { passive: true });
+    window.addEventListener("resize", lreq);
+    lreq();
+    if (look) {
+      lookEl.addEventListener("pointerenter", aimFromEvent);
+      lookEl.addEventListener("pointermove", aimFromEvent);
+      lookEl.addEventListener("pointerleave", leaveLook);
+      lookEl.addEventListener("pointercancel", leaveLook);
+    }
   }
 })();

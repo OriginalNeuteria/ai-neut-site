@@ -273,6 +273,8 @@ html{overflow-x:clip}.stage-hero .bg{inset:0}.fan{overflow-x:clip;overflow-y:vis
 .lens:hover .lens-in{transform:translateY(-4px);box-shadow:0 36px 70px rgba(46,35,64,.34),0 8px 18px rgba(46,35,64,.2),inset 0 2px 2px rgba(255,255,255,.9),inset 0 -3px 6px rgba(20,14,34,.45)}
 .lens-knurl{position:absolute;inset:3.2%;border-radius:50%;background:repeating-conic-gradient(rgba(30,24,46,.28) 0 1.2deg,rgba(255,255,255,.18) 1.2deg 2.4deg);-webkit-mask:radial-gradient(circle,transparent 66%,#000 66.5%,#000 70%,transparent 70.5%);mask:radial-gradient(circle,transparent 66%,#000 66.5%,#000 70%,transparent 70.5%);opacity:.7}
 .lens-ticks{position:absolute;inset:1.5%;width:97%;height:97%;transform:rotate(var(--rot));transition:transform .2s linear}
+/* Pointer look owns --rot itself and eases it; a CSS transition would lag behind that. */
+.lens.look-live .lens-ticks{transition:none}
 .lens-bezel{position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle at 50% 40%,#3a3150,#15111f 70%);box-shadow:inset 0 3px 8px rgba(0,0,0,.7),0 1px 0 rgba(255,255,255,.6),0 -1px 0 rgba(0,0,0,.25)}
 .lens-bezel::after{content:"";position:absolute;inset:3.5%;border-radius:50%;box-shadow:0 0 0 1.5px rgba(242,140,40,.55),0 0 0 3px rgba(107,63,160,.35),0 0 18px rgba(107,63,160,.45)}
 .lens-glass{position:absolute;inset:16.5%;border-radius:50%;overflow:hidden;background:#0d0a14;isolation:isolate}
