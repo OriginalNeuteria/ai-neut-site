@@ -303,3 +303,201 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
     padding:56px 6% 16px!important;
   }
 }
+
+/* A steady place (features.html only). The ivory slab and the vacant
+   nave height are replaced by an editorial pair: reading on the plaid,
+   a soft-cornered household photograph beside it. Other scenes are untouched. */
+#a-quiet-place{
+  display:block!important;
+  min-height:0!important;
+  padding:84px 6% 64px!important;
+}
+#a-quiet-place .atmosphere-layer{
+  inset:0;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  -webkit-mask-image:radial-gradient(ellipse 62% 78% at 72% 48%,#000 0%,rgba(0,0,0,.55) 42%,transparent 76%);
+  mask-image:radial-gradient(ellipse 62% 78% at 72% 48%,#000 0%,rgba(0,0,0,.55) 42%,transparent 76%);
+}
+#a-quiet-place .steady-pair{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+  gap:clamp(36px,4.5vw,80px);
+  align-items:center;
+}
+#a-quiet-place .atmosphere-reading{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  width:auto;
+  max-width:36rem;
+  margin:0;
+  padding:4px 0 2px;
+}
+#a-quiet-place .atmosphere-reading::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-20% -10% -24% -12%;
+  pointer-events:none;
+  background:rgba(245,243,240,.97);
+  -webkit-mask-image:radial-gradient(ellipse 90% 86% at 38% 46%,#000 46%,rgba(0,0,0,.78) 70%,transparent 100%);
+  mask-image:radial-gradient(ellipse 90% 86% at 38% 46%,#000 46%,rgba(0,0,0,.78) 70%,transparent 100%);
+}
+#a-quiet-place .atmosphere-reading .eyebrow{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin:0 0 18px;
+  text-align:left;
+  text-transform:uppercase;
+  color:var(--rs-gold-t,#86672e);
+}
+#a-quiet-place .atmosphere-reading .eyebrow::after{
+  content:"";
+  width:4.5rem;
+  height:1px;
+  background:var(--rs-gold,#b18a4a);
+  flex:0 0 auto;
+}
+#a-quiet-place .atmosphere-reading h2{
+  text-align:left;
+  font-family:var(--serif,"Cormorant Garamond",Georgia,serif);
+  font-weight:500;
+  font-size:clamp(2.2rem,3.5vw,3.45rem);
+  line-height:1.04;
+  letter-spacing:-.03em;
+  color:var(--rs-navy,#20243a);
+  margin:0 0 20px;
+  text-wrap:balance;
+}
+#a-quiet-place .atmosphere-reading>p:not(.eyebrow){
+  max-width:38ch;
+  margin:0 0 26px;
+  font-family:var(--sans,Inter,sans-serif);
+  font-size:1.05rem;
+  font-weight:400;
+  line-height:1.65;
+  color:var(--rs-muted,#5d6072);
+  text-wrap:pretty;
+}
+#a-quiet-place .atmosphere-reading a,
+#a-quiet-place .atmosphere-reading a:link,
+#a-quiet-place .atmosphere-reading a:visited{
+  position:relative;
+  display:inline-flex;
+  align-items:baseline;
+  gap:.55em;
+  margin:0;
+  padding:2px 0 8px;
+  color:var(--rs-navy,#20243a);
+  font-family:var(--sans,Inter,sans-serif);
+  font-size:.95rem;
+  font-weight:500;
+  letter-spacing:.012em;
+  line-height:1.3;
+  text-decoration:none;
+  text-underline-offset:0;
+  background:none;
+  border:0;
+  border-radius:0;
+  cursor:pointer;
+}
+#a-quiet-place .atmosphere-reading a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  background:var(--rs-gold,#b18a4a);
+  transform:scaleX(1);
+  transform-origin:left center;
+}
+#a-quiet-place .atmosphere-reading a span{
+  color:var(--rs-gold-t,#86672e);
+  display:inline-block;
+}
+#a-quiet-place .atmosphere-reading a:hover,
+#a-quiet-place .atmosphere-reading a:focus-visible{
+  color:var(--rs-plum,#57456f);
+}
+#a-quiet-place .atmosphere-reading a:hover::before,
+#a-quiet-place .atmosphere-reading a:focus-visible::before{
+  background:var(--rs-plum,#57456f);
+  transform:scaleX(1);
+}
+#a-quiet-place .atmosphere-reading a:hover span,
+#a-quiet-place .atmosphere-reading a:focus-visible span{
+  transform:translateX(5px);
+}
+#a-quiet-place .atmosphere-reading a:focus-visible{
+  outline:2px solid var(--rs-gold,#b18a4a);
+  outline-offset:6px;
+}
+#a-quiet-place .steady-still{
+  position:relative;
+  z-index:2;
+  margin:0;
+}
+#a-quiet-place .steady-still::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:10% -6% -8% -6%;
+  pointer-events:none;
+  background:radial-gradient(closest-side,rgba(227,200,145,.36),transparent 74%);
+}
+#a-quiet-place .steady-still img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:18px;
+  box-shadow:0 0 0 1px rgba(177,138,74,.5),0 22px 44px -26px rgba(32,36,58,.48);
+}
+#a-quiet-place .scene-number{
+  right:6%;
+  bottom:22px;
+}
+html.atmosphere-off #a-quiet-place .atmosphere-reading{
+  width:auto;
+  max-width:36rem;
+  margin:0;
+  padding:4px 0 2px;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+}
+html.atmosphere-off #a-quiet-place .steady-pair{
+  display:grid;
+}
+@media(max-width:860px){
+  #a-quiet-place{padding:52px 6% 48px!important}
+  #a-quiet-place .steady-pair{grid-template-columns:1fr;gap:28px}
+  #a-quiet-place .atmosphere-reading{max-width:40rem}
+  #a-quiet-place .atmosphere-reading h2{font-size:clamp(2.05rem,8.4vw,2.6rem)}
+  #a-quiet-place .atmosphere-reading>p:not(.eyebrow){max-width:42ch}
+  #a-quiet-place .scene-number{bottom:16px}
+}
+@media(prefers-reduced-motion:no-preference){
+  #a-quiet-place .atmosphere-reading a::before,
+  #a-quiet-place .atmosphere-reading a span{
+    transition:background-color .35s ease,transform .35s ease,color .35s ease;
+  }
+  #a-quiet-place .steady-still{
+    animation:steadyReveal 1.05s cubic-bezier(.2,.7,.2,1) both;
+  }
+}
+@keyframes steadyReveal{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #a-quiet-place .steady-still{animation:none;opacity:1;transform:none}
+  #a-quiet-place .atmosphere-reading a::before,
+  #a-quiet-place .atmosphere-reading a span{transition:none}
+}
