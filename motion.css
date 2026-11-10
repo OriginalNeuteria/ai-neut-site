@@ -202,22 +202,114 @@ html.motion .mock .chip[data-at]{transform:translate(-50%,14px)}html.motion .moc
 .scrolly .phone .scr-slide.on{opacity:1}
 .scrolly .phone .scr-slide video{width:100%;height:100%;object-fit:cover}
 .scrolly .phone .scr-slide .chip{left:16px;bottom:20px}
-@media(max-width:860px){.scrolly .stick{grid-template-rows:auto 1fr}.scrolly .phone{height:44vh}.scrolly .feat-list li{padding:8px 12px;text-align:left}.scrolly .feat-list li:not(.on){display:none}.scrolly .feat-list h3{font-size:1.2em}}
-/* see-how-it-works is 780×1688, taller than the 9:16 phone, so cover was
-   cropping the app's top bar. While that first slide is showing, match the
-   frame to the clip (flush edges, no side bars). Later clips stay 9:16.
-   The corner radius tracks the phone height so the curve doesn't eat the
-   top bar when the screen is short. */
+@media(max-width:860px){.scrolly .stick{grid-template-rows:auto 1fr}.scrolly .feat-list li{padding:8px 12px;text-align:left}.scrolly .feat-list li:not(.on){display:none}.scrolly .feat-list h3{font-size:1.2em}}
+
+/* #tour device: graphite chassis around .screen. Side keys are pseudos so
+   they can sit outside the glass. The screen (not the chassis) owns the
+   aspect ratio. see-how-it-works is 780×1688, taller than 9:16, so cover
+   cropped the app's top bar. While that first slide is showing, the screen
+   matches the clip and the video uses contain. Later clips stay 9:16.
+   The inner radius stays modest on the first slide so the curve doesn't
+   eat Contact / Day / Today. */
+#tour .phone{
+  --bezel:11px;
+  --screen-r:34px;
+  height:auto;
+  width:max-content;
+  max-width:100%;
+  aspect-ratio:auto;
+  overflow:visible;
+  padding:var(--bezel);
+  border-radius:calc(var(--screen-r) + var(--bezel));
+  background:
+    radial-gradient(circle at calc(50% - 1.5px) calc(var(--bezel) * 0.38), rgba(255,255,255,.7) 0 .7px, transparent 1px),
+    radial-gradient(circle at 50% calc(var(--bezel) * 0.5), #07080a 0 2.1px, #2c3038 2.2px 2.8px, #d5dae2 2.9px 3.6px, transparent 3.9px),
+    linear-gradient(165deg, #f4f6f9 0%, #c5cad3 3.5%, #6d737d 8%, #34383f 18%, #1a1d22 46%, #121418 62%, #2a2e34 84%, #8e949e 100%);
+  border:1px solid rgba(255,255,255,.34);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.72),
+    inset 0 -1px 0 rgba(0,0,0,.55),
+    inset 1px 0 0 rgba(255,255,255,.2),
+    inset -1px 0 0 rgba(0,0,0,.4),
+    0 0 0 1px rgba(14,12,18,.72),
+    0 1px 0 rgba(255,255,255,.28),
+    0 10px 22px rgba(22,16,34,.16),
+    0 26px 50px rgba(22,16,34,.28);
+}
+#tour .phone::before,
+#tour .phone::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  pointer-events:none;
+  width:3px;
+}
+#tour .phone::before{
+  left:-2px;
+  top:14%;
+  height:clamp(58px, 15%, 96px);
+  border-radius:2px 0 0 2px;
+  background:
+    linear-gradient(to right, rgba(255,255,255,.5), transparent 60%),
+    linear-gradient(to bottom,
+      #e7ebf1 0%, #8e949e 14%, #3a3e46 30%,
+      transparent 30%, transparent 40%,
+      #e7ebf1 40%, #8e949e 58%, #2a2e34 100%);
+  box-shadow:-1px 0 1px rgba(0,0,0,.35);
+}
+#tour .phone::after{
+  right:-2px;
+  top:18%;
+  height:clamp(36px, 8.5%, 64px);
+  border-radius:0 2px 2px 0;
+  background:
+    linear-gradient(to left, rgba(255,255,255,.45), transparent 55%),
+    linear-gradient(#e8ecf2, #9aa1ab 24%, #454a53 62%, #1c1f24);
+  box-shadow:1px 0 1px rgba(0,0,0,.35);
+}
+#tour .screen{
+  position:relative;
+  z-index:1;
+  height:min(70vh, 640px);
+  aspect-ratio:9/16;
+  border-radius:var(--screen-r);
+  overflow:hidden;
+  background:#101114;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);
+}
+#tour .phone .scr-slide{border-radius:inherit}
+#tour .phone .scr-slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.2) 0%, rgba(255,255,255,.05) 16%, transparent 34%, transparent 68%, rgba(255,255,255,.06) 100%),
+    linear-gradient(to bottom, rgba(255,255,255,.12), transparent 12%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16), inset 0 0 16px rgba(8,6,14,.12);
+}
+#tour .phone .scr-slide .chip{
+  left:max(14px, calc(var(--screen-r) * .38));
+  bottom:max(14px, calc(var(--screen-r) * .32));
+  z-index:4;
+}
 #tour .phone:not(:has(.scr-slide:nth-child(n+2).on)){
+  --screen-r:min(2.8vh, 26px);
+}
+#tour .phone:not(:has(.scr-slide:nth-child(n+2).on)) .screen{
   aspect-ratio:780/1688;
-  border-radius:calc(min(78vh, 700px) * 0.04);
 }
 #tour .phone:not(:has(.scr-slide:nth-child(n+2).on)) .scr-slide:first-child video{
   object-fit:contain;
   background:#f4f1ec;
 }
 @media(max-width:860px){
-  #tour .phone:not(:has(.scr-slide:nth-child(n+2).on)){border-radius:calc(44vh * 0.04)}
+  #tour .stick{padding-top:22px}
+  #tour .phone{--bezel:10px;--screen-r:28px;justify-self:center}
+  #tour .screen{height:min(56vh, 500px)}
+  #tour .phone:not(:has(.scr-slide:nth-child(n+2).on)){--screen-r:min(2.24vh, 20px)}
 }
 
 /* Stickers, tilted cards that straighten, an axolotl peeking from behind */
