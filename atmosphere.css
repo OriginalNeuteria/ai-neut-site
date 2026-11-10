@@ -311,6 +311,9 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
   display:block!important;
   min-height:0!important;
   padding:84px 6% 64px!important;
+  /* The reading wash fades past this box. Clipping it would cut the fade
+     back into a line. The atmosphere plate stays inset, so it does not spill. */
+  overflow:visible;
 }
 #a-quiet-place .atmosphere-layer{
   inset:0;
@@ -342,11 +345,21 @@ html.atmosphere-off #beyond-the-porch .atmosphere-reading{
   content:"";
   position:absolute;
   z-index:-1;
-  inset:-20% -10% -24% -12%;
+  /* Solid over the type, then a long dissolve into the plaid.
+     Each inset is the fade length on that side (about 80–140px). */
+  inset:-120px -140px -120px -110px;
   pointer-events:none;
   background:rgba(245,243,240,.97);
-  -webkit-mask-image:radial-gradient(ellipse 90% 86% at 38% 46%,#000 46%,rgba(0,0,0,.78) 70%,transparent 100%);
-  mask-image:radial-gradient(ellipse 90% 86% at 38% 46%,#000 46%,rgba(0,0,0,.78) 70%,transparent 100%);
+  -webkit-mask-image:
+    linear-gradient(to bottom,transparent 0,rgba(0,0,0,.22) 26px,rgba(0,0,0,.48) 58px,rgba(0,0,0,.74) 90px,#000 120px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%),
+    linear-gradient(to right,transparent 0,rgba(0,0,0,.22) 24px,rgba(0,0,0,.48) 53px,rgba(0,0,0,.74) 82px,#000 110px,#000 calc(100% - 140px),rgba(0,0,0,.74) calc(100% - 105px),rgba(0,0,0,.48) calc(100% - 67px),rgba(0,0,0,.22) calc(100% - 31px),transparent 100%);
+  mask-image:
+    linear-gradient(to bottom,transparent 0,rgba(0,0,0,.22) 26px,rgba(0,0,0,.48) 58px,rgba(0,0,0,.74) 90px,#000 120px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%),
+    linear-gradient(to right,transparent 0,rgba(0,0,0,.22) 24px,rgba(0,0,0,.48) 53px,rgba(0,0,0,.74) 82px,#000 110px,#000 calc(100% - 140px),rgba(0,0,0,.74) calc(100% - 105px),rgba(0,0,0,.48) calc(100% - 67px),rgba(0,0,0,.22) calc(100% - 31px),transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-composite:intersect;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
 }
 #a-quiet-place .atmosphere-reading .eyebrow{
   display:flex;
@@ -477,6 +490,15 @@ html.atmosphere-off #a-quiet-place .steady-pair{
 }
 @media(max-width:860px){
   #a-quiet-place{padding:52px 6% 48px!important}
+  #a-quiet-place .atmosphere-reading::before{
+    inset:-80px -120px -120px -120px;
+    -webkit-mask-image:
+      linear-gradient(to bottom,transparent 0,rgba(0,0,0,.22) 18px,rgba(0,0,0,.48) 38px,rgba(0,0,0,.74) 58px,#000 80px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%),
+      linear-gradient(to right,transparent 0,rgba(0,0,0,.22) 26px,rgba(0,0,0,.48) 58px,rgba(0,0,0,.74) 90px,#000 120px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%);
+    mask-image:
+      linear-gradient(to bottom,transparent 0,rgba(0,0,0,.22) 18px,rgba(0,0,0,.48) 38px,rgba(0,0,0,.74) 58px,#000 80px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%),
+      linear-gradient(to right,transparent 0,rgba(0,0,0,.22) 26px,rgba(0,0,0,.48) 58px,rgba(0,0,0,.74) 90px,#000 120px,#000 calc(100% - 120px),rgba(0,0,0,.74) calc(100% - 90px),rgba(0,0,0,.48) calc(100% - 58px),rgba(0,0,0,.22) calc(100% - 26px),transparent 100%);
+  }
   #a-quiet-place .steady-pair{grid-template-columns:1fr;gap:28px}
   #a-quiet-place .atmosphere-reading{max-width:40rem}
   #a-quiet-place .atmosphere-reading h2{font-size:clamp(2.05rem,8.4vw,2.6rem)}
