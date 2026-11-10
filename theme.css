@@ -10,7 +10,7 @@ nav a{font-family:var(--sans);color:var(--ink);font-weight:600;font-size:.98rem;
 nav .links{gap:4px 22px}
 nav .links a:not(.btn){padding:8px 2px}
 a.logo{display:inline-flex;align-items:center;gap:8px;font-family:var(--serif);font-size:1.45rem;color:var(--ink)}
-a.logo::before{content:"";width:34px;height:34px;flex:none;border-radius:50%;background:url(img/theme/crest.jpg) center/cover no-repeat}
+a.logo::before{content:"";width:34px;height:34px;flex:none;border-radius:50%;background:url("img/theme/crest.jpg?v=20261110") center/contain no-repeat}
 nav .btn{padding:10px 20px}
 @media(max-width:700px){nav{flex-direction:row;flex-wrap:wrap;justify-content:space-between;padding:10px 4%}nav .links{width:100%;justify-content:center;gap:2px 16px;font-size:.94rem}nav .links .btn{order:-1;flex-basis:100%;text-align:center;margin:2px 0 4px;padding:9px 18px}a.logo{font-size:1.3rem}}
 /* buttons */

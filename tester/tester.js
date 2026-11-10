@@ -83,7 +83,7 @@ $$(".qcard").forEach(function(c){var f=$(".qf",c),b=$(".qb",c);b.setAttribute("a
 
 /* ---------- Badge ---------- */
 var cv=$("#bcv"),cx=cv.getContext("2d"),newt=new Image(),theme=st.theme||"sunset",sticker=st.sticker||"🌻";
-newt.src="img/theme/crest.jpg";newt.onload=function(){drawBadge()};
+newt.src="img/theme/crest.jpg?v=20261110";newt.onload=function(){drawBadge()};
 var TH={sunset:["#FFD66B","#F28C28","#6B3FA0","#2E2340"],grape:["#A97CF0","#4A2380","#FFC83D","#ffffff"],garden:["#A8E6B4","#2E7D4F","#F28C28","#13311f"],sky:["#BDE8FF","#2F5FD0","#FFC83D","#0f2148"]};
 var nameIn=$("#bname");nameIn.value=st.name||"";
 function rr(x,y,w,h,r){cx.beginPath();cx.moveTo(x+r,y);cx.arcTo(x+w,y,x+w,y+h,r);cx.arcTo(x+w,y+h,x,y+h,r);cx.arcTo(x,y+h,x,y,r);cx.arcTo(x,y,x+w,y,r);cx.closePath()}
