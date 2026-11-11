@@ -4,14 +4,15 @@
   var root = document.getElementById("voyage");
   if (!root) return;
   var reduceQ = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var narrowQ = window.matchMedia("(max-width: 800px)");
   var run = document.getElementById("voyage-run");
   var still = root.querySelector(".voyage-still");
   var lines = Array.prototype.slice.call(root.querySelectorAll(".line"));
   var jumps = Array.prototype.slice.call(root.querySelectorAll(".voyage-jumps a"));
   var plates = {
-    cal: root.querySelector('[data-plate="cal"]'),
-    jou: root.querySelector('[data-plate="jou"]'),
-    note: root.querySelector('[data-plate="note"]')
+    cal: root.querySelector('.voyage-plates [data-plate="cal"]'),
+    jou: root.querySelector('.voyage-plates [data-plate="jou"]'),
+    note: root.querySelector('.voyage-plates [data-plate="note"]')
   };
   if (!run || !lines.length) return;
 
@@ -39,14 +40,15 @@
 
   function smooth(t) { return t * t * (3 - 2 * t); }
   function wants() {
-    return !reduceQ.matches && !motionOff && (window.innerHeight || 0) >= 560;
+    return !reduceQ.matches && !narrowQ.matches && !motionOff && (window.innerHeight || 0) >= 560;
   }
   function paintMotion() {
     if (!motionBtn) return;
     var reduced = reduceQ.matches;
-    motionBtn.disabled = reduced;
-    motionBtn.textContent = reduced ? "Motion: Off (reduced motion)" : (motionOff ? "Motion: Off" : "Motion: On");
-    motionBtn.setAttribute("aria-pressed", reduced || motionOff ? "false" : "true");
+    var narrow = narrowQ.matches;
+    motionBtn.disabled = reduced || narrow;
+    motionBtn.textContent = reduced ? "Motion: Off (reduced motion)" : (narrow || motionOff ? "Motion: Off" : "Motion: On");
+    motionBtn.setAttribute("aria-pressed", reduced || narrow || motionOff ? "false" : "true");
   }
   function frameAt(p) {
     var i = 0;
@@ -146,6 +148,7 @@
   });
 
   if (typeof reduceQ.addEventListener === "function") reduceQ.addEventListener("change", sync);
+  if (typeof narrowQ.addEventListener === "function") narrowQ.addEventListener("change", sync);
   window.addEventListener("scroll", request, { passive: true });
   window.addEventListener("resize", function () { sync(); request(); }, { passive: true });
   sync();

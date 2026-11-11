@@ -14,7 +14,7 @@
 <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <link href="reskin.css?v=20261110" rel="stylesheet">
-<link href="voyage.css?v=20261111c" rel="stylesheet">
+<link href="voyage.css?v=20261111e" rel="stylesheet">
 <link href="atmosphere.css?v=20261110b" rel="stylesheet">
 </head>
 <body>
@@ -58,20 +58,37 @@
 <div class="voyage-shade" aria-hidden="true"></div>
 </div>
 <div class="voyage-plates">
-<figure class="plate" data-plate="cal">
-<img src="img/features/calendar-thanksgiving-phone-390.webp" width="390" height="844" alt="Sαréal618 calendar, November 2026, month view, with Today and add.">
-<figcaption>Calendar</figcaption>
-</figure>
-<figure class="plate journal" data-plate="jou">
-<img src="media/see-how-it-works-poster.jpg" width="780" height="1688" alt="Sαréal618 journal. A gold dot marks a day with something written.">
-<figcaption>Journal</figcaption>
-</figure>
+<div class="demo" data-plate="cal">
+<p class="demo-tag">Demo · Calendar</p>
+<div class="demo-card">
+<p class="demo-h">This week</p>
+<ul>
+<li><span>Mon</span><b>Soccer</b><em>4:00</em></li>
+<li><span>Tue</span><b>Library</b><em>3:30</em></li>
+<li><span>Wed</span><b>Science</b><em>due</em></li>
+<li><span>Thu</span><b>Piano</b><em>5:30</em></li>
+<li><span>Fri</span><b>Pizza</b><em>6:00</em></li>
+<li><span>Sun</span><b>Check-in</b><em>7:00</em></li>
+</ul>
 </div>
-<aside class="plate-note" data-plate="note">
-<p class="kicker">A note you can send</p>
-<p>What would make this easier?</p>
+</div>
+<div class="demo" data-plate="jou">
+<p class="demo-tag">Demo · Journal</p>
+<div class="demo-card">
+<p class="demo-h">Sunday</p>
+<p class="demo-entry">Made time for a walk together.</p>
+<p class="demo-meta">Grateful · Family · Outdoors</p>
+</div>
+</div>
+<div class="demo demo-note" data-plate="note">
+<p class="demo-tag">Demo · A note</p>
+<div class="demo-card">
+<p class="demo-h">What would make this easier?</p>
+<p class="demo-entry">A shorter path to add Sunday’s pickup.</p>
 <a href="mailto:support@sareal618.com?subject=S%CE%B1r%C3%A9al618%20Android%20tester">support@sareal618.com</a>
-</aside>
+</div>
+</div>
+</div>
 <div class="voyage-lines">
 <p class="line">Come on in.</p>
 <p class="line">Make room.</p>
@@ -92,27 +109,41 @@
 <article class="beat" id="beat-2">
 <div class="beat-visual">
 <img class="beat-sky" src="media/terrace-master.png" width="3840" height="1838" alt="">
-<figure class="beat-ui">
-<img src="img/features/calendar-thanksgiving-phone-390.webp" width="390" height="844" alt="Sαréal618 calendar, November 2026, month view, with Today and add.">
-<figcaption>Calendar</figcaption>
-</figure>
+</div>
+<div class="demo demo-static">
+<p class="demo-tag">Demo · Calendar</p>
+<div class="demo-card">
+<p class="demo-h">This week</p>
+<ul>
+<li><span>Mon</span><b>Soccer</b><em>4:00</em></li>
+<li><span>Tue</span><b>Library</b><em>3:30</em></li>
+<li><span>Wed</span><b>Science</b><em>due</em></li>
+<li><span>Thu</span><b>Piano</b><em>5:30</em></li>
+<li><span>Fri</span><b>Pizza</b><em>6:00</em></li>
+<li><span>Sun</span><b>Check-in</b><em>7:00</em></li>
+</ul>
+</div>
 </div>
 <div class="beat-copy">
 <h2>Make room.</h2>
-<p class="whisper">The calendar, open to the month.</p>
+<p class="whisper">A sample week, with each plan on its day.</p>
 </div>
 </article>
 <article class="beat" id="beat-3">
 <div class="beat-visual">
 <img class="beat-sky" src="media/terrace-master.png" width="3840" height="1838" alt="">
-<figure class="beat-ui journal">
-<img src="media/see-how-it-works-poster.jpg" width="780" height="1688" alt="Sαréal618 journal. A gold dot marks a day with something written.">
-<figcaption>Journal</figcaption>
-</figure>
+</div>
+<div class="demo demo-static">
+<p class="demo-tag">Demo · Journal</p>
+<div class="demo-card">
+<p class="demo-h">Sunday</p>
+<p class="demo-entry">Made time for a walk together.</p>
+<p class="demo-meta">Grateful · Family · Outdoors</p>
+</div>
 </div>
 <div class="beat-copy">
 <h2>Keep this.</h2>
-<p class="whisper">The journal. A gold dot is a day with something written.</p>
+<p class="whisper">A sample journal entry. Not someone’s private note.</p>
 </div>
 </article>
 <article class="beat" id="beat-4">
@@ -135,6 +166,6 @@
 </main>
 <footer>© 2026 Charles-Gordon Stuart Eaton (Sαréal618). All rights reserved. <a href="index.html">Home</a> <a href="closed-test.html">Closed test</a> <a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a> <a href="mailto:support@sareal618.com">support</a></footer>
 <script defer src="atmosphere.js?v=20261107b"></script>
-<script defer src="voyage.js?v=20261111c"></script>
+<script defer src="voyage.js?v=20261111e"></script>
 </body>
 </html>
