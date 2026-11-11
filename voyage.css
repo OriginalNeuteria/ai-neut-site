@@ -1,0 +1,361 @@
+/* Closed-test voyage. The terrace master is the camera.
+   Stacked scenes are the default (no JS, reduced motion, short windows).
+   A script adds .is-live for ordinary scroll progress. */
+
+.voyage-still{display:block}
+.voyage-run{display:none}
+
+.beat{
+  position:relative;
+  display:grid;
+  grid-template-rows:minmax(280px,62vh) auto;
+  background:#07080c;
+  color:#141a28;
+  overflow:clip;
+}
+.beat-sky{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 46%;
+  background:#07080c;
+}
+#beat-1 .beat-sky{object-fit:contain}
+.beat-copy{
+  position:relative;
+  z-index:2;
+  grid-row:2;
+  background:#e8eef4;
+  color:#141a28;
+  padding:22px 6vw 28px;
+  border-top:1px solid #8ea4bc;
+  box-shadow:inset 0 1px 0 rgba(190,208,220,.45);
+}
+.beat-visual{
+  position:relative;
+  grid-row:1;
+  min-height:280px;
+  display:grid;
+  place-items:center;
+}
+.beat h2,.threshold-line,.line{
+  margin:0;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.2rem,4.6vw,3.6rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  color:#141a28;
+}
+.threshold-line,.line{color:#f4efe6;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.beat .whisper{
+  margin:.4em 0 0;
+  max-width:36em;
+  color:#3d4a5c;
+  font:500 1rem/1.45 Inter,system-ui,sans-serif;
+}
+.beat-ui{
+  position:relative;
+  z-index:1;
+  margin:0;
+  width:min(860px,86%);
+  height:min(46vh,420px);
+  overflow:hidden;
+  background:#0c1018;
+  box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 0 1px rgba(158,180,204,.45);
+}
+.beat-ui img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.beat-ui.journal img{object-position:center 58%}
+.beat-ui figcaption{
+  padding:8px 12px 10px;
+  color:#f4efe6;
+  background:#17130f;
+  font:600 .72rem/1.2 Inter,system-ui,sans-serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.beat-note{
+  margin:0;
+  padding:16px 16px 14px;
+  background:#eef3f8;
+  color:#141a28;
+  border-radius:14px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+}
+.beat-note p{margin:0 0 8px;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.7rem;line-height:1.05}
+.beat-note a{color:#141a28;font:600 .95rem/1.4 Inter,system-ui,sans-serif}
+.beat:nth-child(2) .beat-sky{object-position:28% 70%}
+.beat:nth-child(3) .beat-sky,.beat:nth-child(4) .beat-sky{object-position:32% 64%}
+.beat:nth-child(5) .beat-sky{object-position:center 46%}
+
+/* Live camera */
+.voyage.is-live .voyage-still{display:none}
+.voyage.is-live .voyage-run{display:block;height:230vh}
+.voyage-pin{
+  position:sticky;
+  top:0;
+  height:100vh;
+  height:100svh;
+  overflow:clip;
+  background:#07080c;
+  color:#f4efe6;
+}
+.voyage-sky,.voyage-shade,.voyage-plates,.voyage-lines,.voyage-jumps{
+  position:absolute;
+}
+.voyage-sky{inset:0}
+.voyage-master{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center 46%;
+  background:#07080c;
+  transform:scale(var(--scale,1));
+  transform-origin:var(--ox,50%) var(--oy,46%);
+  will-change:transform;
+}
+.voyage-shade{
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 28% 72%, rgba(8,12,20,.5), transparent 58%),
+    linear-gradient(to top, rgba(5,6,8,.28), transparent 32%);
+  opacity:var(--light,0);
+}
+.voyage-plates{
+  left:50%;
+  top:46%;
+  z-index:2;
+  width:min(920px,74vw);
+  height:min(50vh,500px);
+  transform:translate(-50%,-50%);
+}
+.plate,.plate-note{position:absolute;margin:0}
+.plate{
+  inset:0;
+  overflow:hidden;
+  background:#0c1018;
+  box-shadow:0 28px 70px rgba(0,0,0,.48),0 0 0 1px rgba(158,180,204,.55);
+  transform-origin:center center;
+}
+.voyage.is-live .plate,.voyage.is-live .plate-note{transition:opacity 1.1s linear,transform 1.1s linear}
+.line{transition:opacity .7s linear}
+.plate[data-plate="cal"]{opacity:var(--cal,0);transform:scale(calc(.92 + var(--cal,0) * .08))}
+.plate[data-plate="jou"]{opacity:var(--jou,0);transform:scale(calc(.92 + var(--jou,0) * .08))}
+.plate img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 20%;background:#1a120c}
+.plate.journal img{object-position:center 56%}
+.plate figcaption{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+.plate-note{
+  pointer-events:none;
+  left:50%;
+  bottom:22%;
+  width:min(440px,78vw);
+  transform:translateX(-50%) scale(calc(.92 + var(--note,0) * .08));
+  opacity:var(--note,0);
+  padding:18px 18px 16px;
+  background:#eef3f8;
+  color:#141a28;
+  border-top:1px solid #8ea4bc;
+  box-shadow:0 18px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(190,208,220,.5);
+}
+.plate-note .kicker{
+  margin:0 0 8px;
+  font:600 .68rem/1 Inter,system-ui,sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5c7390;
+}
+.plate-note p{margin:0 0 10px;font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(1.6rem,2vw,2rem);line-height:1.02;color:#141a28}
+.plate-note a{color:#141a28;font:600 .95rem/1.35 Inter,system-ui,sans-serif}
+.voyage-lines{
+  z-index:3;
+  left:0;
+  right:0;
+  bottom:0;
+  top:auto;
+  width:auto;
+  min-height:108px;
+  padding:16px 6vw 20px;
+  background:rgba(10,14,22,.88);
+  border-top:1px solid rgba(158,180,204,.55);
+  pointer-events:none;
+}
+.line{
+  position:absolute;
+  left:6vw;
+  right:6vw;
+  top:16px;
+  margin:0;
+  opacity:0;
+  color:#e7eef6;
+  text-shadow:none;
+}
+.plate-note a:focus-visible,.join a:focus-visible,.arrival a:focus-visible,.threshold-frame:focus-visible,.threshold-facts a:focus-visible{
+  outline:2px solid #7f9bb8;
+  outline-offset:3px;
+}
+.jlab{
+  position:absolute;
+  width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+.join,.threshold-facts{
+  background:#e8eef4;
+  color:#141a28;
+}
+.join-wrap,.threshold-facts{
+  width:min(1080px,100%);
+  margin:0 auto;
+  padding:64px 6vw 80px;
+  box-sizing:border-box;
+}
+.join h2,.threshold-facts h2{
+  margin:0 0 12px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.2rem,4vw,3.2rem);
+  line-height:1;
+  letter-spacing:-.02em;
+  color:#141a28;
+  text-align:left;
+}
+.join p,.threshold-facts p{margin:0 0 12px;color:#3d4a5c;line-height:1.5;font-family:Inter,system-ui,sans-serif}
+.join a,.threshold-facts a{color:#141a28}
+.join-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0 8px}
+.join .btn,.threshold-facts .btn,.arrival .btn,.settle .btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:12px 20px;border-radius:999px;
+  background:#141a28 !important;color:#e8eef4 !important;
+  text-decoration:none;font-family:Inter,system-ui,sans-serif;font-weight:600;
+  box-shadow:none;filter:none;
+}
+.join .btn.ghost,.threshold-facts .btn.ghost{
+  background:transparent !important;color:#141a28 !important;
+  border:1px solid rgba(36,24,15,.35);
+}
+.join details,.threshold-facts details{margin-top:16px;border-top:1px solid rgba(36,24,15,.15);padding-top:8px}
+.join summary,.threshold-facts summary{min-height:44px;display:flex;align-items:center;cursor:pointer;font-weight:600;color:#141a28}
+.join li,.threshold-facts li{margin:0 0 8px;color:#3d4a5c;line-height:1.45}
+
+/* Homepage threshold. Overrides the old tester palette. */
+#testers.threshold{
+  padding:0;
+  margin:0;
+  background:#07080c;
+  color:#f4efe6;
+  font-family:Inter,system-ui,sans-serif;
+}
+.threshold-frame{
+  position:relative;
+  display:grid;
+  min-height:0;
+  max-height:46vh;
+  place-items:center;
+  text-decoration:none;
+  background:#07080c;
+  overflow:clip;
+}
+.threshold-frame img{
+  width:min(1440px,100%);
+  height:auto;
+  max-height:86vh;
+  object-fit:contain;
+  display:block;
+}
+.threshold-line{
+  position:absolute;
+  left:max(24px,6vw);
+  bottom:10vh;
+  text-shadow:0 2px 18px rgba(0,0,0,.65);
+}
+.threshold-facts{
+  background:#e8eef4;
+  color:#141a28;
+}
+#testers.threshold h2{font-family:"Cormorant Garamond",Georgia,serif;color:#141a28;text-align:left}
+
+.sr{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+.arrival{
+  display:grid;
+  grid-template-columns:minmax(280px,.9fr) minmax(0,1.1fr);
+  background:#e8eef4;
+  color:#141a28;
+  min-height:0;
+}
+.arrival-copy{padding:36px 6vw 32px;max-width:40rem}
+.arrival h1,.arrival h2{
+  margin:0 0 10px;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:500;
+  font-size:clamp(2.4rem,4vw,3.4rem);
+  line-height:.95;
+  letter-spacing:-.02em;
+  color:#141a28;
+  text-align:left;
+}
+.arrival .kicker{
+  margin:0 0 8px;
+  font:600 .72rem/1.2 Inter,system-ui,sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#5c7390;
+}
+#voyage-motion{
+  min-height:44px;
+  padding:8px 14px;
+  border-radius:999px;
+  border:1px solid #8ea4bc;
+  background:#101826;
+  color:#e7eef6;
+  font:600 .85rem/1 Inter,system-ui,sans-serif;
+  cursor:pointer;
+}
+#voyage-motion:focus-visible{outline:2px solid #7f9bb8;outline-offset:3px}
+.arrival p,.arrival li{font-family:Inter,system-ui,sans-serif;color:#3d4a5c;line-height:1.45}
+.arrival ol{margin:0 0 12px;padding-left:1.2em}
+.arrival a{color:#141a28}
+.arrival-room{
+  min-height:320px;
+  background:#07080c;
+  display:grid;
+  place-items:center;
+  overflow:clip;
+}
+.arrival-room img{width:100%;height:100%;max-height:72vh;object-fit:contain;object-position:center center}
+.settle{background:#e8eef4;color:#141a28;padding:48px 6vw 72px}
+.settle h2{margin:0 0 8px;font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-size:clamp(2.2rem,4vw,3rem);color:#141a28;text-align:left}
+
+@media (max-width:800px){
+  .arrival{grid-template-columns:1fr}
+  .arrival-copy{padding:18px 5vw 12px}
+  .arrival h1{font-size:2.15rem;margin-bottom:6px}
+  .arrival p{margin:0 0 8px}
+  .arrival-room{min-height:0;max-height:26vh;order:-1}
+  .arrival-room img{object-fit:contain;height:auto;max-height:34vh}
+  .beat-ui{width:min(100%,92%);height:min(42vh,360px)}
+  .voyage.is-live .voyage-run{height:210vh}
+  .voyage-plates{width:min(100%,92vw);height:min(46vh,420px);top:42%}
+  .line{font-size:clamp(1.8rem,8vw,2.6rem)}
+  .plate-note{bottom:18%;width:min(100%,88vw)}
+  .threshold-line{font-size:clamp(2.2rem,10vw,3rem);bottom:8%}
+}
+
+@media (max-height:560px),(prefers-reduced-motion:reduce){
+  .voyage.is-live .voyage-still{display:block !important}
+  .voyage.is-live .voyage-run{display:none !important;height:auto !important}
+  .beat{min-height:0}
+  .beat h2,.line{text-shadow:none}
+}
+
+@media (forced-colors:active){
+  .beat,.voyage-pin,.threshold-frame{background:Canvas;color:CanvasText}
+  .line,.beat h2,.threshold-line{color:CanvasText;text-shadow:none}
+  .plate,.beat-ui,.plate-note,.beat-note{border:1px solid CanvasText}
+}
