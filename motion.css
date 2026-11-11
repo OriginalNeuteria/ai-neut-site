@@ -417,3 +417,51 @@ html{overflow-x:clip}.stage-hero .bg{inset:0}.fan{overflow-x:clip;overflow-y:vis
 /* family reels: three portrait clips in a row (family-journal-app) */
 .reel-band.trio{grid-template-columns:repeat(3,minmax(0,1fr));max-width:760px;margin:24px auto}
 @media (max-width:560px){.reel-band.trio{gap:10px}.reel-band.trio .vcard{border-radius:16px}.reel-band.trio .chip{display:none}}
+
+/* Terrace artwork is 3840×1838. Match that frame so the wordmark and eclipse stay whole. */
+.vcard.scene{aspect-ratio:3840/1838;background:#07080c}
+.vcard.scene video,.vcard.scene>img,.vcard.scene picture img{object-fit:contain;object-position:center;background:#07080c}
+.vcard.scene::after{height:22%;background:linear-gradient(transparent,rgba(12,10,18,.45))}
+.reel-band .vcard.scene{align-self:start;width:100%}
+.hero-media .page-media.scene,
+.hero-media .pm-wrap:has(.vcard.scene){
+  flex:1 1 520px;
+  width:min(720px,100%);
+  max-width:100%;
+}
+.hero-media .pm-wrap:has(.vcard.scene){padding-top:164px}
+.pm-wrap:has(.vcard.scene) .lens.sm{top:0;left:0;bottom:auto}
+.stage:has(.slide.scene.on){width:100%;max-width:100%}
+.stage:has(.slide.scene.on) .screen{
+  aspect-ratio:3840/1838;
+  height:auto;
+  max-height:none;
+  background:#07080c;
+}
+.stage .slide.scene video,.thumbs img.scene{object-fit:contain;background:#07080c}
+#tour .phone:has(.scr-slide.scene.on){
+  width:100%;
+  max-width:100%;
+  height:auto;
+  justify-self:stretch;
+}
+#tour .phone:has(.scr-slide.scene.on) .screen{
+  width:100%;
+  height:auto;
+  max-height:none;
+  aspect-ratio:3840/1838;
+  background:#07080c;
+}
+#tour .phone:has(.scr-slide.scene.on) .scr-slide.scene video{
+  object-fit:contain;
+  background:#07080c;
+}
+@media(max-width:700px){
+  .hero-media .page-media.scene,
+  .hero-media .pm-wrap:has(.vcard.scene){flex-basis:auto;width:100%}
+  .hero-media .pm-wrap:has(.vcard.scene){padding-top:116px}
+  .pm-wrap:has(.vcard.scene) .lens.sm{--s:104px}
+}
+@media(max-width:860px){
+  #tour .phone:has(.scr-slide.scene.on) .screen{height:auto;max-height:none}
+}
