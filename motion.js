@@ -168,6 +168,7 @@
   /* ---------- 4. Hero stage: crossfade slides + thumbnail strip ---------- */
   document.querySelectorAll(".stage").forEach(function (stage) {
     var slides = stage.querySelectorAll(".slide"), thumbs = stage.querySelectorAll(".thumbs button");
+    if (!slides.length) return;
     var bg = document.querySelector(".stage-hero .bg");
     var cur = -1, timer = null, visible = true, DUR = 8000;
     function show(n) {
