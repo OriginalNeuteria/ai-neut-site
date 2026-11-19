@@ -286,3 +286,10 @@ body{background-color:#EDECF5;background-image:url("data:image/svg+xml,%3Csvg xm
 /* school page: big rising Neut sits right of the CTA, clear of copy */
 .hero .newt-layer img.newt.school-newt{width:clamp(170px,17vw,230px)}
 @media(min-width:701px) and (max-width:1000px){.school-hero{padding-bottom:150px!important}.hero .newt-layer img.newt.school-newt{left:6%!important;width:170px}}
+/* Homepage device: the tester flyer is the screen. It stays inside the bezel and is never cropped. */
+.stage-hero .hero-visual{padding:0 0 12px}
+.stage-hero .hero-visual .laptop{width:min(100%,440px);max-width:100%;margin-inline:auto}
+.stage-hero .hero-visual .lt-screen{display:block;background:#090712;overflow:hidden;padding:8px}
+.stage-hero .hero-visual .lt-screen picture{display:block;width:100%;height:100%;line-height:0}
+.stage-hero .hero-visual .lt-flyer{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;object-position:center;background:#090712}
+.stage-hero .hero-visual .lt-base{margin:0}
