@@ -1,0 +1,136 @@
+/* Tester-join section (#testers) — "museum plaque under the black hole".
+   Scoped to #testers.te-plaque only; nothing else on the page is affected. */
+#testers.te-plaque{
+  --te-ink:#070814;--te-obsidian:#0d0f22;--te-navy:#1f2340;
+  --te-gold:#D9B46A;--te-gold-hi:#F3D79B;--te-gold-dim:rgba(217,180,106,.38);--te-ember:#F28C28;
+  --te-text:#ECE6D8;--te-muted:#C4BCAA;
+  --te-serif:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --te-sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  position:relative;isolation:isolate;overflow:hidden;
+  padding:72px 5% 84px;
+  background:
+    radial-gradient(1px 1px at 12% 18%,rgba(255,255,255,.7) 50%,transparent 51%),
+    radial-gradient(1px 1px at 78% 12%,rgba(255,255,255,.55) 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 88% 46%,rgba(255,236,200,.6) 50%,transparent 51%),
+    radial-gradient(1px 1px at 6% 62%,rgba(255,255,255,.5) 50%,transparent 51%),
+    radial-gradient(1px 1px at 34% 86%,rgba(255,255,255,.45) 50%,transparent 51%),
+    radial-gradient(1px 1px at 64% 92%,rgba(255,255,255,.4) 50%,transparent 51%),
+    radial-gradient(1.5px 1.5px at 94% 80%,rgba(255,255,255,.5) 50%,transparent 51%),
+    radial-gradient(1px 1px at 22% 40%,rgba(255,255,255,.35) 50%,transparent 51%),
+    radial-gradient(ellipse 70% 38% at 50% 0%,rgba(242,140,40,.16),transparent 70%),
+    linear-gradient(180deg,#05060f 0%,#0a0c1d 45%,#11142b 100%);
+  color:var(--te-text);
+}
+/* the black hole, softly behind the title */
+#testers.te-plaque::before{
+  content:"";position:absolute;z-index:-1;left:50%;top:-40px;
+  width:min(620px,130vw);aspect-ratio:463/388;transform:translateX(-50%);
+  background:url("img/theme/black-hole.png?v=20261110") center/contain no-repeat;
+  opacity:.42;
+  -webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 45%,#000 35%,transparent 75%);
+          mask-image:radial-gradient(ellipse 60% 55% at 50% 45%,#000 35%,transparent 75%);
+  pointer-events:none;
+}
+#testers.te-plaque .te-title{
+  position:relative;margin:28px auto 34px;max-width:760px;text-align:center;
+  font-family:var(--te-serif);font-weight:600;letter-spacing:.01em;line-height:1.1;
+  font-size:clamp(2rem,6.4vw,3.1rem);color:var(--te-gold-hi);
+  text-shadow:0 0 24px rgba(242,140,40,.35),0 2px 2px rgba(0,0,0,.6);
+}
+#testers.te-plaque .te-title::after{
+  content:"";display:block;width:120px;height:1px;margin:18px auto 0;
+  background:linear-gradient(90deg,transparent,var(--te-gold),transparent);
+}
+/* the plaque */
+#testers.te-plaque .te-card{
+  position:relative;box-sizing:border-box;
+  padding:clamp(26px,5vw,48px) clamp(22px,5vw,52px) clamp(30px,5vw,46px);
+  background:
+    linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,0) 38%),
+    linear-gradient(180deg,rgba(18,21,44,.94),rgba(9,10,24,.97));
+  border:1px solid var(--te-gold-dim);border-top:1px solid var(--te-gold-dim);
+  border-radius:6px;color:var(--te-text);
+  font-family:var(--te-sans);font-size:1rem;line-height:1.7;
+  box-shadow:0 0 0 1px rgba(0,0,0,.5),0 30px 70px -20px rgba(0,0,0,.8),0 0 60px -10px rgba(242,140,40,.22);
+  -webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);
+}
+/* inner hairline, like a framed plaque */
+#testers.te-plaque .te-card::before{
+  content:"";position:absolute;inset:9px;border:1px solid rgba(217,180,106,.16);border-radius:3px;pointer-events:none;
+}
+/* warm accretion glow along the top edge */
+#testers.te-plaque .te-card::after{
+  content:"";position:absolute;left:12%;right:12%;top:-1px;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--te-ember),var(--te-gold-hi),var(--te-ember),transparent);
+  box-shadow:0 0 18px 2px rgba(242,140,40,.45);
+  animation:te-glow 7s ease-in-out infinite;
+}
+@keyframes te-glow{0%,100%{opacity:.7}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){#testers.te-plaque .te-card::after{animation:none;opacity:.85}}
+
+#testers.te-plaque .te-card p{margin:0}
+#testers.te-plaque .te-card,#testers.te-plaque .te-title{font-variant-numeric:lining-nums}
+#testers.te-plaque .te-lede{
+  font-family:var(--te-serif);font-size:clamp(1.22rem,3.6vw,1.42rem);line-height:1.5;font-weight:500;
+  color:var(--te-text);text-align:center;padding-bottom:26px;margin-bottom:6px!important;
+  border-bottom:1px solid var(--te-gold-dim);
+}
+#testers.te-plaque .te-card b{color:#fff;font-weight:600}
+#testers.te-plaque .te-card a:not(.btn){
+  color:var(--te-gold-hi);text-decoration:underline;text-decoration-color:var(--te-gold-dim);
+  text-underline-offset:3px;text-decoration-thickness:1px;
+}
+#testers.te-plaque .te-card a:not(.btn):hover{text-decoration-color:var(--te-gold-hi)}
+#testers.te-plaque .te-card a:focus-visible{outline:2px solid var(--te-gold-hi);outline-offset:3px;border-radius:2px}
+
+/* numbered steps: gold numerals in thin rings */
+#testers.te-plaque .te-steps{list-style:none;counter-reset:te;margin:0;padding:0}
+#testers.te-plaque .te-steps li{
+  counter-increment:te;position:relative;margin:0;padding:22px 0 22px 62px;color:var(--te-muted);
+  border-bottom:1px solid rgba(217,180,106,.18);
+}
+#testers.te-plaque .te-steps li::before{
+  content:counter(te);position:absolute;left:0;top:19px;width:40px;height:40px;box-sizing:border-box;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--te-gold);border-radius:50%;
+  font-family:var(--te-serif);font-size:1.45rem;font-weight:600;line-height:1;color:var(--te-gold-hi);font-variant-numeric:lining-nums;padding-bottom:2px;
+  background:radial-gradient(circle at 50% 40%,rgba(242,140,40,.14),transparent 70%);
+  box-shadow:0 0 14px -2px rgba(242,140,40,.35);
+}
+#testers.te-plaque .te-steps li b{display:inline;color:var(--te-text)}
+
+/* small-caps labels */
+#testers.te-plaque .te-note{color:var(--te-muted);padding:20px 0 0}
+#testers.te-plaque .te-note b{
+  display:block;margin-bottom:4px;font-family:var(--te-sans);font-weight:600;
+  font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--te-gold);
+}
+#testers.te-plaque .te-fine{
+  margin-top:26px!important;padding-top:22px;border-top:1px solid var(--te-gold-dim);
+  font-size:.93rem;color:var(--te-muted);text-align:center;font-style:normal;
+}
+#testers.te-plaque .te-cta{margin-top:30px!important}
+#testers.te-plaque .te-btn{
+  display:inline-block;padding:15px 34px;border-radius:999px;
+  background:linear-gradient(180deg,#F6DCA2 0%,#D9B46A 55%,#B98E42 100%);background-size:auto;
+  border:1px solid rgba(255,236,190,.75);
+  color:#1A1206!important;font-family:var(--te-sans);font-weight:600;font-size:1rem;letter-spacing:.06em;
+  text-decoration:none;white-space:normal;
+  box-shadow:0 0 0 4px rgba(217,180,106,.12),0 10px 30px -6px rgba(242,140,40,.55);
+  transition:transform .25s ease,box-shadow .25s ease,filter .25s ease;
+}
+#testers.te-plaque .te-btn:hover{
+  background:linear-gradient(180deg,#FBE6B6 0%,#E2BF77 55%,#C29848 100%);
+  transform:translateY(-1px);filter:none;
+  box-shadow:0 0 0 5px rgba(217,180,106,.18),0 14px 36px -6px rgba(242,140,40,.7);
+}
+#testers.te-plaque .te-btn:focus-visible{outline:2px solid var(--te-gold-hi);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){#testers.te-plaque .te-btn{transition:none}#testers.te-plaque .te-btn:hover{transform:none}}
+
+@media (max-width:480px){
+  #testers.te-plaque{padding:56px 16px 64px}
+  #testers.te-plaque .te-title{margin:18px auto 26px}
+  #testers.te-plaque .te-steps li{padding:20px 0 20px 52px}
+  #testers.te-plaque .te-steps li::before{width:36px;height:36px;font-size:1.3rem;top:18px}
+  #testers.te-plaque .te-btn{display:block;width:100%;box-sizing:border-box;padding:15px 20px}
+}
