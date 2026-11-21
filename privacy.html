@@ -59,34 +59,33 @@
 
 <h2 id="google">Google permissions, in plain words</h2>
 <p>Before Google shows its own permission page, Sαréal618 tells you what each permission is for. Here is the same list:</p>
-<table>
-<tr><th>Permission</th><th>What it's for</th><th>What it can't do</th></tr>
-<tr><td><b>Sign in with Google</b></td><td>Shares your name, email and Google account ID with us so you have an account. Sαréal618 has no passwords.</td><td>Doesn't open your Drive, photos, email or calendar.</td></tr>
-<tr><td><b>Google Drive, app folder only</b> (<code>drive.appdata</code>)</td><td>Saves one hidden copy of your plan in your own Google Drive that only Sαréal618 can open, so it follows you to your other devices.</td><td>Can't see, open or change any other file in your Drive, your photos or your email.</td></tr>
-<tr><td><b>Google Calendar</b> (<code>calendar.events</code>, <code>calendar.calendarlist.readonly</code>)</td><td>Only to show your events and add, change or delete the ones you ask for. We confirm before deleting.</td><td>Can't change your calendars' settings or sharing, or create or delete whole calendars.</td></tr>
-</table>
+<ul>
+<li><b>Sign in with Google:</b> shares your name, email and Google account ID with us so you have an account. Sαréal618 has no passwords. It doesn't open your Drive, photos, email or calendar.</li>
+<li><b>Google Drive, app folder only</b> (<code>drive.appdata</code>): saves one hidden copy of your plan in your own Google Drive that only Sαréal618 can open, so it follows you to your other devices. We can't see, open or change your other Drive files, your photos or your email.</li>
+<li><b>Google Calendar</b> (<code>calendar.events</code>, <code>calendar.calendarlist.readonly</code>): only to show your events and add, change or delete the ones you ask for. We confirm before deleting. It can't change your calendars' settings or sharing, or create or delete whole calendars.</li>
+</ul>
 <p>Connecting Drive and Calendar is optional and separate from signing in. Your device talks directly to Google for both: events, the plan file and Google tokens aren't sent to our server, aren't sent to any AI, and are never used for ads. Remove access anytime in your <a href="https://myaccount.google.com/permissions">Google account settings</a>. Microsoft Outlook works the same way (<a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a>).</p>
 <p><b>Google user data: Limited Use.</b> Sαréal618's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. Google data is used only for the features you can see in the app; it's not sold, not used for ads or for credit or lending decisions, not read by a person unless you ask us to or it's needed for security or the law, not transferred except to provide those features, for security, to comply with the law, or in a merger or sale of the business (after asking you first), and not used to develop, improve or train general AI or machine-learning models. Microsoft data gets the same treatment.</p>
 
 <h2 id="server">What our server still keeps</h2>
 <p>We aim to keep nothing about you on our own servers. Today, this is everything our server holds, and only if you use the feature:</p>
 <table>
-<tr><th>What</th><th>What we hold</th><th>Why</th></tr>
-<tr><td>Sign-in (optional)</td><td>Name, email address and Google account ID from Google, and sign-in sessions.</td><td>Your account.</td></tr>
-<tr><td>Your devices</td><td>A random ID, a label you can see (like "Chrome on Windows"), and when each last checked in. Also the time of any "sign out everywhere."</td><td>So you can see and remove devices.</td></tr>
-<tr><td>Journal copy for another device (optional)</td><td>A sealed (end-to-end encrypted) copy and a sealed recovery wrap. It's locked on your phone with a key only your devices and your recovery key hold. While you approve a new device, a short-lived sealed hand-off.</td><td>Restoring your journal on another device. We can't read it, and if you lose every device and your recovery key, we can't open it for you.</td></tr>
-<tr><td>Family board (optional)</td><td>Shared family items sealed with the family key, the list of members' account IDs, and invite codes.</td><td>Keeping linked family phones in sync. We can't read the items.</td></tr>
-<tr><td>Computer privacy check</td><td>If you add an authenticator app or passkey to open Sαréal618 on a computer: a sealed authenticator secret or the passkey's public key.</td><td>Protecting the journal on a computer.</td></tr>
-<tr><td>Reminders (optional)</td><td>A push token from your phone or browser, and each reminder's time. The reminder's title only if you choose to show titles on the lock screen.</td><td>So reminders ring when Sαréal618 is closed. Turn reminders off and the token is deleted.</td></tr>
-<tr><td>Home screen widgets (optional)</td><td>A private widget token (stored scrambled) and the titles and dates of the upcoming due items the widget shows.</td><td>So the widget can show and check off your items.</td></tr>
-<tr><td>Calendar link (feed; optional)</td><td>The family plan you choose to publish as a calendar link. Anyone with the link can see those events.</td><td>So the plan shows in other calendar apps.</td></tr>
-<tr><td>Calendar subscriptions (ICS, school)</td><td>Nothing kept. Our server fetches the link you paste and passes it to your device.</td><td>Most calendar links can't be read directly by a browser.</td></tr>
-<tr><td>Subscription (desktop access)</td><td>Your plan, whether it's active, when it ends, and the payment provider's customer and subscription references.</td><td>Knowing whether desktop access is on.</td></tr>
-<tr><td>Messages you send us</td><td>Contact, feedback, Say page and tester notes, a screenshot if you add one, and your email address if you give it.</td><td>Support, safety and fixing the app.</td></tr>
-<tr><td>"The answer missed" (voice)</td><td>An anonymous note: which feature, whether it worked, the screen and the hour. Never your words or who you are.</td><td>Making voice better.</td></tr>
-<tr><td>Rate limits and hosting logs</td><td>Counters per IP address or account, and our host's basic logs (IP address, browser, time, page).</td><td>Keeping Sαréal618 secure and stopping abuse. Not used for tracking.</td></tr>
-<tr><td>Older plan copies</td><td>Plan items saved by app versions before the Google Drive change. They are deleted for everyone after the change is live.</td><td>None going forward.</td></tr>
-<tr><td>Older kid links</td><td>From earlier test builds only (see <a href="#ages">Ages</a>).</td><td>Deleted on a parent's request or after 12 months unused.</td></tr>
+<tr><th>What</th><th>What we hold, and why</th></tr>
+<tr><td>Sign-in (optional)</td><td>Name, email address and Google account ID from Google, and sign-in sessions. <i>Why:</i> Your account.</td></tr>
+<tr><td>Your devices</td><td>A random ID, a label you can see (like "Chrome on Windows"), and when each last checked in. Also the time of any "sign out everywhere." <i>Why:</i> So you can see and remove devices.</td></tr>
+<tr><td>Journal copy for another device (optional)</td><td>A sealed (end-to-end encrypted) copy and a sealed recovery wrap. It's locked on your phone with a key only your devices and your recovery key hold. While you approve a new device, a short-lived sealed hand-off. <i>Why:</i> Restoring your journal on another device. We can't read it, and if you lose every device and your recovery key, we can't open it for you.</td></tr>
+<tr><td>Family board (optional)</td><td>Shared family items sealed with the family key, the list of members' account IDs, and invite codes. <i>Why:</i> Keeping linked family phones in sync. We can't read the items.</td></tr>
+<tr><td>Computer privacy check</td><td>If you add an authenticator app or passkey to open Sαréal618 on a computer: a sealed authenticator secret or the passkey's public key. <i>Why:</i> Protecting the journal on a computer.</td></tr>
+<tr><td>Reminders (optional)</td><td>A push token from your phone or browser, and each reminder's time. The reminder's title only if you choose to show titles on the lock screen. <i>Why:</i> So reminders ring when Sαréal618 is closed. Turn reminders off and the token is deleted.</td></tr>
+<tr><td>Home screen widgets (optional)</td><td>A private widget token (stored scrambled) and the titles and dates of the upcoming due items the widget shows. <i>Why:</i> So the widget can show and check off your items.</td></tr>
+<tr><td>Calendar link (feed; optional)</td><td>The family plan you choose to publish as a calendar link. Anyone with the link can see those events. <i>Why:</i> So the plan shows in other calendar apps.</td></tr>
+<tr><td>Calendar subscriptions (ICS, school)</td><td>Nothing kept. Our server fetches the link you paste and passes it to your device. <i>Why:</i> Most calendar links can't be read directly by a browser.</td></tr>
+<tr><td>Subscription (desktop access)</td><td>Your plan, whether it's active, when it ends, and the payment provider's customer and subscription references. <i>Why:</i> Knowing whether desktop access is on.</td></tr>
+<tr><td>Messages you send us</td><td>Contact, feedback, Say page and tester notes, a screenshot if you add one, and your email address if you give it. <i>Why:</i> Support, safety and fixing the app.</td></tr>
+<tr><td>"The answer missed" (voice)</td><td>An anonymous note: which feature, whether it worked, the screen and the hour. Never your words or who you are. <i>Why:</i> Making voice better.</td></tr>
+<tr><td>Rate limits and hosting logs</td><td>Counters per IP address or account, and our host's basic logs (IP address, browser, time, page). <i>Why:</i> Keeping Sαréal618 secure and stopping abuse. Not used for tracking.</td></tr>
+<tr><td>Older plan copies</td><td>Plan items saved by app versions before the Google Drive change. They are deleted for everyone after the change is live. <i>Why:</i> None going forward.</td></tr>
+<tr><td>Older kid links</td><td>From earlier test builds only (see <a href="#ages">Ages</a>). <i>Why:</i> Deleted on a parent's request or after 12 months unused.</td></tr>
 </table>
 <p>We don't keep your calendar, lists, journal, notes or drawings in a form we can read.</p>
 
