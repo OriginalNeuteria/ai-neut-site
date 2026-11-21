@@ -14,7 +14,7 @@
 <li><b>We don't track you across other apps or websites, and we don't let anyone else do it through Sαréal618.</b></li>
 <li><b>We don't build advertising or behavioral profiles of anyone, and we don't let any third party build an advertising or behavioral profile of you.</b></li>
 <li>Sαréal618 is run by <b>Sareal618 LLC</b>, a Georgia company.</li>
-<li>Most of what you put in Sαréal618 (journal, notes, drawings, your calendar) stays <b>on your device</b>, and Google Calendar events stay between your device and Google. Family items you share are <b>encrypted on the phone</b> before they sync.</li>
+<li>Most of what you put in Sαréal618 (journal, notes, drawings, your calendar) stays <b>on your device</b>. If you sign in, your plan (including copies of the calendar events it shows) is also kept with your account so it follows you to your other devices. Google sign-in tokens for Calendar stay between your device and Google. Family items you share are <b>encrypted on the phone</b> before they sync.</li>
 <li><b>The Android app is for ages 13 and up.</b> On the web app, kids under 13 join only after a parent says yes by email. Kids never sign in, can't buy anything, and can't talk to anyone outside the family.</li>
 <li><b>Teens 13 to 17</b> can use Sαréal618 on their own, with privacy-protective defaults and no adult rooms.</li>
 <li>Sαréal618 is free. <b>Helping Hand, the planned paid upgrade, is coming soon and isn't on sale yet.</b> Nothing in Sαréal618 sends your information to an AI right now.</li>
@@ -83,6 +83,7 @@
 <table>
 <tr><th>Feature</th><th>What we receive</th><th>Why</th></tr>
 <tr><td>Sign in (adults and teens only; optional)</td><td>From Google: name, email address, and account ID, plus a sign-in session. Sαréal618 has no passwords. Sign-in is with Google only.</td><td>Account, family, journal copy.</td></tr>
+<tr><td>Your plan (signed in, adults and teens)</td><td>Calendar items (including copies of Google Calendar or Outlook events shown in your plan), lists, birthdays, chores, points, and a few settings, with your account. Sent over HTTPS and encrypted at rest by our database provider, but <b>not end-to-end encrypted</b>: it's protected by your sign-in. In a linked family, the shared plan is end-to-end encrypted instead (see Family sync).</td><td>So your plan follows you to your other devices. We don't read it, sell it, use it for ads, or send it to an AI.</td></tr>
 <tr><td>Parent consent for a kid (web app only)</td><td>The parent's email, the kid's nickname and age band, and the consent letters (for up to 48 hours), then a consent record with a hashed copy of the email and the date.</td><td>To prove and respect consent (COPPA).</td></tr>
 <tr><td>Family sync</td><td>Shared calendar, lists, kid profiles, chores, points, shop asks, and family notes, <b>encrypted on the phone</b> with the family key. Our server can't read it.</td><td>To keep linked family phones in sync.</td></tr>
 <tr><td>Journal copy off this phone (adults and teens)</td><td>A copy of the journal, notes, pages, and events, only when you tap to keep one. It's protected by your sign-in but is <b>not end-to-end encrypted</b>. The lock code is never sent.</td><td>Restoring on another phone.</td></tr>
@@ -104,17 +105,21 @@
 <li>Connecting a calendar is optional, separate from signing in, and not available on kids' profiles. The app explains what it will access before you connect.</li>
 <li><b>Google Calendar</b>: Sαréal618 can view and edit events on your calendars (scope <code>calendar.events</code>) and see your calendar list (<code>calendar.calendarlist.readonly</code>). It never asks for full calendar access (the broader <code>calendar</code> scope), so it can't change your calendars' settings, sharing, or create or delete whole calendars. <b>Microsoft Outlook / Microsoft 365</b> asks for <code>Calendars.ReadWrite</code>, <code>User.Read</code>, and <code>offline_access</code>.</li>
 <li>We use calendar access only to show your events and to add, change, or delete events when you ask, and we confirm before deleting.</li>
-<li>Your device talks directly to Google or Microsoft. Events and tokens stay on your device. They aren't sent to our server, aren't sent to any AI, and are never used for ads.</li>
+<li>Your device talks directly to Google or Microsoft. Calendar sign-in tokens stay on your device and are never sent to our server. Events you bring in become part of your plan on that device; if you're signed in, the plan (with those event copies) is kept with your account as described in <a href="#server">On our server</a>, and in a linked family it's end-to-end encrypted. Calendar data is never sent to any AI and never used for ads.</li>
+<li>Disconnecting stops new access. Events already brought into your plan stay until you delete them, use <b>Delete my data</b>, or delete your account.</li>
 <li>Disconnect any time in Calendar settings, or at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a> or <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a>.</li>
 </ul>
 <h2 id="google">Google user data: Limited Use</h2>
 <p>Sαréal618's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. In particular:</p>
 <ul>
-<li>Google Calendar data is used only for the calendar features you can see in the app.</li>
-<li>It's not transferred, except to provide those features with your consent, for security, to comply with the law, or in a merger, acquisition, or sale of the business, after asking for your consent first.</li>
-<li>It's not sold, not used for ads, and not used for credit or lending decisions.</li>
-<li>No person reads it unless you ask us to, it's needed for security or the law, or it's aggregated for internal operations.</li>
-<li>It's not used to develop, improve, or train general AI or machine-learning models.</li>
+<li><b>What we access.</b> From Google sign-in: your name, email address, and Google account ID. From Google Calendar, only if you tap Connect Google Calendar: your calendar list (each calendar's name, color, and whether it's your main calendar), using <code>calendar.calendarlist.readonly</code>, and the events on the calendars you turn on (title, time, location, description, link, and reminder setting), using <code>calendar.events</code>.</li>
+<li><b>How we use it.</b> Only for features you can see in the app: your account; showing your Google events in your Sαréal618 plan; letting you turn each calendar on or off; and adding, changing, or deleting an event in your main Google Calendar when you ask (we confirm before deleting). Sαréal618 doesn't change calendar settings or sharing, and doesn't create or delete calendars.</li>
+<li><b>How we store it.</b> Calendar tokens stay on your device. Event copies are stored on your device, and with your plan on our server if you're signed in (end-to-end encrypted in a linked family). Account details stay on our server while your account is open. See <a href="#retention">Data retention policy</a>.</li>
+<li><b>Sharing.</b> We don't transfer Google user data to anyone except to provide or improve the user-facing features above with your consent (for example, family members you link see the items you share), for security, to comply with the law, or as part of a merger, acquisition, or sale of the business after first asking for your explicit consent. Our hosting and database providers process it only on our behalf to run Sαréal618.</li>
+<li>It's never sold, never used for ads (including personalized, retargeted, or interest-based ads), and never used to decide credit-worthiness or for lending.</li>
+<li>No person reads it unless you ask us to (for example, to help with a specific item), it's needed for security (such as investigating abuse or a bug), it's required by law, or it's aggregated and used for internal operations.</li>
+<li>It isn't sent to any AI, and it isn't used to develop, improve, or train generalized AI or machine-learning models.</li>
+<li><b>Removing it.</b> Disconnect in Calendar settings or at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Delete your account in Settings (or email <a href="mailto:support@sareal618.com">support@sareal618.com</a>) to delete your account and plan from our server: held 30 days, then deleted for good.</li>
 </ul>
 <p>Microsoft data gets the same treatment.</p>
 <h2 id="ai">Helping Hand and AI</h2>
@@ -148,6 +153,7 @@
 <table>
 <tr><th>Data</th><th>How long</th></tr>
 <tr><td>Anything only on your device</td><td>Until you delete it (Delete my data, clearing app or site data, or uninstalling).</td></tr>
+<tr><td>Your plan with your account (signed in)</td><td>While the account is open. Deleted with the account (held 30 days, then gone).</td></tr>
 <tr><td>Account (adult or teen)</td><td>While the account is open. When you delete it, the server data is held for 30 days (so a mistake can be undone), then deleted for good automatically.</td></tr>
 <tr><td>Parent consent requests (they hold the parent's email)</td><td>48 hours after the request was made, answered or not. Deleted right away if the parent says No.</td></tr>
 <tr><td>Consent record (hashed parent email, nickname, date, method)</td><td>While the kid is linked. Deleted right away when a parent removes the kid, or with the parent's account (after the 30-day hold). If the one-time phone code is never used, the record is deleted a day after the code expires.</td></tr>
@@ -175,7 +181,7 @@
 <li>Sαréal618 is offered to users in the United States. We give these rights to everyone, whether or not a state's privacy law applies to us.</li>
 </ul>
 <h2>Security</h2>
-<p>All connections use HTTPS. Family data is end-to-end encrypted with the family key. Calendar tokens stay on the device. We keep a written security program for kids' data, limit who can access our systems, and delete data on the schedule above. If a breach affects your information, we'll tell you as the law requires. No system is perfectly secure, so please protect your own Google account, devices, and codes too: turn on 2-Step Verification, lock your phone, and be careful with links. Our <a href="terms.html#security">Terms (Section 14)</a> explain how security is shared. To report a security problem, see <a href="/.well-known/security.txt">security.txt</a> or email support.</p>
+<p>All connections use HTTPS. Family data is end-to-end encrypted with the family key. Calendar tokens stay on the device. Your plan on our server is encrypted at rest and protected by your sign-in. We keep a written security program for kids' data, limit who can access our systems, and delete data on the schedule above. If a breach affects your information, we'll tell you as the law requires. No system is perfectly secure, so please protect your own Google account, devices, and codes too: turn on 2-Step Verification, lock your phone, and be careful with links. Our <a href="terms.html#security">Terms (Section 14)</a> explain how security is shared. To report a security problem, see <a href="/.well-known/security.txt">security.txt</a> or email support.</p>
 <h2 id="changes">Changes to this policy</h2>
 <p>We'll update the effective date when this policy changes, and give notice in the app before important changes. We won't use data we already have in a new way without asking first. For kids, that means new parent consent. We tell Google Play about significant changes as Texas law requires.</p>
 <h2 id="contact">Contact</h2>
