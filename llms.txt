@@ -1,0 +1,13 @@
+# Sαréal618 (Sareal618, Sareal)
+
+Sαréal618 is a family organizer app from Sareal618 LLC. It is also written Sareal618 or Sareal.
+
+It includes a shared family calendar, a private family journal, and a Due list for school deadlines. The core app is free and has no ads. It is made for ages 13 and up.
+
+The web app is at https://app.sareal618.com. The Android app (package com.aineut.app) is in closed testing on Google Play and is not a public listing yet.
+
+Your calendar, journal, and other app data stay on your phone.
+
+Contact: support@sareal618.com
+Website: https://www.sareal618.com/
+FAQ: https://www.sareal618.com/faq.html
