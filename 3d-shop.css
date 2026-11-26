@@ -1,0 +1,79 @@
+/* Sαréal618 3D Printer Shop. Uses the live ivory / navy / gold tokens.
+   The only mark is the existing golden black-hole ring. */
+
+#shop-sareal{padding:0;background:#FFFDFA;border-bottom:1px solid rgba(177,138,74,.45)}
+#shop-sareal .shop-strip{max-width:1180px;margin:0 auto;padding:10px 5% 12px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 18px}
+/* Thanksgiving places a pie just under the nav, at the right. Keep the links clear of it. */
+@media(min-width:801px){#shop-sareal .shop-strip{padding-right:168px}}
+#shop-sareal .shop-label{display:inline-flex;align-items:center;gap:10px;margin:0;font-family:var(--serif, "Cormorant Garamond", Georgia, serif);font-weight:600;font-size:1.28rem;line-height:1;letter-spacing:-.005em;color:var(--rs-navy, #20243A)}
+#shop-sareal .shop-label img{width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:center;background:#07080c;border:1px solid #B18A4A;flex:none}
+#shop-sareal .shop-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px;list-style:none;margin:0;padding:0}
+#shop-sareal .shop-links a{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:0 14px;border:1px solid rgba(32,36,58,.24);border-radius:999px;background:transparent;color:var(--rs-navy, #20243A);font-family:var(--sans, Inter, system-ui, sans-serif);font-weight:500;font-size:.92rem;line-height:1.2;text-decoration:none;text-align:center}
+#shop-sareal .shop-links a:hover{border-color:#B18A4A;background:rgba(177,138,74,.08)}
+#shop-sareal .shop-links svg{flex:none}
+#shop-sareal .shop-pair{display:inline-flex;flex-wrap:wrap;align-items:stretch;border:1px solid rgba(177,138,74,.7);border-radius:999px;overflow:hidden;background:#FFFDFA}
+#shop-sareal .shop-pair a{border:0;border-radius:0}
+#shop-sareal .shop-pair a + a{border-left:1px solid rgba(177,138,74,.45);color:#86672E}
+
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+body.shop-page{background:#F5F3F0}
+body.shop-page a.logo::before,
+body.shop-page nav .links a.nav-signin::before{background:#07080c url("img/theme/black-hole.png") center/cover no-repeat}
+body.shop-page nav .links a[aria-current="page"]{color:var(--rs-navy, #20243A)}
+body.shop-page nav .links a[aria-current="page"]::after{transform:scaleX(1)}
+
+.shop-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(260px,.88fr);gap:36px 56px;align-items:center;max-width:1180px;margin:0 auto;padding:52px 6% 28px;text-align:left}
+.shop-hero .eyebrow{text-align:left;margin:0 0 14px}
+.shop-hero .eyebrow::before{content:"";display:inline-block;width:28px;height:1px;margin:0 12px 4px 0;background:#B18A4A;vertical-align:middle}
+.shop-hero h1{margin:0 0 16px;font-size:clamp(2.5rem,5vw,4.15rem);line-height:1.02;letter-spacing:-.015em;color:var(--rs-navy, #20243A)}
+.shop-hero .lede{margin:0;max-width:34em;font-size:1.12rem;line-height:1.6;color:var(--rs-muted, #5D6072)}
+.shop-motto{margin:18px 0 0;font-family:var(--serif, "Cormorant Garamond", Georgia, serif);font-style:italic;font-weight:500;font-size:clamp(1.25rem,2vw,1.55rem);line-height:1.3;color:var(--rs-plum, #57456F)}
+.shop-cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 0}
+.shop-cta .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.shop-note{margin:16px 0 0;max-width:38em;font-size:.95rem;line-height:1.55;color:var(--rs-muted, #5D6072)}
+.shop-note a{color:var(--rs-navy, #20243A);text-decoration-color:rgba(177,138,74,.8);text-underline-offset:3px}
+
+.shop-emblem{margin:0;background:#07080c;border:1px solid rgba(227,200,145,.55);border-radius:18px;padding:16px 16px 14px;box-shadow:inset 0 0 0 1px rgba(227,200,145,.16),0 18px 40px rgba(7,8,12,.18)}
+.shop-emblem img{display:block;width:100%;height:auto;border-radius:10px}
+.shop-emblem figcaption{margin:12px 0 2px;text-align:center;font-family:var(--serif, "Cormorant Garamond", Georgia, serif);font-weight:600;font-size:1.35rem;letter-spacing:.04em;color:#E3C891}
+
+#quote,#store-also{scroll-margin-top:88px}
+.shop-section{max-width:1100px;margin:0 auto}
+.shop-section .eyebrow{margin:0 0 8px}
+.shop-section h2{margin:0 0 12px}
+.shop-section .section-lede{max-width:40em;margin:0 auto 28px;text-align:center;color:var(--rs-muted, #5D6072);font-size:1.05rem;line-height:1.6}
+#quote{padding-top:20px}
+.shop-steps{list-style:none;margin:0 auto;padding:0;max-width:760px;display:grid;gap:12px}
+.shop-steps li{display:grid;grid-template-columns:40px minmax(0,1fr);gap:14px;align-items:start;background:#FFFDFA;border:1px solid var(--rs-line, #E3DDD3);border-radius:14px;padding:16px 18px;text-align:left}
+.shop-steps .n{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#07080c;color:#E3C891;font-family:var(--sans, Inter, system-ui, sans-serif);font-weight:600;font-size:.95rem;border:1px solid rgba(227,200,145,.45)}
+.shop-steps h3{margin:6px 0 4px;font-size:1.28rem;text-align:left;color:var(--rs-navy, #20243A)}
+.shop-steps p{margin:0;color:var(--ink, #20243A);line-height:1.55}
+.shop-steps a{color:var(--rs-navy, #20243A);text-decoration-color:rgba(177,138,74,.85);text-underline-offset:3px}
+.shop-min{max-width:760px;margin:16px auto 0;padding:14px 16px;border-left:2px solid #B18A4A;background:#FFFDFA;border-radius:0 14px 14px 0;text-align:left;color:var(--rs-navy, #20243A);line-height:1.5}
+.shop-quote-cta{margin:22px 0 0;text-align:center}
+.shop-quote-cta .btn{min-height:44px}
+.shop-fine{max-width:40em;margin:14px auto 0;text-align:center;color:var(--rs-muted, #5D6072);font-size:.92rem;line-height:1.5}
+
+.shop-grid{max-width:1100px;margin:0 auto}
+@media(min-width:1040px){.shop-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+a.shop-card{display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:100%;text-decoration:none;color:inherit;border-top:2px solid #B18A4A;text-align:left}
+a.shop-card .eyebrow{text-align:left;margin:0}
+a.shop-card h3{margin:0;font-size:1.45rem;line-height:1.15;color:var(--rs-navy, #20243A)}
+a.shop-card p{margin:0;color:var(--rs-muted, #5D6072);line-height:1.5}
+a.shop-card .shop-go{margin-top:auto;padding-top:12px;font-family:var(--sans, Inter, system-ui, sans-serif);font-weight:600;font-size:.88rem;letter-spacing:.04em;text-transform:uppercase;color:#86672E}
+a.shop-card:hover{border-color:#B18A4A}
+a.shop-card:hover h3{color:#57456F}
+
+@media(max-width:800px){
+  .shop-hero{grid-template-columns:1fr;gap:28px;padding:32px 5% 12px}
+  .shop-emblem{max-width:520px;margin:0 auto}
+  #shop-sareal .shop-strip{justify-content:center}
+  #shop-sareal .shop-label{width:100%;justify-content:center}
+  #shop-sareal .shop-links{justify-content:center}
+}
+@media(max-width:420px){
+  #shop-sareal .shop-links a{padding:0 12px}
+  #shop-sareal .shop-pair{border-radius:16px}
+  .shop-hero h1{font-size:2.35rem}
+}
